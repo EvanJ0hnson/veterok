@@ -1,0 +1,56 @@
+<script>
+	function templateMenu () {
+		$.getJSON( '/data/menu.json', function(menuItems) {
+			// for(var i = 0; i < menuItems.length; i++) {
+			$.each(menuItems, function(key) {
+				var strMenu = '<div class="menu-item">'
+				strMenu += [menuItems[key].photo.length > 0 ? '<img class="floatLeft" src="' + menuItems[key].photo + '" alt="">' : ''];
+				strMenu += '<p class="menu-item--title clearfix">' + menuItems[key].title + ' <span class="menu-item--cal">(' + menuItems[key].calories + ')</span></p> \
+				<p class="menu-item--ingredients">' + menuItems[key].ingredients + '</p> \
+				<p class="menu-item--price"> \
+				<button id="btnID' + menuItems[key].id + '" class="btn btn--add" onclick="cart.addToCart(this, \'' + menuItems[key].id + '\', \'' + menuItems[key].title + '\', \'' + menuItems[key].price + '\', \'false\')"> \
+				  <span class="fa fa-plus-circle"></span> \
+				</button> \
+				' + menuItems[key].price + ' <span class="fa fa-rub"></span></p> \
+				</div>';
+				$('#' + menuItems[key].type).append(strMenu);
+			});
+	});
+	}
+
+	// <button class="btn btn--add" onclick="cart.delItem(\'' + menuItems[key].id + '\')"> \
+	//   <span class="fa fa-times"></span> \
+	// </button> \
+	// <button class="btn btn--add" onclick="cart.delOneItem(\'' + menuItems[key].id + '\')"> \
+	//   <span class="fa fa-minus-circle"></span> \
+	// </button> \
+
+	$(document).ready(function(){
+			templateMenu (this);
+			// $(window).bind("load", function() {
+			// });
+			setTimeout (function () {
+				var offsetLeft = $('.popup').offset().left + $('.popup').width() - $('#cart-widjet').outerWidth(true);
+				$('#cart-widjet').offset({left:offsetLeft});
+			}, 1)
+		});
+
+	$(window).resize( function() {
+		var offsetLeft = $('.popup').offset().left + $('.popup').width() - $('#cart-widjet').width();
+		$('#cart-widjet').offset({left:offsetLeft});
+	});
+</script>
+
+<a id="cart-widjet" onclick="cart.showWinow()" class="btn btn--gold btn--cart"></a>
+<div class="floatLeft menu-nav">
+<p>asd</p>
+</div>
+<div class="floatRight">
+	<h1>Холодные закуски</h1>
+	<div id="cold" class="menu-items-container">
+	</div>
+	<h1>Гарнир</h1>
+	<div id="garnir" class="menu-items-container">
+	</div>
+</div>
+

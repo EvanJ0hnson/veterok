@@ -1,0 +1,15 @@
+@import "vendor/reset.css";
+@import "vendor/font-awesome.css";
+@import "vendor/animate.css";
+@import "partials/style.css";
+@import "partials/btn.css";
+@import "partials/navigation.css";
+@import "partials/sections.css";
+@import "partials/colors.css";
+@import "partials/slider.css";
+@import "partials/modal.css";
+@import "partials/menu.css";
+@import "partials/form.css";
+@import "partials/footer.css";
+@import "partials/cart.css";
+@import "partials/calendar.css";

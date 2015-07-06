@@ -1,0 +1,24 @@
+{
+  "name": "veterok",
+  "version": "0.9.0",
+  "description": "veterok-hotel web site",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "~3.2.6",
+    "normalize.css": "~3.0.3",
+    "jquery": "1.11.2",
+    "fontawesome": "~4.3.0",
+    "flexslider-rtl": "*",
+    "bootstrap": "~3.3.4"
+  }
+}

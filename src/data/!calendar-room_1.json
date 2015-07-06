@@ -1,0 +1,29 @@
+{
+    "29.4.2015": {
+        "type":"Conference",
+        "title": "Conference Javascript Patterns",
+        "venue":"Lorem ipsum Hotel",
+        "location": "Lugo Galicia, Spain",
+        "time": "08:00 AM",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto officia perspiciatis laborum consequatur sunt, quo dolorum enim magnam! Sit quasi...",
+        "more": "http://www.example.com"
+    },
+    "30.4.2015": {
+        "type":"Public Courses",
+        "title": "Public Courses Ruby Secrets",
+        "venue":"Lorem ipsum park",
+        "location": "Pontevedra Galicia, Spain",
+        "time": "12:00 AM",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto officia perspiciatis laborum consequatur sunt, quo dolorum enim magnam! Sit quasi...",
+        "more": "http://www.example.com"
+    },
+    "12.4.2015": {
+        "type":"Meetings",
+        "title": "International Meeting",
+        "venue":"Hyatt Regency Hotel",
+        "location": "Calgary Alberta , Canada",
+        "time": "10:00 AM",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto officia perspiciatis laborum consequatur sunt, quo dolorum enim magnam! Sit quasi...",
+        "more": "http://www.example.com"
+    }
+}

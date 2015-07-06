@@ -1,0 +1,778 @@
+<!-- <div class="menu-item">
+	<img src="photo/1.jpg" alt="">
+	<p class="menu-item--title"> <span class="menu-item--cal"></span></p>
+	<p class="menu-item--ingredients"></p>
+	<p class="menu-item--price"></p>
+</div> -->
+
+<script type="text/template" id="menu-template">
+// Нужно дописать загрузку данных из json
+// <% for(var i=0; i<list.length; i++) { %>
+// <div class="menu-item">
+// 	<img src="<%=list[i].photo%>" alt="">
+// 	<p class="menu-item--title"><%=list[i].title%> <span class="menu-item--cal"><%=list[i].calories%></span></p>
+// 	<p class="menu-item--ingredients"><%=list[i].ingredients%></p>
+// 	<p class="menu-item--price"><%=list[i].price%> руб.</p>
+// </div>
+// <% } %>
+</script>
+
+<script>
+// var menu = [
+//   {photo: "photo/1.jpg", title: "Салат «Грибы с сыром»", calories: "110/20", ingredients: "гр.шамп жареные, лук, отвар.говяд, сыр", price: "130"}
+// ];
+// $('#popup_menu').html(
+//   _.template( $('#menu-template').html().trim(), {list: menu})
+// );
+</script>
+<div class="cart-basket">
+	<a id="basketwidjet" onclick="cart.showWinow()" class="btn btn--gold"></a>
+</div>
+<!--<a onclick="cart.clearBasket()" class="">Очистить</a> -->
+
+<h1>ХОЛОДНЫЕ ЗАКУСКИ</h1>
+<div class="menu-item">
+<img src="photo/small-3.jpg" alt="">
+  <p class="menu-item--title">Салат «Грибы с сыром» <span class="menu-item--cal">110/20</span></p>
+  <p class="menu-item--ingredients">гр.шамп жареные, лук, отвар.говяд, сыр</p>
+  <p class="menu-item--price">
+    <button class="btn btn--add" onclick="cart.delItem('001')">
+      <span class="fa fa-times"></span>
+    </button>
+    <button class="btn btn--add" onclick="cart.delOneItem('001')">
+      <span class="fa fa-minus-circle"></span>
+    </button>
+    <button class="btn btn--add" onclick="cart.addToCart(this, '001', 'Салат «Грибы с сыром»', '130')">
+      <span class="fa fa-plus-circle"></span>
+    </button> 130 <!-- <span class="fa fa-rub"></span> --></p>
+</div>
+<div class="menu-item">
+  <p class="menu-item--title">Салат «Весенний» <span class="menu-item--cal">130/20</span></p>
+  <p class="menu-item--ingredients">грудка копчен, корр.морк, перец болг, огур.св, грибы шамп.жарен</p>
+  <p class="menu-item--price">
+  <button class="btn btn--add" onclick="cart.delItem('002')">
+    <span class="fa fa-times"></span>
+  </button>
+  <button class="btn btn--add" onclick="cart.delOneItem('002')">
+    <span class="fa fa-minus-circle"></span>
+  </button>
+  <button class="btn btn--add" onclick="cart.addToCart(this, '002', 'Салат «Весенний»', '100')">
+    <span class="fa fa-plus-circle"></span>
+  </button> 100 <!-- <span class="fa fa-rub"></span> --></p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Морской коктейль» <span class="menu-item--cal">130/20</span></p>
+	<p class="menu-item--ingredients">кальмары отвар, краб.палоч, огурец св, яйцо, креветки, майон</p>
+	<p class="menu-item--price">
+	<button class="btn btn--add" onclick="cart.delItem('003')">
+	  <span class="fa fa-times"></span>
+	</button>
+	<button class="btn btn--add" onclick="cart.delOneItem('003')">
+	  <span class="fa fa-minus-circle"></span>
+	</button>
+	<button class="btn btn--add" onclick="cart.addToCart(this, '003', 'Салат «Морской коктейль»', '115')">
+	  <span class="fa fa-plus-circle"></span>
+	</button> 115</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Лёгкий» <span class="menu-item--cal">120/20</span></p>
+	<p class="menu-item--ingredients">курин филе, яйцо, помид св, майон с чесн</p>
+	<p class="menu-item--price">
+	<button class="btn btn--add" onclick="cart.delItem('004')">
+	  <span class="fa fa-times"></span>
+	</button>
+	<button class="btn btn--add" onclick="cart.delOneItem('004')">
+	  <span class="fa fa-minus-circle"></span>
+	</button>
+	<button class="btn btn--add" onclick="cart.addToCart(this, '004', 'Салат «Лёгкий»', '100')">
+	  <span class="fa fa-plus-circle"></span>
+	</button> 100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Нежность» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">курин филе, ананас консерв, лимон, гранат, майон</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Обжорка» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">отв гов, лук, морковь, огур солен, майон</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Пестрый» <span class="menu-item--cal">130/20</span></p>
+	<p class="menu-item--ingredients">мякоть говяд, капус св, фри, морковь, свекла, майон</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Сугробики» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">свинина, карт, сыр, яйцо, майон с чесн</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Кальмары с грибами» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">грибы шамп, кальм отв, лук, майон</p>
+	<p class="menu-item--price">130</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Судак под шубой» <span class="menu-item--cal">130/20</span></p>
+	<p class="menu-item--ingredients">судак отв, морковь, лук, майон</p>
+	<p class="menu-item--price">130</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Фасоль с ветчиной» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">ветч, гр марин, кукур конс, морковь, фасоль, перец чер, кр, </p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Шамп и ветчина в мешочке» <span class="menu-item--cal">110/25</span></p>
+	<p class="menu-item--ingredients">блинчики, ветчина, гр шамп, лук репч</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Лисья шубка» <span class="menu-item--cal">120/20</span></p>
+	<p class="menu-item--ingredients">сельдь сол, морк. вар, лук, яйцо, грибы, майон</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Любава» (130/20) <span class="menu-item--cal">130/20</span></p>
+	<p class="menu-item--ingredients">кр палочки, окор, перец болг, сыр, майон</p>
+	<p class="menu-item--price">115</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Виола» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">отв говяд, гр шамп, , кор.мор, гр.орехи, маслины, сыр, яйцо</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Подсолнух» <span class="menu-item--cal">130/20</span></p>
+	<p class="menu-item--ingredients">окороч, гр.шам, лук, яйцо, маслины, чипсы, майон </p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Папа Вито» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">семга сол, яйцо, рис отвар, креветки, икра красная, майонез</p>
+	<p class="menu-item--price">170</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Белая береза» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">яйцо, яблоко зеленое, сыр Россий, окор.отварной, лук, майонез</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Греческий» <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--ingredients">огурцы, помидоры, перец болг, брынза, оливки, оливковое масло</p>
+	<p class="menu-item--price">130</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Мимоза» <span class="menu-item--cal">120/20</span></p>
+	<p class="menu-item--ingredients">картофель отварной, консерва, лук, яйцо, майонез</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Остренький» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">корейск.морковь, лук обжар, свинина отвар, яйцо, майонез</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Свежесть» <span class="menu-item--cal">130/20</span></p>
+	<p class="menu-item--ingredients">ветчина, огурцы свежие, сыр Россий, яйцо, лук, майонез</p>
+	<p class="menu-item--price">85</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Мясной с яблоком» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">говядина отвар, лук, яблоко зеленое, майонез</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Свежая капуста в маринаде» <span class="menu-item--cal">100</span></p>
+	<p class="menu-item--ingredients">капуста св, лук репч, масло раст, морковь, огурцы свежие, перец болг, сахар, соль</p>
+	<p class="menu-item--price">65</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Гурман» <span class="menu-item--cal">135</span></p>
+	<p class="menu-item--ingredients">пекинская капуста, помид.св, сервел., филе курин, майонез</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Нептун» <span class="menu-item--cal">30</span></p>
+	<p class="menu-item--ingredients">Кальм, кр.палоч, карт.отв, креветки, майон, перец бол, помид</p>
+	<p class="menu-item--price">115</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Надежда» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">ветчина, огурец св, помид.св, майонез, сыр</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Лесная Поляна» <span class="menu-item--cal">155</span></p>
+	<p class="menu-item--ingredients">говядина мякоть, грибы мар, картофель, кор морковь, филе куриное, яйцо, майонез, зелень</p>
+	<p class="menu-item--price">125</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Италия» <span class="menu-item--cal">130</span></p>
+	<p class="menu-item--ingredients">ветчина, гранат, зелень, морковь, огурец св, окорочка копч, сыр российск, майонез</p>
+	<p class="menu-item--price">110</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Ромашка» <span class="menu-item--cal">180</span></p>
+	<p class="menu-item--ingredients">грибы шамп, зелень, майонез, огурцы св, пекинская капуста, филе курин, яйцо, салат листовой</p>
+	<p class="menu-item--price">110</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Ницца» <span class="menu-item--cal">160</span></p>
+	<p class="menu-item--ingredients">семга сол, помид св, перец болг, огурцы св, морковь, лук репч, маслины, лимон, зелень, салат листовой, соус греческий</p>
+	<p class="menu-item--price">125</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Цезарь с говядиной» <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--ingredients">говядина мякоть, пекин капуста, помидора св, сыр российск, соус цезарь, сухарики для салатов</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Цезарь с креветками» <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--ingredients">креветки, пекинская кап, помидора св, сыр российск, соус цезарь, сухарики для салата</p>
+	<p class="menu-item--price">120</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Цезарь с курицей» <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--ingredients">филе куриное, пекинск капуста, помид св, сыр российск, соус цезарь, сухарики для салата</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Цезарь с сёмгой» <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--ingredients">пекинск капуста, помид св, семга сол, сыр российск, соус цезарь, сухарики для салата</p>
+	<p class="menu-item--price">155</p>
+</div>
+<h1>ГАРНИР</h1>
+<div class="menu-item">
+	<p class="menu-item--title">Гречка отварная <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">65</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Капуста тушённая <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">50</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Картофель запеченный в духовке <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">65</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Картофель по-самарски <span class="menu-item--cal">230</span></p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Картофель фри <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Картофель фри-дольками <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Картофель фри-шариками <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Картофельное пюре <span class="menu-item--cal">200</span></p>
+	<p class="menu-item--price">65</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Макароны отварные <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">35</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Овощная смесь <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">85</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Овощьное рагу <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Рис отварной <span class="menu-item--cal">200</span></p>
+	<p class="menu-item--price">50</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Цветная капуста запеченная <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">95</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Фасолевая смесь <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--price">100</p>
+</div>
+<h1>ВТОРОЕ</h1>
+<div class="menu-item">
+	<p class="menu-item--title">«Тигровая лапа» <span class="menu-item--cal">200</span></p>
+	<p class="menu-item--ingredients">Отбивная из говядины обжар.на подушке из тертого картофеля</p>
+	<p class="menu-item--price">225</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Баранина тушёная» <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--ingredients">Баранина, зелень, лук, морковь, специи.</p>
+	<p class="menu-item--price">210</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Вырезка свиная «Элита» <span class="menu-item--cal">100</span></p>
+	<p class="menu-item--ingredients">Грибы шамп, карбанат свиной, лук, зелень, сливки, специи.</p>
+	<p class="menu-item--price">170</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Говядина с грибами по-строгоновски» <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--ingredients">Говядина мякоть, грибы шамп, огурцы марин, сливки, лук, специи</p>
+	<p class="menu-item--price">170</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Говядина тушеная с овощами» <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--ingredients">Говядина мякоть, зелень, лук, морковь, помидора, сметана, специи</p>
+	<p class="menu-item--price">225</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Голубцы тушенные» <span class="menu-item--cal">125</span></p>
+	<p class="menu-item--ingredients">Фарш мясн, рис отв, капуста, морковь, лук, зелень, том.паста, спец</p>
+	<p class="menu-item--price">90</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Грибы жаренные» <span class="menu-item--cal">100</span></p>
+	<p class="menu-item--ingredients">Грибы шамп.лук, , специи</p>
+	<p class="menu-item--price">130</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Гуляш» <span class="menu-item--cal">120</span></p>
+	<p class="menu-item--ingredients">Говядина мякоть, лук, морковь, помидор свеж, том паста, специи</p>
+	<p class="menu-item--price">225</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Жаркое в горшочке с мясом» <span class="menu-item--cal">75/250</span></p>
+	<p class="menu-item--ingredients">Картофель св.свинина мякоть, лук, морковь, специи</p>
+	<p class="menu-item--price">200</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Жаркое в горшочке с грибами» <span class="menu-item--cal">350</span></p>
+	<p class="menu-item--ingredients">Картофель св.грибы шампин, лук, сливки, сыр российск, специи.</p>
+	<p class="menu-item--price">200</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Корейка на косточке в соусе(Свинина)» <span class="menu-item--cal">150/50</span></p>
+	<p class="menu-item--ingredients">Корейка, грибы, лук, сливки</p>
+	<p class="menu-item--price">225</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Куриное филе Ришелье» <span class="menu-item--cal">80/45</span></p>
+	<p class="menu-item--ingredients">Куриное филе, грибы шамп.помидор, сыр российск.майон, специи</p>
+	<p class="menu-item--price">145</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Манты» <span class="menu-item--cal">100/20</span></p>
+	<p class="menu-item--ingredients">Фарш мясн, лук, тесто пельменное, специи</p>
+	<p class="menu-item--price">75</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Метители» <span class="menu-item--cal">100/30</span></p>
+	<p class="menu-item--ingredients">Фарш мясной, чеснок, сливки</p>
+	<p class="menu-item--price">145</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Мясо по-французски» <span class="menu-item--cal">100/250</span></p>
+	<p class="menu-item--ingredients">Мясо говядина, огурец солёный, лук, специи</p>
+	<p class="menu-item--price">235</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Окорочка жаренные» <span class="menu-item--cal">100</span></p>
+	<p class="menu-item--ingredients">Окорочка св, чеснок, майонез, специи.</p>
+	<p class="menu-item--price">75</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Окорочка фаршированные» <span class="menu-item--cal">100</span></p>
+	<p class="menu-item--ingredients">Окорочка, грибы шамп, лук, морковь, чеснок, специи</p>
+	<p class="menu-item--price">110</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Свинина в кляре(Северная звезда)» <span class="menu-item--cal">130/20</span></p>
+	<p class="menu-item--ingredients">Карбонат свиной, майонез, лимон, кляр, чеснок, специи.</p>
+	<p class="menu-item--price">225</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Свинина с ананасами» <span class="menu-item--cal">150</span></p>
+	<p class="menu-item--ingredients">Карбонат свиной, ананас консерв.сыр российск.майонез.специи.</p>
+	<p class="menu-item--price">240</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Перец фаршированный» <span class="menu-item--cal">80/20</span></p>
+	<p class="menu-item--ingredients">Фарш мясной, перец болг, рис, лук, морковь, зелень, томат.паста</p>
+	<p class="menu-item--price">90</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Стейк (Красная шапочка)» <span class="menu-item--cal">100/50</span></p>
+	<p class="menu-item--ingredients">Карбонат свиной, лук, помидора св.сыр российск.майонез, специи</p>
+	<p class="menu-item--price">235</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Кицуми(из куриного филе) <span class="menu-item--cal">150гр</span></p>
+	<p class="menu-item--ingredients">ананас конц., лук репка, перец болг, соусКимчи, соус соевый</p>
+	<p class="menu-item--price">145</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Свинина с ананасами <span class="menu-item--cal">150гр</span></p>
+	<p class="menu-item--ingredients">каронат свиной, ананас консерв, сыр российск, майонез, специи.</p>
+	<p class="menu-item--price">240</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Свинина с овощами <span class="menu-item--cal">150гр</span></p>
+	<p class="menu-item--ingredients">свинина мякоть , баклажаны, грибы шамп, лук, морковь, салат лист, соев.соус</p>
+	<p class="menu-item--price">145</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Семга «Баунти» <span class="menu-item--cal">115гр</span></p>
+	<p class="menu-item--ingredients">ананас консер, лук, перец болг, семга, сыр</p>
+	<p class="menu-item--price">345</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Семга «Царский пир» <span class="menu-item--cal">115гр</span></p>
+	<p class="menu-item--ingredients">ананас консер, лук, перец болг, семга, сыр</p>
+	<p class="menu-item--price">345</p>
+</div>
+<h1>Банкетное</h1>
+<div class="menu-item">
+	<p class="menu-item--title">«Курица в гнезде» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--ingredients">Курица св.майонез, чеснок, , специи, картофель фри, зелень.</p>
+	<p class="menu-item--price">645</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Грибы шампиньоны в беконе» <span class="menu-item--cal">40г</span></p>
+	<p class="menu-item--ingredients">Гр.шамп, бекон, специи, соус </p>
+	<p class="menu-item--price">80</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Грибы шампиньоны фаршированные» <span class="menu-item--cal">40г</span></p>
+	<p class="menu-item--ingredients">ножка грибка, лук св, помид.св, сыр</p>
+	<p class="menu-item--price">45</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Гусь с черносливом <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--ingredients">гусь, черносл, сливки, </p>
+	<p class="menu-item--price">770</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Гусь с яблоками» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">770</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Гусь фарщированный» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--ingredients">гусь, рис с грибами</p>
+	<p class="menu-item--price">770</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Жульен с курицей и грибами» </p>
+	<p class="menu-item--ingredients">филе курин, грибы шамп, лук, сыр, специи, соус</p>
+	<p class="menu-item--price">110</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Куриное филе в кляре» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--ingredients">кур.филе, специи, кляр, </p>
+	<p class="menu-item--price">645</p>
+</div>
+
+<div class="menu-item">
+	<p class="menu-item--title">«Рулет» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--ingredients">лаваш, сёмга, сыр плавленный</p>
+	<p class="menu-item--price">1995</p>
+</div>
+
+<div class="menu-item">
+	<p class="menu-item--title">«Рулет из говядины шпигованный овощами» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">1530</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулет печеночный» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">770</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики с черносливом и киви» <span class="menu-item--cal">100</span></p>
+	<p class="menu-item--ingredients">свин.отб, черносл, киви, специи</p>
+	<p class="menu-item--price">175</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики из ветчины заливные» <span class="menu-item--cal">115гр</span></p>
+	<p class="menu-item--ingredients">ветчина, грибы, яйцо, желатин</p>
+	<p class="menu-item--price">180</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики омлетные» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--ingredients">яйцо, чеснок, орехи грецкие, зелень, майонез</p>
+	<p class="menu-item--price">615</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики из капусты маринованные» <span class="menu-item--cal">80гр</span></p>
+	<p class="menu-item--ingredients">кап.св, морковь, свекла св, маринад</p>
+	<p class="menu-item--price">45</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики из куриного филе» <span class="menu-item--cal">100гр</span></p>
+	<p class="menu-item--ingredients">сыр, бекон) </p>
+	<p class="menu-item--price">175</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики с горбушой в лаваше» <span class="menu-item--cal">100гр</span></p>
+	<p class="menu-item--ingredients">лаваш, горб.св, сл.масло, зелень, лимон, сливки, помид.св</p>
+	<p class="menu-item--price">95</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Судак жаренный в кляре» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">770</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Судак жаренный кусочками» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">1230</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Филе морского языка в кляре» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">615</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Холодец» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">185</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Щука фаршированная» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">1230</p>
+</div>
+<h1>Бутерброды, закуски</h1>
+<div class="menu-item">
+	<p class="menu-item--title">«Тарталетки с красной икрой» <span class="menu-item--cal">15/20</span></p>
+	<p class="menu-item--price">105</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Тарталетки с печенью трески» <span class="menu-item--cal">40/25</span></p>
+	<p class="menu-item--price">45</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Тарталетки с сыром и чесноком» <span class="menu-item--cal">30/25</span></p>
+	<p class="menu-item--price">45</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Помидоры фаршированные сыром и чесноком» <span class="menu-item--cal">50/35</span></p>
+	<p class="menu-item--price">95</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Помидора фаршированная кольцом крабовые палочки» <span class="menu-item--cal">50/50</span></p>
+	<p class="menu-item--ingredients">помид.св, краб.палоч, зелень, майон, чеснок</p>
+	<p class="menu-item--price">80</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Яйцо фаршированное сыр и грибы» <span class="menu-item--cal">30гр</span></p>
+	<p class="menu-item--price">40</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Бутерброд с помидорой» <span class="menu-item--cal">35/20</span></p>
+	<p class="menu-item--ingredients">сыр, сёмга, кр.икра</p>
+	<p class="menu-item--price">145</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Бутерброд с сёмгой» <span class="menu-item--cal">20/20</span></p>
+	<p class="menu-item--price">95</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Бутерброд с красной икрой» <span class="menu-item--cal">15/20</span></p>
+	<p class="menu-item--price">110</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Икра красная» <span class="menu-item--cal">100гр</span></p>
+	<p class="menu-item--price">480</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Перец фаршированный(кольцо с говядиной и грибами) <span class="menu-item--cal">100</span></p>
+	<p class="menu-item--ingredients">грибы шамп, гов.отв, перец болг, сыр, сливки</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Баклажанные рулетики с помидорой» <span class="menu-item--cal">60гр</span></p>
+	<p class="menu-item--ingredients">баклаж, соус чеснок с майн-м, долька помидора</p>
+	<p class="menu-item--price">85</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Баклажаны фаршированные половинки» <span class="menu-item--cal">200гр</span></p>
+	<p class="menu-item--ingredients">Баклаж, перец болг, лук, помид, филе курин, сыр с майон, </p>
+	<p class="menu-item--price">160</p>
+</div>
+<h1>Кейтеринг</h1>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Грибы с сыром» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">грибы шампиньоны жареные, лук, отварная говядина, сыр</p>
+	<p class="menu-item--price">130</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Весенний» <span class="menu-item--cal">130/20</span></p>
+	<p class="menu-item--ingredients">грудка куриная копченая, корейская морковь, перец болгарский, огурцы, грибы жареные</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<!-- <img src="photo/food/objorka.jpg" alt=""> -->
+	<p class="menu-item--title">Салат «Обжорка» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">отварная говядина, лук, морковь, огурец соленый, майонез</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Салат «Кальмары с грибами» <span class="menu-item--cal">110/20</span></p>
+	<p class="menu-item--ingredients">грибы шампиньоны, кальмар отварной, лук, майонез</p>
+	<p class="menu-item--price">130</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Мясо провансаль – заливное <span class="menu-item--cal">100</span></p>
+	<p class="menu-item--price">105</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Окорочка фаршированные» <span class="menu-item--cal">100</span></p>
+	<p class="menu-item--ingredients">Окорочка, грибы жареные шампиньоны, лук, морковь, чеснок, специи</p>
+	<p class="menu-item--price">110</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Грибы шампиньоны в беконе» <span class="menu-item--cal">40г</span></p>
+	<p class="menu-item--ingredients">Грибы шампиньоны, бекон, специи, соус</p>
+	<p class="menu-item--price">80</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Грибы шампиньоны фаршированные» <span class="menu-item--cal">40г</span></p>
+	<p class="menu-item--ingredients">Грибы шампиньоны, лук помидоры, сыр</p>
+	<p class="menu-item--price">45</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Куриное филе в кляре» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--ingredients">куриное филе, специи, кляр, </p>
+	<p class="menu-item--price">645</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулет» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--ingredients">лаваш, сёмга, сыр плавленый</p>
+	<p class="menu-item--price">1995</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулет печеночный» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">770</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики с черносливом и киви» <span class="menu-item--cal">100</span></p>
+	<p class="menu-item--ingredients">свинина отбивная, чернослив, киви, специи</p>
+	<p class="menu-item--price">175</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики омлетные» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--ingredients">яйцо, чеснок, орехи грецкие, зелень, майонез</p>
+	<p class="menu-item--price">615</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики из капусты маринованные» <span class="menu-item--cal">80гр</span></p>
+	<p class="menu-item--ingredients">капуста свежая, морковь, свекла, маринад</p>
+	<p class="menu-item--price">45</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики из куриного филе» </p>
+	<p class="menu-item--ingredients">сыр, бекон, куриное филе</p>
+	<p class="menu-item--price">175</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Рулетики с горбушей в лаваше» <span class="menu-item--cal">100гр</span></p>
+	<p class="menu-item--ingredients">лаваш, горбуша свежая, сливочное масло, зелень, лимон, сливки, помидора</p>
+	<p class="menu-item--price">95</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Судак, жаренный в кляре» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">770</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Филе морского языка в кляре» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">615</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Холодец» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">185</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Щука фаршированная» <span class="menu-item--cal">1кг</span></p>
+	<p class="menu-item--price">1230</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Тарталетки с красной икрой» <span class="menu-item--cal">15/20</span></p>
+	<p class="menu-item--price">105</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Тарталетки с печенью трески» <span class="menu-item--cal">40/25</span></p>
+	<p class="menu-item--price">45</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Тарталетки с сыром и чесноком» <span class="menu-item--cal">30/25</span></p>
+	<p class="menu-item--price">45</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Помидоры, фаршированные сыром и чесноком» <span class="menu-item--cal">50/35</span></p>
+	<p class="menu-item--price">95</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Помидора фаршированная крабовыми палочками» <span class="menu-item--cal">50/50</span></p>
+	<p class="menu-item--ingredients">помидора, крабовые палочки, зелень, майонез, чеснок</p>
+	<p class="menu-item--price">80</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Яйцо, фаршированное сыр и грибы» <span class="menu-item--cal">30гр</span></p>
+	<p class="menu-item--price">40</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Бутерброд с помидором» <span class="menu-item--cal">35/20</span></p>
+	<p class="menu-item--ingredients">сыр, сёмга, красная икра</p>
+	<p class="menu-item--price">145</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Бутерброд с сёмгой» <span class="menu-item--cal">20/20</span></p>
+	<p class="menu-item--price">95</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Бутерброд с красной икрой» <span class="menu-item--cal">15/20</span></p>
+	<p class="menu-item--price">110</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">«Перец фаршированный(кольцо с говядиной и грибами)» </p>
+	<p class="menu-item--ingredients">грибы шампиньоны, говядина отварная, перец болгарский, сыр, сливки</p>
+	<p class="menu-item--price">100</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Волованы с окороком </p>
+	<p class="menu-item--price">35</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Волованы с красной икрой </p>
+	<p class="menu-item--price">80</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Волованы с муссом из сёмги </p>
+	<p class="menu-item--price">80</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Канапе </p>
+	<p class="menu-item--ingredients">виноград, сыр, семга, хлеб</p>
+	<p class="menu-item--price">40</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Канапе </p>
+	<p class="menu-item--ingredients">маслины, сыр, ветчина, хлеб</p>
+	<p class="menu-item--price">25</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Тыква с овощами </p>
+	<p class="menu-item--ingredients">тыква, чернослив, курага</p>
+	<p class="menu-item--price">300</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Круассан со сгущенкой </p>
+	<p class="menu-item--price">65</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Корзиночка с ягодой </p>
+	<p class="menu-item--price">65</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Корзиночка с кремом </p>
+	<p class="menu-item--price">50</p>
+</div>
+<div class="menu-item">
+	<p class="menu-item--title">Пирожное заварное </p>
+	<p class="menu-item--price">50</p>
+</div>

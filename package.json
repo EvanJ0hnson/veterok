@@ -1,0 +1,19 @@
+{
+  "name": "veterok",
+  "version": "0.9.0",
+  "description": "veterok-hotel web site",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "Ivan Gerasimov",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.7.13",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-newer": "^0.5.1",
+    "gulp-stylus": "^2.0.5"
+  },
+  "dependencies": {}
+}

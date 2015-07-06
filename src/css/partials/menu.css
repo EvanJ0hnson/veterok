@@ -1,0 +1,146 @@
+/*<menu>----------------------------------------------------------------------*/
+.menu_nav {
+  /*display: inline-block;*/
+  position: fixed;
+
+  float: left;
+
+  width: 20%;
+  padding-top: 5rem;
+  padding-right: .5rem;
+  padding-left: .5rem;
+  /*max-width: 270px;*/
+  /*padding-right: 0;*/
+  /*margin: 0;*/
+}
+
+.menu_nav-item {
+  padding-bottom: .9rem;
+}
+
+.menu_nav-link {
+  /*display: inline-block;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+
+  margin-left: 1rem;
+
+  transition: all .3s;
+  text-decoration: none;
+  letter-spacing: .05rem;
+  text-transform: uppercase;
+
+  color: rgba(65, 65, 65, .9);
+  /*padding-bottom: 1rem;*/
+  border-width: .15rem;
+  border-style: none none solid none;
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.menu_nav-link:hover {
+  border-style: none none solid none;
+  /*padding-bottom: .25rem;*/
+  /*border-width: .1rem;*/
+  border-color: rgba(65, 65, 65, .9);
+}
+
+.menu_nav-sublink {
+  margin-left: 1.5rem;
+}
+
+/*.menu_nav-link {
+  display: inline-block;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgba(65, 65, 65, .9);
+  font-size: .4rem;
+  letter-spacing: .02rem;
+
+  padding: 0;
+  margin: 2em 2em 0 .5rem;
+
+  border-width: 0;
+  border-color: rgba(0, 0, 0, 0);
+  border-style: none none solid none;
+  -webkit-transition: all .3s;
+          transition: all .3s;
+}*/
+
+.menu-container {
+  margin-left: 20%;
+  padding-top: 3.75rem;
+}
+
+.menu-items-container {
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  font-size: 1.25rem;
+
+  width: 30%;
+  margin: 0 .75rem .75rem 0;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+
+  border: .1rem dashed grey;
+
+  flex-grow: 1;
+}
+
+@media (min-width: 1367px) {
+  .menu-item {
+    width: 20%;
+  }
+}
+
+.menu-item img {
+  width: 5rem;
+  height: 5rem;
+  margin-right: .75rem;
+  margin-bottom: .5rem;
+
+  border-radius: 20%;
+}
+
+.menu-item p {
+  margin: .25rem;
+
+  word-wrap: normal;
+}
+
+.menu-item--title {
+}
+
+.menu-item--price {
+  text-align: right;
+}
+
+.menu-item--ingredients {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: .8rem;
+}
+
+.menu-item--cal {
+  font-size: .8rem;
+}
+
+/*
+w/o flex
+.menu-item {
+  display: inline-block;
+  margin: 0 .5em .5em 0;
+  padding: .5rem;
+  font-size: .5rem;
+  border: 1px dashed grey;
+  vertical-align: top;
+  text-align: left;
+  width: 31.73%;
+}*/

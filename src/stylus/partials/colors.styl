@@ -1,0 +1,187 @@
+/*<sections background and colors>--------------------------------------------*/
+/*The CSS should be connected last to work correct*/
+/*red #df6161
+  gold #eee8d9
+  grey (brown) #564f4a*/
+  
+// $clrGoldText = #2d2d2d
+// $clrGoldBackground = #ecc7e9
+// $clrGoldTextShadow = rgba(255,255,255,.25)
+// $clrGoldHeading = #f0f0f0
+// $clrGoldHeadingBackground = rgba(45,45,45,.75)
+
+// $clrRed = #cb413f
+// $clrRedText = #f0f0f0
+// $clrRedBoxShadowTop = #bc4b4b
+// $clrRedBoxShadowBottom = #bc4b4b
+// $clrRedTextShadow = #d25151
+
+// $clrGreyText = #f0f0f0
+// $clrGreyBackground = #2d2d2d
+
+$clrGoldText = #2d2d2d
+$clrGoldBackground = #f6eede
+$clrGoldTextShadow = rgba(255,255,255,.25)
+$clrGoldHeading = #f0f0f0
+$clrGoldHeadingBackground = rgba(45,45,45,.75)
+
+$clrRed = #911616
+$clrRedText = #f0f0f0
+$clrRedBoxShadowTop = #2d2d2d
+$clrRedBoxShadowBottom = #2d2d2d
+$clrRedTextShadow = #d25151
+
+$clrGreyText = #f0f0f0
+$clrGreyBackground = #2d2d2d
+
+$clrTransparent100 = rgba(0, 0, 0, 0)
+$clrTransparent70 = rgba(0, 0, 0, .3)
+
+.gold
+  /*color: #5b534e;*/
+  color: $clrGoldText
+  background-color: $clrGoldBackground
+  text-shadow: 1px 1px 1px $clrGoldTextShadow
+  background: $clrGoldBackground url(../../img/bgbot.png) bottom repeat-x
+  // background-image: url(../../img/bg-beige-repeat.png);
+  /*box-shadow: inset 0 2px 2px #d89cde, inset 0 -2px 2px #d89cde;*/
+// #f6eede red
+// #911616 cream
+// #f6eede url('bgbot.png') bottom repeat-x
+
+/*.gold h1 {
+  color: #c6c0ba;
+}*/
+.gold__heading
+  color: $clrGoldHeading
+  text-shadow: none
+
+.gold__heading-background
+  /*background-color: #2d2d2d;*/
+  background-color: $clrGoldHeadingBackground
+
+.red
+  color: $clrRedText
+  background-color: $clrRed
+  // background-image: url(../../img/bg-red-repeat.png)
+  // box-shadow: inset 0 1px 1px $clrRedBoxShadowTop, inset 0 -1px 1px $clrRedBoxShadowBottom
+  // text-shadow: -1px -1px 0 $clrRedTextShadow
+
+.grey
+  color: $clrGreyText
+  background-color: $clrGreyBackground
+  /*background-image: url(../../img/bg-brown-repeat.png);*/
+  /*box-shadow: inset 0 2px 2px #4a4340, inset 0 -2px 2px #4a4340;*/
+  /*text-shadow: -1px -1px 0 #463d37;*/
+  /*Фоновый цвет и тени*/
+  /*background-color: #564f4a;
+	box-shadow: inset 0px 2px 2px #4a4340, inset 0px -2px 2px #4a4340;
+	border-top: 1px solid #f4f0e6;
+	border-bottom: 1px solid #e37d7b;*/
+  /*box-shadow: inset 0 1px 1px #d89cde, inset 0 -1px 1px #d89cde;*/
+
+/*.grey h1 {
+  color: #c6c0ba;
+}*/
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+.btn--top
+  /*color: #f0f0f0;*/
+  /*border-color: #f0f0f0;*/
+  /*background: rgba(0, 0, 0, .2);*/
+  /*text-shadow: 1px 1px 0 rgba(0, 0, 0, .3);*/
+  color: $clrRedText
+  border-color: $clrRedText
+  background: $clrTransparent100
+  text-shadow: 1px 1px 1px $clrTransparent70
+
+  &:hover
+    /*color: #2d2d2d;
+    border-color: #2d2d2d;
+    background: rgba(0, 0, 0, 0);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .3);*/
+    color: $clrRed
+    background: $clrRedText
+    text-shadow: 0 0 0 $clrTransparent100
+
+.btn--gold
+  color: $clrGoldText
+  border-color: $clrGoldText
+  text-shadow: none
+  background: none
+
+  &:hover
+    color: $clrGoldBackground
+    background: $clrGoldText
+
+.btn--grey
+  color: $clrGreyText
+  border-color: $clrGreyText
+  background: $clrGreyBackground
+
+  &:hover
+    color: $clrGreyBackground
+    background: $clrGreyText
+
+.btn--red
+  color: $clrRedText
+  border-color: $clrRedText
+  background: $clrTransparent100
+  text-shadow: 1px 1px 1px $clrTransparent70
+
+  &:hover
+    color: $clrRed
+    background: $clrRedText
+    text-shadow: 0 0 0 $clrTransparent100
+
+.btn--add
+  color: $clrGoldText
+  background-color: $clrTransparent100
+  /*text-shadow: 0 0 0 rgba(0, 0, 0, 0);*/
+
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+.nav-link
+  color: $clrGoldHeading
+  border-color: $clrGoldHeading
+
+  &:hover
+    border-color: $clrGoldHeading
+
+.top_nav-sticky
+  /*background-color: #fcec00;*/
+  background-color: $clrGoldBackground
+
+  .nav-link,
+  .nav-link:visited
+    color: $clrGoldText
+
+    &:hover
+      border-color: $clrGoldText
+
+.top_nav-menu
+  background-color: $clrGoldBackground
+
+.nav-link-menu
+  color: $clrGoldText
+  border-color: $clrTransparent100
+
+  &:hover
+    border-color: $clrGoldText
+
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+.days_cal--inner
+  color: $clrGoldText
+  border-color: $clrTransparent100
+
+.days_cal--inner_selected
+  border-left-color: $clrGoldText
+  border-right-color: $clrGoldText
+
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+/*-------------------------------------------*/

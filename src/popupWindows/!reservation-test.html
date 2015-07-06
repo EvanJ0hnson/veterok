@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name=viewport content="width=960">
+  <title>Гостиница «Ветерок»</title>
+  <!-- css -->
+  <!-- build -->
+  <link rel="stylesheet" href="../css/main.min.css">
+  <!-- css -->
+  <!-- javascript -->
+  <!-- dev-vendor -->
+  <script src="../js/vendor/jquery-1.11.2.min.js"></script>
+  <script src="../js/vendor/flexslider.js"></script>
+  <!-- dev-partials -->
+  <script src="../js/partial/calendar.js"></script>
+  <script src="../js/partial/scripts.js"></script>
+  <script>
+    $(function(){
+      createCalendarSlider();
+      initCalendar('');
+    })
+  </script>
+  <!-- javascript -->
+</head>
+
+<body>
+<div class="container sc-sub">
+  <p class="sc-paragraph textAlignJustify">
+    Чтобы забронировать номер или банкетный зал, позвоните по телефону:
+  </p>
+  <p class="sc-heading textAlignCenter">
+    (846) 997-87-37
+  </p>
+</div>
+
+<div id="cal" class="container sc-sub">
+  <p class="sc-paragraph textAlignJustify">
+    У нас есть три банкетных зала для проведения торжеств. Выберите подходящие незанятые даты, отправьте заявку, и мы вам перезвоним.
+  </p>
+  <div class="cd-calendar-wrapper grey-nav">
+    <ul class="cd-calendar">
+      <li>
+        <h1 class="sc-heading">Банкетный зал №1</h1>
+        <div id="calendar_1" class=""></div>
+      </li>
+      <li>
+        <h1 class="sc-heading">Банкетный зал №2</h1>
+        <div id="calendar_2" class=""></div>
+      </li>
+      <li>
+        <h1 class="sc-heading">Банкетный зал №3</h1>
+        <div id="calendar_3" class=""></div>
+      </li>
+    </ul>
+  </div>
+  <form id="fHallReservation">
+    <input type="text" id="userContact" name="formBody" placeholder="Не забудьте, пожалуйста, представиться и оставить контактный телефон." required>
+    <button id="btnSubmitHallReservation" class="btn btn--gold btn--sendBanquetReservation">Отправить заявку на бронирование</button>
+    <input type="hidden" name="event" value="SendHallReservation">
+  </form>
+</div>
+</body>
+</html>
+
