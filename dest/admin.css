@@ -1,0 +1,166 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+p {
+  color: #1d2028;
+}
+
+.displayInlineBlock {
+  display: inline-block;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+}
+
+.news_block-add-title,
+.news_block-title {
+  font-size: 1.5rem;
+  padding: .5rem;
+}
+
+.news_block-item {
+  padding: .75rem;
+}
+
+.news_block-item:nth-child(odd) {
+  background: #F8F8F8;
+}
+
+.news_block-item--title {
+  display: inline;
+  font-size: 1.2rem;
+  padding-bottom: .5rem;
+}
+
+.news_block-item--date {
+  font-size: .8rem;
+  /*font-weight: bold;*/
+  padding-bottom: .5rem;
+}
+
+.news_block-item--body {
+  font-size: 1rem;
+  padding-bottom: .5rem;
+}
+
+.btn-delete {
+  display: inline-block;
+  color: #02a3c6;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: .75rem;
+  padding: .25rem;
+  border: .1rem solid #02a3c6;
+  transition: all .25s;
+}
+
+.btn-delete:hover {
+  background: #02a3c6;
+  color: #ffffff;
+}
+
+.nav_admin-items {
+  background: #333745;
+  /*padding-left: .5rem;*/
+}
+
+.nav_admin-item {
+  display: inline-block;
+  margin-right: .5rem;
+}
+
+.nav_admin-item:first-child {
+  margin-left: .5rem;
+}
+
+.nav_admin-link {
+  background: #404452;
+  display: inline-block;
+  text-decoration: none;
+  padding: .75rem;
+  text-transform: uppercase;
+  font-size: .7rem;
+  letter-spacing: .1rem;
+  color: #ffffff;
+  transition: opacity .25s;
+}
+
+.nav_admin-link:hover {
+  opacity: .5;
+}
+
+form {
+  vertical-align: baseline;
+  padding: .5rem;
+  border-bottom: .1em dashed;
+}
+
+input {
+  display: inline-block;
+  width: 50%;
+  border: .1rem solid;
+  /*font-size: .7rem;*/
+  padding: .5rem;
+  margin-bottom: .5rem;
+}
+
+textarea {
+  display: inline-block;
+  width: 100%;
+  /*font-size: 1rem;*/
+  border: .1rem solid;
+  padding: .5rem;
+  margin-bottom: .5rem;
+  height: 10rem;
+}
+
+button {
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: .5rem;
+  color: #02a3c6;
+  border: .1rem solid #02a3c6;
+  background: none;
+  transition: all .25s;
+}
+
+button:hover {
+  background: #02a3c6;
+  color: #ffffff;
+}
+
+.days_cal--inner {
+  cursor: pointer;
+}
+
+.days_cal--inner_selected {
+  color: red;
+  cursor: pointer;
+}

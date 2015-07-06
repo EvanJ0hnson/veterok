@@ -2,7 +2,17 @@ var gulp = require('gulp'),
     newer = require('gulp-newer'),
     stylus = require('gulp-stylus'),
     autoprefixer = require('gulp-autoprefixer'),
+    htmlmin = require('gulp-htmlmin'),
+    imagemin = require('gulp-imagemin'),
+    shorthand = require('gulp-shorthand'),
     browserSync = require('browser-sync').create();
+
+ 
+gulp.task('css-short', function () {
+  return gulp.src('src/css/partials/[^!]*.css')
+    .pipe(shorthand())
+    .pipe(gulp.dest('dest'));
+});
 
 gulp.task('browser-sync', function() {
   browserSync.init({
@@ -19,12 +29,14 @@ gulp.task('build', function() {
 gulp.task('php', function() {
   gulp.src('./src/**/[^!]*.php')
     .pipe(newer('./www'))
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('./www'));
 });
 
 gulp.task('html', function() {
   gulp.src('./src/**/[^!]*.html')
     .pipe(newer('www/'))
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('./www'));
 });
 
@@ -65,6 +77,15 @@ gulp.task('stylus', function() {
     // .pipe(newer('www/css'))
     // .pipe(rename('style.min.css'))
     .pipe(gulp.dest('www/css/partials'));
+});
+
+gulp.task('imageOptim', ['build'], function () {
+  return gulp.src('src/img/*')
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}]
+    }))
+    .pipe(gulp.dest('www/img'));
 });
 
 gulp.task('watch', function() {

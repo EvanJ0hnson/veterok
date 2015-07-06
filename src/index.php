@@ -30,7 +30,7 @@
 
   <nav class="top_nav">
     <a href="#top"><img class="top_nav--logo-square" src="img/logo_transp.png" alt="«Ветерок»"></a>
-    <a href="#top"><img class="top_nav--logo-ribbon" src="img/logo.png" alt="«Ветерок»"></a>
+    <a href="#top"><img class="top_nav--logo-ribbon" src="img/!logo.png" alt="«Ветерок»"></a>
     <ul class="floatRight">
      <li class="nav-item"><a class="nav-link" href="#about">О НАС</a></li>
      <li class="nav-item"><a class="nav-link" href="#services">УСЛУГИ</a></li>

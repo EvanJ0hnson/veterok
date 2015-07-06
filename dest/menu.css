@@ -1,0 +1,99 @@
+/*<menu>----------------------------------------------------------------------*/
+
+.menu_nav {
+  /*display: inline-block;*/
+  position: fixed;
+  height: 100%;
+  float: left;
+  width: 20%;
+  padding-top: 5rem;
+  padding-right: .5rem;
+  padding-left: .5rem;
+  /*max-width: 270px;*/
+  /*padding-right: 0;*/
+  /*margin: 0;*/
+}
+
+.menu_nav-item {
+  padding-bottom: .9rem;
+}
+
+.menu_nav-link {
+  font: 1rem 'Open Sans Condensed', sans-serif;
+  /*display: inline-block;*/
+  margin-left: 1rem;
+  transition: all .3s;
+  text-decoration: none;
+  letter-spacing: .05rem;
+  text-transform: uppercase;
+  /*color: rgba(65, 65, 65, .9);*/
+  /*padding-bottom: 1rem;*/
+  border-width: .15rem;
+  border-style: none none solid none;
+  /*border-color: rgba(0, 0, 0, 0);*/
+}
+
+.menu_nav-link:hover {
+  border-style: none none solid none;
+  /*padding-bottom: .25rem;*/
+  /*border-width: .1rem;*/
+  /*border-color: rgba(65, 65, 65, .9);*/
+}
+
+.menu_nav-sublink {
+  margin-left: 1.5rem;
+}
+
+.menu-container {
+  margin-left: 20%;
+  padding-top: 3.75rem;
+}
+
+.menu-items-container {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  font-size: 1.25rem;
+  width: 30%;
+  margin: 0 .75rem .75rem 0;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border: .1rem dashed grey;
+  flex-grow: 1;
+}
+
+@media (min-width: 1367px) {
+  .menu-item {
+    width: 20%;
+  }
+}
+
+.menu-item img {
+  width: 5rem;
+  height: 5rem;
+  margin-right: .75rem;
+  margin-bottom: .5rem;
+  border-radius: 20%;
+}
+
+.menu-item p {
+  margin: .25rem;
+  word-wrap: normal;
+}
+
+.menu-item--price {
+  text-align: right;
+}
+
+.menu-item--ingredients {
+  font: .8rem 'Open Sans Condensed', sans-serif;
+}
+
+.menu-item--cal {
+  font-size: .8rem;
+}
