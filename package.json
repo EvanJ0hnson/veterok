@@ -18,6 +18,5 @@
     "gulp-stylus": "^2.0.5"
   },
   "dependencies": {
-    "gulp-shorthand": "^1.1.0"
   }
 }

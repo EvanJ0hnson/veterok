@@ -4,15 +4,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     htmlmin = require('gulp-htmlmin'),
     imagemin = require('gulp-imagemin'),
-    shorthand = require('gulp-shorthand'),
     browserSync = require('browser-sync').create();
-
- 
-gulp.task('css-short', function () {
-  return gulp.src('src/css/partials/[^!]*.css')
-    .pipe(shorthand())
-    .pipe(gulp.dest('dest'));
-});
 
 gulp.task('browser-sync', function() {
   browserSync.init({
