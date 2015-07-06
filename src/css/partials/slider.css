@@ -30,14 +30,8 @@
 /*<Photoslider>---------------------------------------------------------------*/
 .cd-photoslider-wrapper {
   position: relative;
-  /*padding: 20px 40px 70px;*/
-  /*padding-left: 40px;*/
-  /*padding-right: 40px;*/
+
   z-index: 1;
-  /*width: 100%;*/
-  /*max-width: 768px;*/
-  /*max-width: 60vmax;*/
-  /*background-color: #39393c;*/
 
   margin-top: 0;
   margin-right: auto;
@@ -51,9 +45,6 @@
     margin-right: auto;
     margin-bottom: 0;
     margin-left: auto;
-    /*padding: 64px 50px 114px;*/
-    /*padding-left: 50px;*/
-    /*padding-right: 50px;*/
   }
 }
 
@@ -176,7 +167,6 @@
 }
 .cd-testimonials p {
   font-family: 'PT Serif', serif;
-  /*font-size: 22px;*/
   font-size: 1rem;
 
   margin-bottom: 1rem;
@@ -190,25 +180,17 @@
 }
 @media only screen and (min-width: 768px) {
   .cd-testimonials p {
-    /*font-size: 22px;*/
     font-size: 1rem;
   }
 }
 @media only screen and (min-width: 1170px) {
   .cd-testimonials p {
-    /*font-size: 26px;*/
     font-size: 1rem;
   }
 }
 
-/*.cd-testimonials-back {
-  background-image: url('photo/1.jpg');
-  background-image: url('./img/bg-beige-repeat.png');
-}*/
-
 .cd-author {
   font-family: 'Open Sans Condensed', sans-serif;
-  /*display: inline-block;*/
 
   float: right;
 
@@ -225,14 +207,12 @@
 }
 
 .cd-author .cd-author-info li:first-child {
-  /*font-size: 14px;*/
   font-size: .9rem;
 
   color: #f0f0f0;
 }
 
 .cd-author .cd-author-info li:last-child {
-  /*font-size: 12px;*/
   font-size: .8rem;
 
   color: #6b6b70;
@@ -240,22 +220,18 @@
 
 @media only screen and (min-width: 768px) {
   .cd-author .cd-author-info li:first-child {
-    /*font-size: 16px;*/
     font-size: .9rem;
   }
   .cd-author .cd-author-info li:last-child {
-    /*font-size: 14px;*/
     font-size: .8rem;
   }
 }
 
 @media only screen and (min-width: 1170px) {
   .cd-author .cd-author-info li:first-child {
-    /*font-size: 20px;*/
     font-size: .9rem;
   }
   .cd-author .cd-author-info li:last-child {
-    /*font-size: 18px;*/
     font-size: .8rem;
   }
 }
@@ -286,9 +262,7 @@
   width: 100%;
   height: 100%;
 
-  -webkit-transition: background-color .25s;
-     -moz-transition: background-color .25s;
-          transition: background-color .25s;
+  transition: background-color .25s;
   white-space: nowrap;
   text-indent: 100%;
 
@@ -327,24 +301,24 @@
           transform: translateY(-35px) rotate(45deg);
 }
 .flex-direction-nav li a::after {
-  -webkit-transform: translateY(-27px) rotate(-45deg);
+/*  -webkit-transform: translateY(-27px) rotate(-45deg);
      -moz-transform: translateY(-27px) rotate(-45deg);
       -ms-transform: translateY(-27px) rotate(-45deg);
-       -o-transform: translateY(-27px) rotate(-45deg);
+       -o-transform: translateY(-27px) rotate(-45deg);*/
           transform: translateY(-27px) rotate(-45deg);
 }
 .flex-direction-nav li:last-child a::before {
-  -webkit-transform: translateY(-35px) rotate(-45deg);
+/*  -webkit-transform: translateY(-35px) rotate(-45deg);
      -moz-transform: translateY(-35px) rotate(-45deg);
       -ms-transform: translateY(-35px) rotate(-45deg);
-       -o-transform: translateY(-35px) rotate(-45deg);
+       -o-transform: translateY(-35px) rotate(-45deg);*/
           transform: translateY(-35px) rotate(-45deg);
 }
 .flex-direction-nav li:last-child a::after {
-  -webkit-transform: translateY(-27px) rotate(45deg);
+/*  -webkit-transform: translateY(-27px) rotate(45deg);
      -moz-transform: translateY(-27px) rotate(45deg);
       -ms-transform: translateY(-27px) rotate(45deg);
-       -o-transform: translateY(-27px) rotate(45deg);
+       -o-transform: translateY(-27px) rotate(45deg);*/
           transform: translateY(-27px) rotate(45deg);
 }
 @media only screen and (min-width: 768px) {
@@ -352,14 +326,12 @@
     width: 50px;
   }
 }
-@media only screen and (min-width: 1170px) {
+/*@media only screen and (min-width: 1170px) {
   .flex-direction-nav li a::before,
   .flex-direction-nav li a::after {
-    /*background-color: white;*/
   }
   .flex-direction-nav li a:hover::before,
   .flex-direction-nav li a:hover::after {
-    /*background-color: white;*/
   }
-}
+}*/
 /*</Flexslider>---------------------------------------------------------------*/

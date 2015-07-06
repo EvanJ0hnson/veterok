@@ -45,13 +45,17 @@ $clrTransparent70 = rgba(0, 0, 0, .3)
   background: $clrGoldBackground url(../../img/bgbot.png) bottom repeat-x
   // background-image: url(../../img/bg-beige-repeat.png);
   /*box-shadow: inset 0 2px 2px #d89cde, inset 0 -2px 2px #d89cde;*/
-// #f6eede red
-// #911616 cream
-// #f6eede url('bgbot.png') bottom repeat-x
 
 /*.gold h1 {
   color: #c6c0ba;
 }*/
+
+.gold--noBgImage
+  color: $clrGoldText
+  background-color: $clrGoldBackground
+  text-shadow: 1px 1px 1px $clrGoldTextShadow
+  background: $clrGoldBackground
+
 .gold__heading
   color: $clrGoldHeading
   text-shadow: none
@@ -185,3 +189,10 @@ $clrTransparent70 = rgba(0, 0, 0, .3)
 /*-------------------------------------------*/
 /*-------------------------------------------*/
 /*-------------------------------------------*/
+
+.menu_nav-link 
+  color:  $clrGoldText
+  border-color: $clrTransparent100
+
+.menu_nav-link:hover
+  border-color: $clrGoldText

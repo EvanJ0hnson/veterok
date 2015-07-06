@@ -64,9 +64,7 @@
 
 body {
   font-size: 16px;
-
   min-width: 960px;
-
   /*background-color: rgba(238, 232, 217, .9);*/
   /*background-color: #ecc7e9;*/
 }
@@ -107,13 +105,8 @@ p {
 
   text-align: center;
 
-  background-image: url(../../img/background-main-cropped.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
+  background: url(../../img/background-main-cropped.jpg) no-repeat center center;
+  background-size: cover;
 }
 
 .top__reservation {

@@ -103,7 +103,7 @@
     </ul>
   </nav>
 
-  <ul class="menu_nav gold noprint">
+  <ul class="menu_nav gold--noBgImage noprint">
     <?php
       foreach($menu as $dish_type) {
         print '
@@ -118,7 +118,7 @@
   </ul>
 
   <div class="menu-container opacity100">
-    <div class="gold">
+    <div class="gold--noBgImage">
       <?php
         foreach($menu as $dish_type) {
           print '

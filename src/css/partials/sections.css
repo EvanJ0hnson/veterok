@@ -2,14 +2,11 @@
 .sc__main {
   /*padding-top: 4rem;*/
   /*padding-bottom: 4rem;*/
-  /*background: fixed url(../../img/16463702-seamless-doodle-hotel-pattern-Stock-Vector.jpg) center top repeat;*/
-  /*background: fixed url(../../img/buckeye_leaf_diamond_graywhite.jpg) center top repeat;*/
 }
 
 .sc__main--transparent {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  /*background: fixed url(../../img/16463702-seamless-doodle-hotel-pattern-Stock-Vector.jpg) center top repeat;*/
   overflow: hidden; 
   position: relative; 
 }
@@ -23,8 +20,6 @@
   left: 0;
   background-color: white;
   background: url(../../img/bg_pattern.png) repeat top left;
-  /*background: url('/img/front/strategy.jpg') no-repeat center center;*/
-  /*background-size: cover;*/
   will-change: transform;
   z-index: -1;
 }
@@ -124,7 +119,6 @@
   line-height: 1.45rem;
 
   list-style-type: disc;
-  /* list-style-position: inside; */
 
   text-align: left;
   letter-spacing: .05rem;
@@ -138,8 +132,7 @@
   padding-bottom: .15rem;
 
   cursor: pointer;
-  -webkit-transition: all .15s ease-in-out;
-          transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
 
   border-bottom: .075rem dashed;
   border-color: rgba(255,255,255,.6);
@@ -157,8 +150,7 @@
 .sc-image {
   padding: .25rem;
 
-  -webkit-transition: all .3s ease-in-out;
-          transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 
   border: .1rem dashed;
   border-radius: 100%;
@@ -172,7 +164,6 @@
 .sc-image--about {
   width: 10.25rem;
   height: 10.25rem;
-  /*border-radius: 3em;*/
 
   border-color: #2d2d2d;
 }
@@ -181,7 +172,6 @@
 .sc-image--services {
   width: 16em;
   height: 16em;
-  /*border-radius: 5em;*/
 
   border-color: #f0f0f0;
 }
@@ -189,7 +179,6 @@
 .sc-image--menu {
   width: 14.125em;
   height: 14.125em;
-  /*border-radius: 3em;*/
 
   border-color: #2d2d2d;
 }

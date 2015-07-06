@@ -36,8 +36,7 @@
 
   visibility: hidden;
 
-  -webkit-transition: all .225s ease;
-          transition: all .225s ease;
+  transition: all .225s ease;
 
   opacity: 0;
 }
@@ -57,8 +56,7 @@
   height: 2.5rem;
 
   cursor: pointer;
-  -webkit-transition: all .45s ease;
-          transition: all .45s ease;
+  transition: all .45s ease;
 
   opacity: .5;
   background-image: url(../../img/close-btn.png);
@@ -68,9 +66,7 @@
 }
 
 .overlay--close-btn:hover {
-  -webkit-transition: all .45s ease;
-          transition: all .45s ease;
-
+  transition: all .45s ease;
   opacity: 1;
 }
 
@@ -85,8 +81,7 @@
 
   margin: auto;
 
-  -webkit-transition: all .225s ease;
-          transition: all .225s ease;
+  transition: all .225s ease;
 
   opacity: 0;
 }
@@ -103,10 +98,7 @@
 
 .popup.visible {
   visibility: visible;
-
-  -webkit-transition: all .45s ease;
-          transition: all .45s ease;
-
+  transition: all .45s ease;
   opacity: 1;
 }
 
@@ -119,8 +111,7 @@
   /*margin: auto;*/
   height: 100vh;
 
-  -webkit-transition: opacity .225s ease;
-          transition: opacity .225s ease;
+  transition: opacity .225s ease;
 }
 
 @media (max-width: 960px) {
@@ -149,8 +140,7 @@
   padding-right: 1.875em;
   padding-left: 1.875em;
 
-  -webkit-transition: opacity .225s ease;
-          transition: opacity .225s ease;
+  transition: opacity .225s ease;
 
   border-radius: 0;
 }
