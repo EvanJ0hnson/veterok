@@ -1,0 +1,33 @@
+{
+  "name": "veterok-hotel-website",
+  "version": "0.9.9",
+  "description": "Website for hotel «Veterok»",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EvanJ0hnson/veterok.loc.git"
+  },
+  "author": "Ivan Gerasimov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvanJ0hnson/veterok.loc/issues"
+  },
+  "homepage": "http://dev.bearded.16mb.com",
+  "devDependencies": {
+    "browser-sync": "^2.8.2",
+    "del": "^1.2.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-htmlmin": "^1.1.4",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-newer": "^0.5.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rigger": "^0.5.8",
+    "gulp-stylus": "^2.0.6",
+    "run-sequence": "^1.1.2"
+  }
+}

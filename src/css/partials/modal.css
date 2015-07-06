@@ -1,0 +1,146 @@
+/*<modal>---------------------------------------------------------------------*/
+.cart-basket {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  width: 25%;
+  margin: auto;
+
+  text-align: left;
+
+  background-color: none;
+}
+
+.spinner {
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+  overflow: hidden;
+
+  text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 11;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  visibility: hidden;
+
+  transition: all .2s ease;
+
+  opacity: 0;
+}
+
+.overlay.visible {
+  visibility: visible;
+
+  opacity: .8;
+}
+
+.overlay--close-btn {
+  z-index: 12;
+
+  float: right;
+
+  width: 2.5rem;
+  height: 2.5rem;
+
+  cursor: pointer;
+  transition: opacity .3s ease;
+
+  opacity: .5;
+  background-image: url(../../img/close-btn.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 75%;
+}
+
+.overlay--close-btn:hover {
+  opacity: 1;
+}
+
+.popup {
+  position: fixed;
+  z-index: 12;
+  right: 0;
+  left: 0;
+
+  visibility: hidden;
+  overflow: auto;
+
+  margin: auto;
+
+  /*transition: opacity 5.225s ease;*/
+
+  opacity: 0;
+}
+
+.popup-center {
+  top: 0;
+  bottom: 0;
+
+  width: 60%;
+  height: 50%;
+
+  border-radius: .5rem;
+}
+
+.popup.visible {
+  visibility: visible;
+  transition: opacity .3s ease;
+  opacity: 1;
+}
+
+.popup-photos {
+  top: 0;
+  bottom: 0;
+
+  width: 80%;
+  /*background: none;*/
+  /*margin: auto;*/
+  height: 100vh;
+
+  transition: opacity .3s ease;
+}
+
+@media (max-width: 960px) {
+  .popup-photos {
+    width: 90%;
+  }
+}
+
+@media (max-width: 640px) {
+  .popup-photos {
+    width: 85%;
+  }
+}
+
+.popup-menu_window {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 50%;
+  min-width: 720px;
+  height: 100%;
+  margin: auto;
+  padding-top: 1.25rem;
+  padding-right: 1.875em;
+  padding-left: 1.875em;
+
+  transition: opacity .225s ease;
+
+  border-radius: 0;
+}
+/*<modal>---------------------------------------------------------------------*/

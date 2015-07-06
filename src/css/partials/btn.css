@@ -1,0 +1,102 @@
+/*<btn>-----------------------------------------------------------------------*/
+.btn {
+  font-family: 'Open Sans Condensed', sans-serif;
+
+  display: inline-block;
+
+  padding: .5rem;
+
+  cursor: pointer;
+  user-select: none;
+  transition: background-color .3s ease-out;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  border: .15rem solid;
+  outline: none;
+}
+
+.btn--top {
+  display: inlineblock;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  padding: 1rem;
+  opacity: .9;
+  border: .4rem solid;
+}
+
+.btn--top--heading {
+  font-size: 2.75rem;
+
+  letter-spacing: .15rem;
+}
+
+.btn--top--subheading {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.2rem;
+
+  letter-spacing: .27rem;
+}
+
+.btn--gold {
+}
+
+.btn--grey {
+}
+
+.btn--red {
+}
+
+.btn--add {
+  font-size: 1.1rem;
+  padding: 0;
+  text-transform: none;
+  opacity: 1;
+  border: 0;
+}
+
+.btn--add-lg {
+  font-size: 1.5rem;
+}
+
+.btn--add:hover,
+.btn--add:active {
+  opacity: .8;
+}
+
+.btn--mainType {
+  font-size: 1.05rem;
+  line-height: 1.42rem;
+
+  text-align: center;
+  letter-spacing: .035rem;
+}
+
+.btn--menu {
+  margin-left: 1rem;
+}
+
+.btn--photos {
+  width: 49%;
+  margin-top: 1rem;
+}
+
+.btn--sendReview {
+  font-size: 1rem;
+  width: 100%;
+}
+
+.btn--sendMenu {
+  font-size: 1rem;
+  opacity: .9;
+}
+
+.btn--sendBanquetReservation {
+  font-size: 1rem;
+  opacity: .9;
+}
+
+.btn--cart {
+  font-size: 1rem;
+}

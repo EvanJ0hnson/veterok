@@ -1,0 +1,32 @@
+/*<footer>--------------------------------------------------------------------*/
+footer {
+  /*padding-top: 4rem;*/
+  /*padding-bottom: 4rem;*/
+}
+
+.ft-heading {
+  font-size: 2rem;
+
+  padding-bottom: 1.5rem;
+
+  letter-spacing: .045rem;
+}
+
+.ft-paragraph {
+  font-size: 1rem;
+  line-height: 1.35rem;
+
+  padding-bottom: .6rem;
+
+  letter-spacing: .03rem;
+}
+
+.ft-paragraph:last-child {
+  padding-bottom: 0;
+}
+
+.ft-block {
+  display: inline-block;
+
+  width: 50%;
+}
