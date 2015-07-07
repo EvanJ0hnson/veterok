@@ -18,7 +18,6 @@
     "normalize.css": "~3.0.3",
     "jquery": "1.11.2",
     "fontawesome": "~4.3.0",
-    "flexslider-rtl": "*",
-    "bootstrap": "~3.3.4"
+    "flexslider-rtl": "*"
   }
 }

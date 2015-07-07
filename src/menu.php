@@ -31,38 +31,11 @@
     opacity: 0;
   }
   </style>
-  <!-- build -->
-  <!-- <link rel="stylesheet" href="css/main.min.css"> -->
   <!-- css -->
   <!-- javascript -->
-  <!-- dev-vendor -->
   <script src="js/vendor/jquery-1.11.2.min.js"></script>
-  <!-- <script src="js/vendor/modernizr.js"></script> -->
-  <!-- <script src="js/vendor/flexslider.js"></script> -->
-  <!-- <script src="js/vendor/wow.min.js"></script> -->
-  <!-- dev-partials -->
   <script src="js/partial/cart.js"></script>
-  <!-- <script src="js/partial/calendar.js"></script> -->
   <script src="js/partial/scripts.js"></script>
-  <script>
-    // function templateMenu () {
-    //   $.getJSON( 'data/menu.json', function(menuItems) {
-    //     $.each(menuItems, function(key) {
-    //       var strMenu = '<div class="menu-item">'
-    //       strMenu += [menuItems[key].photo.length > 0 ? '<img class="floatLeft" src="' + menuItems[key].photo + '" alt="">' : ''];
-    //       strMenu += '<p class="menu-item--title clearfix">' + menuItems[key].title + ' <span class="menu-item--cal">(' + menuItems[key].calories + ')</span></p> \
-    //       <p class="menu-item--ingredients">' + menuItems[key].ingredients + '</p> \
-    //       <p class="menu-item--price"> \
-    //       <button id="btnID' + menuItems[key].id + '" class="btn btn--add" onclick="cart.addToCart(this, \'' + menuItems[key].id + '\', \'' + menuItems[key].title + '\', \'' + menuItems[key].price + '\', \'false\')"> \
-    //         <span class="fa fa-plus-circle"></span> \
-    //       </button> \
-    //       ' + menuItems[key].price + ' <span class="fa fa-rub"></span></p> \
-    //       </div>';
-    //       $('#' + menuItems[key].type).append(strMenu);
-    //     });
-    // });
-    // }
-  </script>
   <script>
     $(function(){
       createCart ();
