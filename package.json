@@ -1,12 +1,15 @@
 {
   "name": "veterok",
-  "version": "0.9.0",
-  "description": "veterok-hotel web site",
+  "version": "0.9.1",
+  "description": "Veterok-hotel web site",
   "main": "gulpfile.js",
   "scripts": {
     "test": ""
   },
-  "author": "Ivan Gerasimov",
+  "author": {
+    "name": "Ivan Gerasimov",
+    "url": "http://ivangerasimov.wordpress.com/"
+  },
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.7.13",
@@ -18,5 +21,9 @@
     "gulp-stylus": "^2.0.5"
   },
   "dependencies": {
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EvanJ0hnson/veterok.loc.git"
+  },
 }

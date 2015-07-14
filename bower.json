@@ -16,8 +16,9 @@
   "dependencies": {
     "animate.css": "~3.2.6",
     "normalize.css": "~3.0.3",
-    "jquery": "1.11.2",
     "fontawesome": "~4.3.0",
-    "flexslider-rtl": "*"
+    "jquery": "1.11",
+    "flexslider": "~2.5.0",
+    "wow": "~1.1.2"
   }
 }

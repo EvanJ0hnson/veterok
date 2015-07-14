@@ -115,7 +115,7 @@
     </div>
   </div>
 
-  <div id="photos" class="sc__main grey">
+  <div id="photos" class="sc__main red">
   <div class="container">
     <div class="cd-photoslider-wrapper">
       <div class="cd-photoslider main--slider">
@@ -123,8 +123,8 @@
         <div style="background-image: url(photo/2.jpg);"></div>
       </div>
     </div>
-      <a class="js-showPopup btn btn--grey btn--mainType btn--photos floatLeft wow fadeIn" data-popupName="photos_building">Фотографии комплекса</a>
-      <a class="js-showPopup btn btn--grey btn--mainType btn--photos floatRight wow fadeIn" data-popupName="photos_rooms">Фотографии номеров</a>
+      <a class="js-showPopup btn btn--red btn--mainType btn--photos floatLeft wow fadeIn" data-popupName="photos_building">Фотографии комплекса</a>
+      <a class="js-showPopup btn btn--red btn--mainType btn--photos floatRight wow fadeIn" data-popupName="photos_rooms">Фотографии номеров</a>
   </div>
   </div>
 
@@ -181,9 +181,9 @@
 
   <!-- javascript -->
   <!-- dev-vendor -->
-  <script src="js/vendor/jquery-1.11.2.min.js"></script>
+  <script src="js/vendor/jquery.min.js"></script>
   <script src="js/vendor/modernizr.js"></script>
-  <script src="js/vendor/flexslider.js"></script>
+  <script src="js/vendor/jquery.flexslider-min.js"></script>
   <script src="js/vendor/wow.min.js"></script>
   <!-- dev-partials -->
   <script src="js/partial/cart.js"></script>

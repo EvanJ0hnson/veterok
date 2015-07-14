@@ -38,10 +38,26 @@ gulp.task('json', function() {
     .pipe(gulp.dest('./www'));
 });
 
-gulp.task('js', function() {
-  gulp.src('./src/**/[^!]*.js')
-    .pipe(newer('./www'))
-    .pipe(gulp.dest('./www'));
+gulp.task('js', ['js-vendor', 'js-partial']);
+
+gulp.task('js-partial', function() {
+  gulp.src('./src/js/partial/[^!]*.js')
+    .pipe(newer('./www/js/partial'))
+    .pipe(gulp.dest('./www/js/partial'));
+});
+
+gulp.task('js-vendor', function() {
+  var lib = {
+    jquery: './bower_components/jquery/dist/jquery.min.js',
+    flexslider: './bower_components/flexslider/jquery.flexslider-min.js',
+    wow: './bower_components/wow/dist/wow.min.js'
+    };
+  gulp.src([lib.jquery, lib.flexslider, lib.wow])
+    .pipe(newer('./www/js/vendor/'))
+    .pipe(gulp.dest('./www/js/vendor/'));
+  gulp.src('./src/js/vendor/modernizr.js')
+    .pipe(newer('./www/js/vendor/'))
+    .pipe(gulp.dest('./www/js/vendor/'));
 });
 
 gulp.task('css', function() {
