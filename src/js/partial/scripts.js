@@ -287,6 +287,26 @@ function createPhotoSlider() {
   });
 }
 
+//  топ
+function createTopSlider() {
+  $('.cd-topslider-wrapper').flexslider({
+    selector: ".cd-topslider > div",
+    animation: "slide",
+    controlNav: true,
+    directionNav: false,
+    keyboard: false,
+    slideshow: true,
+    animationSpeed: 1000,
+    slideshowSpeed: 3500,
+    start: function () {
+      $('.cd-topslider').children('div').css({
+        'opacity': 1,
+        'position': 'relative'
+      });
+    }
+  });
+}
+
 function createCalendarSlider() {
   $('.cd-calendar-wrapper').flexslider({
     selector: ".cd-calendar > li",

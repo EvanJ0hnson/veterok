@@ -33,7 +33,7 @@
   </style>
   <!-- css -->
   <!-- javascript -->
-  <script src="js/vendor/jquery-1.11.2.min.js"></script>
+  <script src="js/vendor/jquery.min.js"></script>
   <script src="js/partial/cart.js"></script>
   <script src="js/partial/scripts.js"></script>
   <script>

@@ -42,6 +42,12 @@
   </nav>
 
   <div id="top" class="top wow fadeIn">
+      <div class="cd-topslider-wrapper">
+      <div class="cd-topslider">
+        <div style="background-image: url(img/background-main-cropped.jpg);"></div>
+        <div style="background-image: url(photo/2.jpg);"></div>
+      </div>
+    </div>
   </div>
 
   <div id="reservation" class="top__reservation red">
@@ -193,6 +199,7 @@
     $(function(){
       stickyNavigation();
       smoothScroll();
+      createTopSlider();
       createReviewsSlider();
       createPhotoSlider();
       modalWindow();

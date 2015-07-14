@@ -103,10 +103,10 @@ p {
   min-height: 86vh;
   max-height: 86vh;
 
-  text-align: center;
+  /*text-align: center;*/
 
-  background: url(../../img/background-main-cropped.jpg) no-repeat center center;
-  background-size: cover;
+/*  background: url(../../img/background-main-cropped.jpg) no-repeat center center;
+  background-size: cover;*/
 }
 
 .top__reservation {
