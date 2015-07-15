@@ -64,8 +64,7 @@ gulp.task('css', function() {
   gulp.src('./src/**/[^!]*.css')
     .pipe(newer('./www'))
     .pipe(autoprefixer({
-      browsers: ['> 1%'],
-      cascade: true
+      browsers: ['> 1%']
     }))
     .pipe(gulp.dest('./www'));
 });

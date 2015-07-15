@@ -222,7 +222,7 @@
       createPhotoSlider();
       modalWindow();
       formSubmit();
-      // new WOW().init();
+      new WOW().init();
     })
   </script>
   <!-- javascript -->
