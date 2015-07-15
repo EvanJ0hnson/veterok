@@ -41,11 +41,15 @@
     </ul>
   </nav>
 
-  <div id="top" class="top wow fadeIn">
+  <div id="top" class="top">
       <div class="cd-topslider-wrapper">
       <div class="cd-topslider">
         <div style="background-image: url(img/background-main-cropped.jpg);"></div>
-        <div style="background-image: url(photo/2.jpg);"></div>
+        <?php
+        foreach (glob("photo/top/*.jpg") as $Picture) {
+          echo '<div style="background-image: url('.$Picture.');"></div>';
+        }
+        ?>
       </div>
     </div>
   </div>
@@ -204,7 +208,7 @@
       createPhotoSlider();
       modalWindow();
       formSubmit();
-      // new WOW().init();
+      new WOW().init();
     })
   </script>
   <!-- javascript -->
