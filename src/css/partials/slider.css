@@ -10,15 +10,6 @@
   margin-left: auto;
 }
 
-@media only screen and (min-width: 768px) {
-  .cd-topslider-wrapper {
-    margin-top: 0;
-    margin-right: auto;
-    margin-bottom: 0;
-    margin-left: auto;
-  }
-}
-
 .cd-topslider {
   text-align: center;
 
@@ -247,7 +238,7 @@
 
   vertical-align: middle;
 
-  text-shadow: -1px -1px 0 #463d37;;
+  text-shadow: -1px -1px 0 #463d37;
 }
 
 .cd-author .cd-author-info li {

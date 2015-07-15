@@ -11,7 +11,7 @@
   <!-- css -->
   <!-- javascript -->
   <!-- dev-vendor -->
-  <script src="../js/vendor/jquery-1.11.2.min.js"></script>
+  <script src="../js/vendor/jquery.min.js"></script>
   <!-- dev-partials -->
   <script src="../js/partial/calendar.js"></script>
   <script src="../js/partial/scripts.js"></script>

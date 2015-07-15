@@ -30,7 +30,7 @@
 
   <nav class="top_nav">
     <a href="#top"><img class="top_nav--logo-square" src="img/logo_transp.png" alt="«Ветерок»"></a>
-    <a href="#top"><img class="top_nav--logo-ribbon" src="img/!logo.png" alt="«Ветерок»"></a>
+    <a href="#top"><img class="top_nav--logo-ribbon" src="img/logo.png" alt="«Ветерок»"></a>
     <ul class="floatRight">
      <li class="nav-item"><a class="nav-link" href="#about">О НАС</a></li>
      <li class="nav-item"><a class="nav-link" href="#services">УСЛУГИ</a></li>
@@ -55,7 +55,7 @@
   </div>
 
   <div id="reservation" class="top__reservation red">
-    <a data-popupName="reservation" class="btn btn--top wow fadeIn js-showPopup">
+    <a data-popupName="reservation" class="btn btn--top js-showPopup">
       <h1 class="btn--top--heading">забронировать</h1>
       <p class="btn--top--subheading">номер или банкетный зал</p>
     </a>
@@ -64,9 +64,11 @@
   <div id="about" class="sc__main--transparent">
     <div class="container gold">
         <img src="photo/small-1.jpg" alt="" class="sc-image sc-image--about sc-image--left js-showPopup wow fadeInUp" data-popupName="photos_about">
-      <h1 class="sc-heading gold__heading"><span class="gold__heading-background">О гостинице</span></h1>
-      <p class="sc-paragraph">Гостиница и кафе пользуются большой популярностью у дальнобойщиков и проезжающих мимо туристов.</p>
-      <p class="sc-paragraph">В гостинице имеются 16 номеров. Рядом находится шиномонтаж, автосервис, магазин автозапчастей и автосауна.</p>
+      <h1 class="sc-heading gold__heading"><span class="gold__heading-background">О нас</span></h1>
+      <p class="sc-paragraph">Ресторанно-гостиничный комплекс «Ветерок» пользуется популярностью среди проезжающих и не только. Так, например, у нас регулярно проводят банкеты гости из близлежащих населенных пунктов и городов.</p>
+      <p class="sc-paragraph">Мы являемся представителями соотношения цены и качества. Наши работники регулярно проходят стажировку у профессионалов.</p>
+      <p class="sc-paragraph">Наши повара могут удовлетворить любой, даже самый взыскательный вкус, приготовить любое блюдо по вашему пожеланию или рецепту.</p>
+      <p class="sc-paragraph">Наш комплекс всегда, в любое время года и суток встретит Вас дружеской улыбкой, прохладой в знойные летние дни и теплым уютом в зимние стужи и конечно мы всегда готовы накормить Вас вкуснейшими блюдами и предложить уютные номера в гостинице.</p>
       <h1 id="news" class="sc-subheading gold__heading"><span class="gold__heading-background">Новости</span></h1>
       <div class="sc-news">
         <?php
@@ -89,7 +91,7 @@
   <div id="services" class="sc__main red">
     <div class="container">
     <img src="photo/small-2.jpg" alt="" class="sc-image sc-image--services sc-image--right js-showPopup wow fadeInUp" data-popupName="photos_services">
-    <h1 class="sc-heading">у нас вы можете</h1>
+    <h1 class="sc-heading">У нас вы можете</h1>
     <ul class="sc-list-items">
       <li class="sc-list-item">
         <a class="sc-list-link js-showPopup" data-popupName="services-1">Отдохнуть в комфортной обстановке</a>
@@ -104,10 +106,19 @@
         <a class="sc-list-link js-showPopup" data-popupName="services-4">Устроить праздник в одном из банкетных залов</a>
       </li>
       <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="services-5">Получить информацию по проезду к определенным местам в городе и времени работы транспорта</a>
+        <a class="sc-list-link js-showPopup" data-popupName="services-5">Поиграть в бильярд с друзьями</a>
       </li>
       <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="services-6">Узнать о расположении ближайших мест отдыха, ресторанов, кинотеатров</a>
+        <a class="sc-list-link js-showPopup" data-popupName="services-6">Стать еще более красивыми посетив наш салон красоты</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="services-7">Заказать блюда "на вынос"</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="services-8">Приобрести продукты первой необходимости, а так же приобрести наши фирменные полуфабрикаты высочайшего качества</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="services-9">Помыть и отремонтировать Ваше авто</a>
       </li>
     </ul>
     </div>
@@ -129,8 +140,11 @@
   <div class="container">
     <div class="cd-photoslider-wrapper">
       <div class="cd-photoslider main--slider">
-        <div style="background-image: url(photo/1.jpg);"></div>
-        <div style="background-image: url(photo/2.jpg);"></div>
+        <?php
+          foreach (glob("photo/main/*.*") as $Picture) {
+            echo '<div style="background-image: url('.$Picture.');"></div>';
+          }
+        ?>
       </div>
     </div>
       <a class="js-showPopup btn btn--red btn--mainType btn--photos floatLeft wow fadeIn" data-popupName="photos_building">Фотографии комплекса</a>
@@ -208,7 +222,7 @@
       createPhotoSlider();
       modalWindow();
       formSubmit();
-      new WOW().init();
+      // new WOW().init();
     })
   </script>
   <!-- javascript -->
