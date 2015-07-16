@@ -13,11 +13,6 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('build', function() {
-  gulp.src('./src/**/[^!]*')
-    .pipe(gulp.dest('./www'));
-});
-
 gulp.task('php', function() {
   gulp.src('./src/**/[^!]*.php')
     .pipe(newer('./www'))
@@ -69,8 +64,6 @@ gulp.task('css', function() {
     .pipe(gulp.dest('./www'));
 });
 
-// gulp.task('css-watch', ['css'], browserSync.reload);
-
 gulp.task('stylus', function() {
   gulp.src('src/stylus/partials/colors.styl')
     .pipe(stylus({
@@ -86,13 +79,18 @@ gulp.task('stylus', function() {
     .pipe(gulp.dest('www/css/partials'));
 });
 
-gulp.task('imageOptim', ['build'], function () {
-  return gulp.src('src/img/*')
+gulp.task('imageOptim', function () {
+  gulp.src('./src/img/*')
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{removeViewBox: false}]
     }))
-    .pipe(gulp.dest('www/img'));
+    .pipe(gulp.dest('./www/img'));
+});
+
+gulp.task('photos', function () {
+  gulp.src('./src/photo/**/*')
+    .pipe(gulp.dest('./www/photo'));
 });
 
 gulp.task('watch', function() {
@@ -104,5 +102,7 @@ gulp.task('watch', function() {
   gulp.watch('src/**/[^!]*.styl', ['stylus']);
   gulp.watch('www/**/*').on('change', browserSync.reload);
 });
+
+gulp.task('build', ['photos', 'imageOptim', 'stylus', 'css', 'js', 'json', 'html', 'php']);
 
 gulp.task('default', ['browser-sync', 'watch']);
