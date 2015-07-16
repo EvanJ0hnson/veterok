@@ -7,8 +7,8 @@
   padding: .5rem;
 
   cursor: pointer;
-  user-select: none; 
-  transition: all .3s ease-out;
+  user-select: none;
+  transition: background-color .3s ease-out;
   text-decoration: none;
   text-transform: uppercase;
 
