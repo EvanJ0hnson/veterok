@@ -172,39 +172,10 @@ function modalWindow() {
         enable_scroll();
       });
       break;
-    case "photos_building":
+    case "photos":
+      var photoFolder = $(this).attr("data-photoFolder");
       $('.popup').addClass('popup-photos no-overflow');
-      $(".popup").load("popupWindows/" + popupName + ".html", function () {
-        createPhotoSlider();
-      });
-      break;
-    case "photos_rooms":
-      $('.popup').addClass('popup-photos no-overflow');
-      $(".popup").load("popupWindows/" + popupName + ".html", function () {
-        createPhotoSlider();
-      });
-      break;
-    case "photos_about":
-      $('.popup').addClass('popup-photos no-overflow');
-      $(".popup").load("popupWindows/" + popupName + ".html", function () {
-        createPhotoSlider();
-      });
-      break;
-    case "photos_services":
-      $('.popup').addClass('popup-photos no-overflow');
-      $(".popup").load("popupWindows/" + popupName + ".html", function () {
-        createPhotoSlider();
-      });
-      break;
-    case "photos_restaurant":
-      $('.popup').addClass('popup-photos no-overflow');
-      $(".popup").load("popupWindows/" + popupName + ".html", function () {
-        createPhotoSlider();
-      });
-      break;
-    case "photos_menu":
-      $('.popup').addClass('popup-photos no-overflow');
-      $(".popup").load("popupWindows/" + popupName + ".html", function () {
+      $(".popup").load("popupWindows/imgRouter.php", {'type': photoFolder}, function () {
         createPhotoSlider();
       });
       break;
