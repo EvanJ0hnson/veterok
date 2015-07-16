@@ -11,7 +11,7 @@
   height: 3.75rem;
 
   user-select: none;
-  transition-duration: all .3s;
+  transition: all .3s;
   transform: translateZ(0);
 }
 
