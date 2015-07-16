@@ -27,7 +27,7 @@
 
   margin-left: 1rem;
 
-  transition: all .3s;
+  transition: border .3s;
   text-decoration: none;
   letter-spacing: .05rem;
   text-transform: uppercase;
