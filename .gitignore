@@ -4,9 +4,7 @@ bower_components
 node_modules
 www
 .htaccess
-*.sublime-project
 *.sublime-workspace
-!reference
 
 # Windows image file caches
 Thumbs.db

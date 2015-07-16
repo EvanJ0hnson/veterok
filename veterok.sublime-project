@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"name": "veterok-project",
+			"folder_exclude_patterns": ["www", "src","node_modules", ".idea"],
+      "file_exclude_patterns": ["*.sublime-project"],
+			"path": "."
+		},{
+      "name": "src",
+      "path": "./src"
+    },{
+      "name": "www",
+      "path": "./www"
+    }
+	]
+}
