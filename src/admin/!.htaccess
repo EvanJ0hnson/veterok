@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Private zone. Only for administrator!"
-AuthUserFile  /home/f0002966/domains/f0002966.xsph.ru/.htpasswd/.htpasswd
-require valid-user
