@@ -2,11 +2,14 @@
 	"folders":
 	[
 		{
-			"name": "veterok-project",
-			"folder_exclude_patterns": ["www", "src","node_modules", ".idea"],
+			"name": "root",
+			"folder_exclude_patterns": ["www", "src","node_modules", ".idea", "bower_components"],
       "file_exclude_patterns": ["*.sublime-project"],
 			"path": "."
 		},{
+      "name": "bower",
+      "path": "./bower_components"
+    },{
       "name": "src",
       "path": "./src"
     },{

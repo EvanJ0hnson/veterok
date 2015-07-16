@@ -22,8 +22,6 @@
   <link rel="stylesheet" href="css/partials/colors.css">
   <link rel="stylesheet" href="css/partials/cart.css">
   <link rel="stylesheet" href="css/partials/style.css">
-  <!-- build -->
-  <!-- <link rel="stylesheet" href="css/main.min.css"> -->
   <!-- css -->
 </head>
 <body>
