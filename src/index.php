@@ -47,7 +47,7 @@
 
   <div id="about" class="sc__main--transparent">
     <div class="container gold">
-        <img src="photo/small-1.jpg" alt="" class="sc-image sc-image--about sc-image--left js-showPopup wow fadeInUp" data-popupName="photos" data-photoFolder="about">
+        <img src="photo/small-1.jpg" alt="" class="sc-image sc-image--about sc-image--left js-showPopup wow fadeIn" data-popupName="photos" data-photoFolder="about">
       <h1 class="sc-heading gold__heading"><span class="gold__heading-background">О нас</span></h1>
       <p class="sc-paragraph">Ресторанно-гостиничный комплекс «Ветерок» пользуется популярностью среди проезжающих и не только. Так, например, у нас регулярно проводят банкеты гости из близлежащих населенных пунктов и городов.</p>
       <p class="sc-paragraph">Мы являемся представителями соотношения цены и качества. Наши работники регулярно проходят стажировку у профессионалов.</p>
@@ -68,13 +68,13 @@
         } else echo '<p class="sc-paragraph">Новостей нет</p>';
         ?>
       </div>
-      <a data-popupName="news" class="js-showPopup btn btn--gold btn--mainType floatRight wow fadeIn">Все новости</a>
+      <a data-popupName="news" class="js-showPopup btn btn--gold btn--mainType floatRight">Все новости</a>
     </div>
   </div>
 
   <div id="services" class="sc__main red">
     <div class="container">
-    <img src="photo/small-2.jpg" alt="" class="sc-image sc-image--services sc-image--right js-showPopup wow fadeInUp" data-popupName="photos" data-photoFolder="services">
+    <img src="photo/small-2.jpg" alt="" class="sc-image sc-image--services sc-image--right js-showPopup wow fadeIn" data-popupName="photos" data-photoFolder="services">
     <h1 class="sc-heading">У нас вы можете</h1>
     <ul class="sc-list-items">
       <li class="sc-list-item">
@@ -110,12 +110,12 @@
 
   <div id="menu" class="sc__main--transparent">
     <div class="container gold">
-      <img src="photo/small-3.jpg" alt="" class="sc-image sc-image--menu sc-image--left js-showPopup wow fadeInUp" data-popupName="photos" data-photoFolder="restaurant">
+      <img src="photo/small-3.jpg" alt="" class="sc-image sc-image--menu sc-image--left js-showPopup wow fadeIn" data-popupName="photos" data-photoFolder="restaurant">
       <h1 class="sc-heading gold__heading"><span class="gold__heading-background">Ресторан</span></h1>
       <p class="sc-paragraph">Если вы решили провести незабываемый романтический вечер или весело отдохнуть компанией – смело направляйтесь в ресторан гостиницы «Ветерок»!</p>
       <p class="sc-paragraph">Здесь вас приятно удивят великолепные блюда, их оригинальное оформление и подача. Изысканное меню, богатая карта вин, способная удовлетворить разнообразные вкусы самых требовательных гостей и высокий сервис обслуживания обязательно поднимут вам настроение!</p>
-      <a class="js-showMenuPage btn btn--gold btn--mainType btn--menu floatRight wow fadeIn" data-popupName="menu" href="menu.php">Составить меню банкета</a>
-      <a class="js-showPopup btn btn--gold btn--mainType btn--menu floatRight wow fadeIn" data-popupName="photos" data-photoFolder="menu">Ознакомиться с меню</a>
+      <a class="js-showMenuPage btn btn--gold btn--mainType btn--menu floatRight" data-popupName="menu" href="menu.php">Составить меню банкета</a>
+      <a class="js-showPopup btn btn--gold btn--mainType btn--menu floatRight" data-popupName="photos" data-photoFolder="menu">Ознакомиться с меню</a>
       <!-- <div class=""></div> -->
     </div>
   </div>
@@ -131,8 +131,8 @@
         ?>
       </div>
     </div>
-      <a class="js-showPopup btn btn--red btn--mainType btn--photos floatLeft wow fadeIn" data-popupName="photos" data-photoFolder="building">Фотографии комплекса</a>
-      <a class="js-showPopup btn btn--red btn--mainType btn--photos floatRight wow fadeIn" data-popupName="photos" data-photoFolder="rooms">Фотографии номеров</a>
+      <a class="js-showPopup btn btn--red btn--mainType btn--photos floatLeft" data-popupName="photos" data-photoFolder="building">Фотографии комплекса</a>
+      <a class="js-showPopup btn btn--red btn--mainType btn--photos floatRight" data-popupName="photos" data-photoFolder="rooms">Фотографии номеров</a>
   </div>
   </div>
 
@@ -178,7 +178,7 @@
       <div class="ft-block floatLeft">
         <form id="fSendReview">
           <textarea id="reviewText" name="formBody" placeholder="Здесь вы можете оставить отзыв о гостинице. Не забудьте представиться. Спасибо!" required></textarea>
-          <button type="submit" name="sendReview" class="btn btn--red btn--mainType btn--sendReview wow fadeIn">Отправить</button>
+          <button type="submit" name="sendReview" class="btn btn--red btn--mainType btn--sendReview">Отправить</button>
           <input type="hidden" name="event" value="SendReview">
         </form>
       </div>
