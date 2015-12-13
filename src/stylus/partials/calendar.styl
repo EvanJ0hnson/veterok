@@ -1,0 +1,67 @@
+/*.wrapper_calendar {
+  margin: 0;
+  padding: 0;
+  width: 50%;
+}*/
+
+.table_calendar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+}
+
+.head_cal {
+  font-size: 20px;
+  line-height: 60px;
+}
+
+.week_cal {
+  font-size: 15px;
+  line-height: 27px;
+}
+
+.days_cal {
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+  vertical-align: top;
+}
+
+.days_cal--inner {
+  font-size: 25px;
+
+  display: block;
+
+  margin: 0;
+  margin-right: .25em;
+  padding: 0;
+  padding-bottom: .25em;
+
+  cursor: pointer;
+  transition: all .25s ease;
+  text-decoration: none;
+
+  /*color: #b9b9b9;*/
+
+  border: .1em solid;
+  /*border-color: rgba(0,0,0,0);*/
+  border-radius: 35%;
+}
+
+.days_cal--inner_selected {
+  border-right: .1em solid;
+  border-left: .1em solid;
+}
+
+.days_cal--event {
+  cursor: default;
+  transition: all .25s ease;
+
+  opacity: .35;
+  border-right: .1em solid;
+  border-left: .1em solid;
+  border-radius: 35%;
+}

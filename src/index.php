@@ -5,23 +5,9 @@
   <meta name=viewport content="width=960">
   <title>Гостиница «Ветерок»</title>
   <!-- css -->
-  <!-- dev-vendor -->
-  <link rel="stylesheet" href="css/vendor/reset.css">
-  <link rel="stylesheet" href="css/vendor/font-awesome.css">
-  <link rel="stylesheet" href="css/vendor/animate.css">
-  <!-- dev-partials -->
-  <link rel="stylesheet" href="css/partials/slider.css">
-  <link rel="stylesheet" href="css/partials/navigation.css">
-  <link rel="stylesheet" href="css/partials/sections.css">
-  <link rel="stylesheet" href="css/partials/footer.css">
-  <link rel="stylesheet" href="css/partials/menu.css">
-  <link rel="stylesheet" href="css/partials/modal.css">
-  <link rel="stylesheet" href="css/partials/btn.css">
-  <link rel="stylesheet" href="css/partials/form.css">
-  <link rel="stylesheet" href="css/partials/calendar.css">
-  <link rel="stylesheet" href="css/partials/colors.css">
-  <link rel="stylesheet" href="css/partials/cart.css">
-  <link rel="stylesheet" href="css/partials/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/styles.min.css">
   <!-- css -->
 </head>
 <body>
@@ -54,8 +40,8 @@
 
   <div id="reservation" class="top__reservation red">
     <a data-popupName="reservation" class="btn btn--top js-showPopup">
-      <h1 class="btn--top--heading">забронировать</h1>
-      <p class="btn--top--subheading">номер или банкетный зал</p>
+      <h1 class="btn--top--heading">Забронировать</h1>
+      <p class="btn--top--subheading">Номер или банкетный зал</p>
     </a>
   </div>
 
@@ -125,7 +111,7 @@
   <div id="menu" class="sc__main--transparent">
     <div class="container gold">
       <img src="photo/small-3.jpg" alt="" class="sc-image sc-image--menu sc-image--left js-showPopup wow fadeInUp" data-popupName="photos" data-photoFolder="restaurant">
-      <h1 class="sc-heading gold__heading"><span class="gold__heading-background">ресторан</span></h1>
+      <h1 class="sc-heading gold__heading"><span class="gold__heading-background">Ресторан</span></h1>
       <p class="sc-paragraph">Если вы решили провести незабываемый романтический вечер или весело отдохнуть компанией – смело направляйтесь в ресторан гостиницы «Ветерок»!</p>
       <p class="sc-paragraph">Здесь вас приятно удивят великолепные блюда, их оригинальное оформление и подача. Изысканное меню, богатая карта вин, способная удовлетворить разнообразные вкусы самых требовательных гостей и высокий сервис обслуживания обязательно поднимут вам настроение!</p>
       <a class="js-showMenuPage btn btn--gold btn--mainType btn--menu floatRight wow fadeIn" data-popupName="menu" href="menu.php">Составить меню банкета</a>
@@ -152,7 +138,7 @@
 
  <div id="reviews" class="sc__main--transparent">
     <div class="container">
-    <h1 class="sc-heading gold__heading"><span class="gold__heading-background">отзывы</span></h1>
+    <h1 class="sc-heading gold__heading"><span class="gold__heading-background">Отзывы</span></h1>
       <div class="cd-testimonials-wrapper">
         <ul class="cd-testimonials">
           <li>
@@ -197,7 +183,7 @@
         </form>
       </div>
       <h1 class="ft-heading">Как к нам добраться</h1>
-      <iframe src="https://www.google.ru/maps/embed?pb=!1m16!1m12!1m3!1d19290.2044802909!2d50.52257565987898!3d52.817396981649324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0KHQsNC80LDRgNCwLCDQn9C-0LTRitC10Lwt0JzQuNGF0LDQudC70L7QstC60LA!5e0!3m2!1sru!2sru!4v1426198644037" width="100%" height="450" frameborder="0" style="border:0;" class="wow fadeInLeft"></iframe>
+      <iframe src="https://www.google.ru/maps/embed?pb=!1m16!1m12!1m3!1d19290.2044802909!2d50.52257565987898!3d52.817396981649324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0KHQsNC80LDRgNCwLCDQn9C-0LTRitC10Lwt0JzQuNGF0LDQudC70L7QstC60LA!5e0!3m2!1sru!2sru!4v1426198644037" width="100%" height="450" frameborder="0" style="border:0;" class="wow fadeIn"></iframe>
     </div>
   </footer>
 

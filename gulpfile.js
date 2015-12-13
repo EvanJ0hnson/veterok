@@ -85,17 +85,14 @@ gulp.task('js-vendor', function() {
 });
 
 gulp.task('css', function() {
-  return gulp.src(config.srcRoot + '**/[^!]*.css')
+  return gulp.src(config.srcRoot + 'css/vendor/*.css')
     .pipe($.plumber())
-    .pipe($.newer(config.buildRoot))
-    .pipe($.autoprefixer({
-      browsers: ['> 1%']
-      }))
-    .pipe(gulp.dest(config.buildRoot));
+    .pipe($.concat('vendor.css'))
+    .pipe(gulp.dest(config.buildRoot + 'css/'));
 });
 
 gulp.task('stylus', function() {
-  return gulp.src('src/stylus/partials/colors.styl')
+  return gulp.src(config.srcRoot + 'stylus/main.styl')
     .pipe($.plumber())
     .pipe($.stylus({
       compress: true
@@ -104,10 +101,8 @@ gulp.task('stylus', function() {
       browsers: ['last 2 versions'],
       cascade: false
       }))
-    // .pipe(csscomb())
-    // .pipe(newer('www/css'))
-    // .pipe(rename('style.min.css'))
-    .pipe(gulp.dest('www/css/partials'));
+    .pipe($.concat('styles.min.css'))
+    .pipe(gulp.dest(config.buildRoot + 'css/'));
 });
 
 gulp.task('imageOptim', function () {
@@ -131,7 +126,7 @@ gulp.task('watch', ['sync'], function() {
   gulp.watch(config.srcRoot + '**/[^!]*.html', ['html']);
   gulp.watch(config.srcRoot + '**/[^!]*.json', ['json']);
   gulp.watch(config.srcRoot + '**/[^!]*.js', ['js']);
-  gulp.watch(config.srcRoot + '**/[^!]*.css', ['css']);
+  // gulp.watch(config.srcRoot + '**/[^!]*.css', ['css']);
   gulp.watch(config.srcRoot + '**/[^!]*.styl', ['stylus']);
   gulp.watch(config.buildRoot + '**/*').on('change', bs.reload);
 });
@@ -144,8 +139,8 @@ gulp.task('build', [
                   'js',
                   'json',
                   'html',
-                  'php',
-                  'fonts'
+                  'php'
+                  // 'fonts'
 ]);
 
 gulp.task('default', ['watch']);

@@ -5,23 +5,11 @@
   <meta name=viewport content="width=960">
   <title>Гостиница «Ветерок»</title>
   <!-- css -->
-  <!-- dev-vendor -->
-  <link rel="stylesheet" href="css/vendor/reset.css">
-  <link rel="stylesheet" href="css/vendor/font-awesome.css">
-  <link rel="stylesheet" href="css/vendor/animate.css">
-  <!-- dev-partials --> 
-  <link rel="stylesheet" href="css/partials/slider.css">
-  <link rel="stylesheet" href="css/partials/navigation.css">
-  <link rel="stylesheet" href="css/partials/sections.css">
-  <link rel="stylesheet" href="css/partials/footer.css">
-  <link rel="stylesheet" href="css/partials/menu.css">
-  <link rel="stylesheet" href="css/partials/modal.css">
-  <link rel="stylesheet" href="css/partials/btn.css">
-  <link rel="stylesheet" href="css/partials/form.css">
-  <link rel="stylesheet" href="css/partials/colors.css">
-  <link rel="stylesheet" href="css/partials/cart.css">
-  <link rel="stylesheet" href="css/partials/style.css">
-  <link rel="stylesheet" href="css/partials/calendar.css">
+  <!-- css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/styles.min.css">
+  <!-- css -->
   
   <style media="print" type="text/css">
   .noprint {
