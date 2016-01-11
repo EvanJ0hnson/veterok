@@ -5,6 +5,7 @@ node_modules
 www
 .htaccess
 *.sublime-workspace
+build
 
 # Windows image file caches
 Thumbs.db
