@@ -7,9 +7,9 @@ var $ = require('gulp-load-plugins')({
 
 var bs = $.browserSync.create();
 var config = {
-  buildRoot: './www/',
+  buildRoot: './build/',
   srcRoot: './src/',
-  proxyAdress: 'veterok.loc.ru',
+  proxyAdress: 'http://veterok.dev/',
   libVendorJS: {
     },
   libVendorAssets: {
@@ -70,15 +70,11 @@ gulp.task('js-partial', function() {
 
 gulp.task('js-vendor', function() {
   var lib = {
-    jquery: './bower_components/jquery/dist/jquery.min.js',
-    flexslider: './bower_components/flexslider/jquery.flexslider-min.js',
-    wow: './bower_components/wow/dist/wow.min.js'
+    jquery: './node_modules/jquery/dist/jquery.min.js',
+    flexslider: './node_modules/flexslider/jquery.flexslider-min.js',
+    wow: './node_modules/wow/dist/wow.min.js',
     };
   return gulp.src([lib.jquery, lib.flexslider, lib.wow])
-    .pipe($.plumber())
-    .pipe($.newer(config.buildRoot + 'js/vendor/'))
-    .pipe(gulp.dest(config.buildRoot + 'js/vendor/'));
-  return gulp.src(config.srcRoot + 'js/vendor/modernizr.js')
     .pipe($.plumber())
     .pipe($.newer(config.buildRoot + 'js/vendor/'))
     .pipe(gulp.dest(config.buildRoot + 'js/vendor/'));

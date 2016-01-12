@@ -190,7 +190,6 @@
   <!-- javascript -->
   <!-- dev-vendor -->
   <script src="js/vendor/jquery.min.js"></script>
-  <script src="js/vendor/modernizr.js"></script>
   <script src="js/vendor/jquery.flexslider-min.js"></script>
   <script src="js/vendor/wow.min.js"></script>
   <!-- dev-partials -->

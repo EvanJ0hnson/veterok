@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/EvanJ0hnson/veterok.loc.git"
+    "url": "https://github.com/EvanJ0hnson/veterok.git"
   },
   "author": "Ivan Gerasimov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/EvanJ0hnson/veterok.loc/issues"
   },
-  "homepage": "http://dev.bearded.16mb.com",
+  "homepage": "http://dev.gerasimov.pw",
   "devDependencies": {
     "browser-sync": "^2.8.2",
     "del": "^1.2.1",
@@ -31,5 +31,14 @@
     "gulp-rigger": "^0.5.8",
     "gulp-stylus": "^2.0.6",
     "run-sequence": "^1.1.2"
+  },
+  "dependencies": {
+    "animate.css": "^3.4.0",
+    "flexslider": "^2.5.0",
+    "font-awesome": "^4.5.0",
+    "jquery": "^2.2.0",
+    "modernizr": "^3.3.0",
+    "normalize.css": "^3.0.3",
+    "wow": "git://github.com/matthieua/WOW.git"
   }
 }
