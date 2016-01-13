@@ -5,8 +5,6 @@
   <meta name=viewport content="width=960">
   <title>Гостиница «Ветерок»</title>
   <!-- css -->
-  <!-- css -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/styles.min.css">
   <!-- css -->
@@ -21,9 +19,8 @@
   </style>
   <!-- css -->
   <!-- javascript -->
-  <script src="js/vendor/jquery.min.js"></script>
-  <script src="js/partial/cart.js"></script>
-  <script src="js/partial/scripts.js"></script>
+  <script src="js/vendor.js"></script>
+  <script src="js/partial.js"></script>
   <script>
     $(function(){
       createCart ();

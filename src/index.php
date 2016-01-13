@@ -5,7 +5,6 @@
   <meta name=viewport content="width=960">
   <title>Гостиница «Ветерок»</title>
   <!-- css -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/styles.min.css">
   <!-- css -->
@@ -188,14 +187,8 @@
   </footer>
 
   <!-- javascript -->
-  <!-- dev-vendor -->
-  <script src="js/vendor/jquery.min.js"></script>
-  <script src="js/vendor/jquery.flexslider-min.js"></script>
-  <script src="js/vendor/wow.min.js"></script>
-  <!-- dev-partials -->
-  <script src="js/partial/cart.js"></script>
-  <script src="js/partial/calendar.js"></script>
-  <script src="js/partial/scripts.js"></script>
+  <script src="js/vendor.js"></script>
+  <script src="js/partial.js"></script>
   <script>
     $(function(){
       stickyNavigation();
