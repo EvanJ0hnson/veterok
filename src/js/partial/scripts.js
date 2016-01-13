@@ -147,7 +147,6 @@ function formSubmit() {
 function modalWindow() {
   // var navWidth = $('nav').css('width');
   $('.js-showPopup').on('click', (event) => {
-    console.log(event)
     const popupName = $(event.currentTarget).attr('data-popupName');
     const vOverlay = '<div id="popup_overlay" class="overlay grey"> \
       <div class="overlay--close-btn"></div> \
