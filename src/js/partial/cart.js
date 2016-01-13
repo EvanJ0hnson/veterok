@@ -7,10 +7,10 @@ function WICard(obj) {
   this.widjetObj = null;
   this.widjetID = null;
 
-  this.init = function(widjetID) {
+  this.init = function (widjetID) {
     this.DATA = JSON.parse(localStorage.getItem(widjetID)) || {};
 
-    this.IDS = JSON.parse(localStorage.getItem(widjetID + "_ids")) || [];
+    this.IDS = JSON.parse(localStorage.getItem(widjetID + '_ids')) || [];
 
     this.widjetID = widjetID;
     this.widjetObj = $('#' + widjetID);
@@ -22,7 +22,7 @@ function WICard(obj) {
     }
   };
 
-  this.addToCart = function(curObj, id, name, price, render) {
+  this.addToCart = function (curObj, id, name, price, render) {
     id = ($.isNumeric(id)) ? 'ID' + id.toString() : id;
 
     // Нужно убрать проверку  === true и передавать '' вместо false
@@ -64,17 +64,17 @@ function WICard(obj) {
     }
   };
 
-  this.delItem = function(id, count) {
+  this.delItem = function (id, count) {
     id = ($.isNumeric(id)) ? 'ID' + id.toString() : id;
     switch (count) {
-      case "all":
+      case 'all':
         delete this.DATA[id];
         var ind = $.inArray(id, this.IDS);
         if (ind >= 0) {
           this.IDS.splice(ind, 1);
         }
         break;
-      case "one":
+      case 'one':
         var idKey;
         for (idKey in this.DATA) {
           if (this.DATA.hasOwnProperty(idKey)) {
@@ -90,7 +90,6 @@ function WICard(obj) {
         }
         break;
       default:
-        console.log('Error, please add one/all');
         break;
     }
 
@@ -101,11 +100,11 @@ function WICard(obj) {
     localStorage.setItem(this.widjetID + "_ids", JSON.stringify(this.IDS));
   };
 
-  this.reCalc = function() {
-    var num = 0,
-      sum = 0,
-      counter = 0,
-      idkey = null;
+  this.reCalc = function () {
+    var num = 0;
+    var sum = 0;
+    var counter = 0;
+    var idkey = null;
 
     for (idkey in this.DATA) {
       if (this.DATA.hasOwnProperty(idkey)) {
@@ -122,12 +121,12 @@ function WICard(obj) {
     }
   };
 
-  this.renderBasketTable = function() {
-    var sum = 0,
-      counter = 0,
-      idkey = null,
-      productLine = null,
-      tableCaption = null;
+  this.renderBasketTable = function () {
+    var sum = 0;
+    var counter = 0;
+    var idkey = null;
+    var productLine = null;
+    var tableCaption = null;
 
     if ($('#popup_cart').length === 0) {
       $('body').append('<div id="popup_cart" class="popup popup-menu_window gold"> \
@@ -169,12 +168,12 @@ function WICard(obj) {
     $('#cart-sum').html('Общая сумма: ' + sum + ' <span class="fa fa-rub"></span>');
   };
 
-  this.getItems = function() {
-    var items = "",
-      sum = 0,
-      counter = 0,
-      idkey = null,
-      productLine = null;
+  this.getItems = function () {
+    var items = '';
+    var sum = 0;
+    var counter = 0;
+    var idkey = null;
+    var productLine = null;
 
     for (idkey in this.DATA) {
       if (this.DATA.hasOwnProperty(idkey)) {
@@ -188,8 +187,8 @@ function WICard(obj) {
     return items;
   };
 
-  this.showWinow = function() {
+  this.showWinow = function () {
     this.renderBasketTable();
-    $("#popup_cart").toggleClass("visible");
+    $('#popup_cart').toggleClass('visible');
   };
 }
