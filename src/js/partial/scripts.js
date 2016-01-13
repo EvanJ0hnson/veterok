@@ -35,8 +35,8 @@ function initCalendar(isAdmin) {
  * updateReservations (admin page)
  */
 function updateReservations() {
-  $('.js-updateReservations').on('click', () => {
-    const id = $(this).attr('data-id');
+  $('.js-updateReservations').on('click', (event) => {
+    const id = $(event.currentTarget).attr('data-id');
     const scriptFilePath = 'admin-updateReservations.php';
     let calendarItems = [];
     switch (id) {
@@ -69,11 +69,11 @@ function updateReservations() {
  */
 function formSubmit() {
   const scriptFilePath = 'formSubmit.php';
-  $('#fSendReview').on('submit', () => {
+  $('#fSendReview').on('submit', (event) => {
     $.ajax({
       type: 'POST',
       url: scriptFilePath,
-      data: $(this).serialize(),
+      data: $(event.currentTarget).serialize(),
       success(answer) {
         $('#reviewText').val(answer);
       }
@@ -111,7 +111,7 @@ function formSubmit() {
     $.ajax({
       type: 'POST',
       url: scriptFilePath,
-      data: $(this).serialize() + '&formBody=ЗАЯВКА НА БРОНИРОВАНИЕ БАНКЕТНОГО ЗАЛА' + '\nИмя и контактные данные: ' + msg + '\nЗал №1: ' + dates[3] + '\nЗал №2: ' + dates[4] + '\nЗал №3: ' + dates[5],
+      data: $(event.currentTarget).serialize() + '&formBody=ЗАЯВКА НА БРОНИРОВАНИЕ БАНКЕТНОГО ЗАЛА' + '\nИмя и контактные данные: ' + msg + '\nЗал №1: ' + dates[3] + '\nЗал №2: ' + dates[4] + '\nЗал №3: ' + dates[5],
       success(answer) {
         $('#userContact').val(answer);
       }
@@ -131,7 +131,7 @@ function formSubmit() {
     $.ajax({
       type: 'POST',
       url: scriptFilePath,
-      data: $(this).serialize() + '&formBody=Имя и контактные данные: ' + msg + '\nМЕНЮ\n' + cartItems,
+      data: $(event.currentTarget).serialize() + '&formBody=Имя и контактные данные: ' + msg + '\nМЕНЮ\n' + cartItems,
       success(answer) {
         $('#userContact').val(answer);
       }
@@ -146,8 +146,9 @@ function formSubmit() {
  */
 function modalWindow() {
   // var navWidth = $('nav').css('width');
-  $('.js-showPopup').click(() => {
-    const popupName = $(this).attr('data-popupName');
+  $('.js-showPopup').on('click', (event) => {
+    console.log(event)
+    const popupName = $(event.currentTarget).attr('data-popupName');
     const vOverlay = '<div id="popup_overlay" class="overlay grey"> \
       <div class="overlay--close-btn"></div> \
       </div> \
@@ -190,14 +191,14 @@ function modalWindow() {
         });
         break;
       case 'photos':
-        const photoFolder = $(this).attr('data-photoFolder');
+        const photoFolder = $(event.currentTarget).attr('data-photoFolder');
         $('.popup').addClass('popup-photos no-overflow');
         $('.popup').load('popupWindows/imgRouter.php', {type: photoFolder}, () => {
           createPhotoSlider();
         });
         break;
       case 'servicesPhoto':
-        const src = $(this).attr('data-src');
+        const src = $(event.currentTarget).attr('data-src');
         $('.popup').addClass('popup-photos no-overflow');
         $('.popup').load('popupWindows/servicesRouter.php', {type: src}, () => {
           createPhotoSlider();
@@ -409,15 +410,14 @@ function stickyNavigation() {
  * @return {[type]} [description]
  */
 function smoothScroll() {
-  $('a[href^="#"], a[href^="."]').click(() => {
-  // если в href начинается с # или ., то ловим клик
-    const scroll_el = $(this).attr('href');
+  $('a[href^="#"], a[href^="."]').on('click', (event) => {
+    const scroll_el = $(event.currentTarget).attr('href');
     // возьмем содержимое атрибута href
     if ($(scroll_el).length !== 0) {
     // проверим существование элемента чтобы избежать ошибки
-      $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 350); // анимируем скроолинг к элементу scroll_el
+      $('html, body').animate({scrollTop: $(scroll_el).offset().top}, 350); // анимируем скроолинг к элементу scroll_el
     }
-    return false; // выключаем стандартное действие
+    return false;
   });
 }
 /**
