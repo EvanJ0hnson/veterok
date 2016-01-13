@@ -67,6 +67,7 @@ gulp.task('js', ['js-vendor', 'js-partial']);
 gulp.task('js-partial', function() {
   return gulp.src(config.srcRoot + 'js/partial/[^!]*.js')
     .pipe($.plumber())
+    .pipe($.babel())
     .pipe($.concat('partial.js'))
     .pipe(gulp.dest(config.buildRoot + 'js/'));
 });
