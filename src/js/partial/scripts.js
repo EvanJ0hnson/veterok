@@ -4,7 +4,7 @@
 /**
  * Cart init
  */
-var cart;
+let cart;
 function createCart() {
   cart = new WICard ('cart');
   cart.init('cart-widjet');
@@ -16,9 +16,9 @@ function createCart() {
 /**
  * Calendar init
  */
-var vCal1;
-var vCal2;
-var vCal3;
+let vCal1;
+let vCal2;
+let vCal3;
 function initCalendar(isAdmin) {
   vCal1 = new WICalendar('vCal1');
   vCal1.initObject('calendar_1', '../data/calendar-room_1.json', isAdmin);
@@ -35,10 +35,10 @@ function initCalendar(isAdmin) {
  * updateReservations (admin page)
  */
 function updateReservations() {
-  $('.js-updateReservations').on('click', function () {
-    var id = $(this).attr('data-id');
-    var scriptFilePath = 'admin-updateReservations.php';
-    var calendarItems = [];
+  $('.js-updateReservations').on('click', () => {
+    const id = $(this).attr('data-id');
+    const scriptFilePath = 'admin-updateReservations.php';
+    let calendarItems = [];
     switch (id) {
       case '1':
         calendarItems = vCal1.getItems();
@@ -56,7 +56,7 @@ function updateReservations() {
       type: 'POST',
       url: scriptFilePath,
       data: 'message=' + calendarItems + '&id=' + id,
-      success: function (answer) {
+      success(answer) {
         alert(answer);
       }
     });
@@ -68,21 +68,21 @@ function updateReservations() {
  * @return {[type]} [description]
  */
 function formSubmit() {
-  var scriptFilePath = 'formSubmit.php';
-  $('#fSendReview').on('submit', function () {
+  const scriptFilePath = 'formSubmit.php';
+  $('#fSendReview').on('submit', () => {
     $.ajax({
       type: 'POST',
       url: scriptFilePath,
       data: $(this).serialize(),
-      success: function (answer) {
+      success(answer) {
         $('#reviewText').val(answer);
       }
     });
     return false;
   });
-  $('body').delegate('#fHallReservation', 'submit', function () {
-    var msg = $("#userContact").val();
-    var dates = [];
+  $('body').delegate('#fHallReservation', 'submit', () => {
+    const msg = $('#userContact').val();
+    const dates = [];
 
     if ((msg === '') || (msg === 'Спасибо за заявку, мы вам перезвоним!')) {
       alert('Введите контактные данные, пожалуйста.');
@@ -112,16 +112,16 @@ function formSubmit() {
       type: 'POST',
       url: scriptFilePath,
       data: $(this).serialize() + '&formBody=ЗАЯВКА НА БРОНИРОВАНИЕ БАНКЕТНОГО ЗАЛА' + '\nИмя и контактные данные: ' + msg + '\nЗал №1: ' + dates[3] + '\nЗал №2: ' + dates[4] + '\nЗал №3: ' + dates[5],
-      success: function (answer) {
+      success(answer) {
         $('#userContact').val(answer);
       }
     });
     return false;
   });
 
-  $('body').delegate('#fMenuReservation', 'submit', function () {
-    var msg = $("#userContact").val();
-    var cartItems = cart.getItems();
+  $('body').delegate('#fMenuReservation', 'submit', () => {
+    const msg = $('#userContact').val();
+    const cartItems = cart.getItems();
 
     if ((msg === '') || (msg === 'Спасибо за заявку, мы вам перезвоним!')) {
       alert('Введите контактные данные, пожалуйста.');
@@ -132,7 +132,7 @@ function formSubmit() {
       type: 'POST',
       url: scriptFilePath,
       data: $(this).serialize() + '&formBody=Имя и контактные данные: ' + msg + '\nМЕНЮ\n' + cartItems,
-      success: function (answer) {
+      success(answer) {
         $('#userContact').val(answer);
       }
     });
@@ -146,14 +146,14 @@ function formSubmit() {
  */
 function modalWindow() {
   // var navWidth = $('nav').css('width');
-  $('.js-showPopup').click(function () {
-    var popupName = $(this).attr('data-popupName');
-    var vOverlay = '<div id="popup_overlay" class="overlay grey"> \
+  $('.js-showPopup').click(() => {
+    const popupName = $(this).attr('data-popupName');
+    const vOverlay = '<div id="popup_overlay" class="overlay grey"> \
       <div class="overlay--close-btn"></div> \
       </div> \
       <div id="spinner" class="spinner" style="display:none;"> \
       <span class="fa fa-spinner fa-pulse"></span></div>';
-    var vPopup = '<div class="popup"></div>';
+    const vPopup = '<div class="popup"></div>';
 
     $('body').append(vOverlay);
     $('body').append(vPopup);
@@ -169,7 +169,7 @@ function modalWindow() {
     switch (popupName) {
       case 'reservation':
         $('.popup').addClass('gold popup-menu_window');
-        $('.popup').load('popupWindows/' + popupName + '.html', function () {
+        $('.popup').load('popupWindows/' + popupName + '.html', () => {
           createCalendarSlider();
           initCalendar('');
           enable_scroll();
@@ -185,35 +185,35 @@ function modalWindow() {
         break;
       case 'news':
         $('.popup').addClass('gold popup-menu_window');
-        $('.popup').load('popupWindows/' + popupName + '.php', function () {
+        $('.popup').load('popupWindows/' + popupName + '.php', () => {
           enable_scroll();
         });
         break;
       case 'photos':
-        var photoFolder = $(this).attr('data-photoFolder');
+        const photoFolder = $(this).attr('data-photoFolder');
         $('.popup').addClass('popup-photos no-overflow');
-        $('.popup').load('popupWindows/imgRouter.php', {type: photoFolder}, function () {
+        $('.popup').load('popupWindows/imgRouter.php', {type: photoFolder}, () => {
           createPhotoSlider();
         });
         break;
       case 'servicesPhoto':
-        var src = $(this).attr('data-src');
+        const src = $(this).attr('data-src');
         $('.popup').addClass('popup-photos no-overflow');
-        $('.popup').load('popupWindows/servicesRouter.php', {type: src}, function () {
+        $('.popup').load('popupWindows/servicesRouter.php', {type: src}, () => {
           createPhotoSlider();
         });
         break;
       default:
       // временная заглушка для пустых модальных окон, переделать
-        var fadeOutDelay = 225;
+        const fadeOutDelay = 225;
         $('.popup').toggleClass('visible', false);
         $('#popup_overlay').toggleClass('visible');
         enable_scroll();
-        setTimeout(function () {
+        setTimeout(() => {
           $('body').css('width', 'auto');
           $('body').toggleClass('no-overflow', false);
         }, fadeOutDelay);
-        setTimeout(function () {
+        setTimeout(() => {
           enable_scroll();
           $('.popup').remove();
           $('#spinner').remove();
@@ -224,16 +224,16 @@ function modalWindow() {
     $('.popup').toggleClass('visible', true);
   });
 
-  $('body').delegate('#popup_overlay', 'click', function () {
-    var fadeOutDelay = 225;
+  $('body').delegate('#popup_overlay', 'click', () => {
+    const fadeOutDelay = 225;
     $('.popup').toggleClass('visible', false);
     $('#popup_overlay').toggleClass('visible');
     enable_scroll();
-    setTimeout(function () {
+    setTimeout(() => {
       $('body').css('width', 'auto');
       $('body').toggleClass('no-overflow', false);
     }, fadeOutDelay);
-    setTimeout(function () {
+    setTimeout(() => {
       enable_scroll();
       $('.popup').remove();
       $('#spinner').remove();
@@ -256,7 +256,7 @@ function createReviewsSlider() {
     controlNav: false,
     slideshow: false,
     smoothHeight: true,
-    start: function () {
+    start() {
       $('.cd-testimonials').children('li').css({
         opacity: 1,
         position: 'relative'
@@ -274,7 +274,7 @@ function createPhotoSlider() {
     animation: 'slide',
     controlNav: false,
     slideshow: false,
-    start: function () {
+    start() {
       $('.cd-photoslider').children('div').css({
         opacity: 1,
         position: 'relative'
@@ -293,7 +293,7 @@ function createTopSlider() {
     slideshow: true,
     animationSpeed: 1000,
     slideshowSpeed: 3500,
-    start: function () {
+    start() {
       $('.cd-topslider').children('div').css({
         opacity: 1,
         position: 'relative'
@@ -309,7 +309,7 @@ function createCalendarSlider() {
     controlNav: false,
     slideshow: false,
     smoothHeight: false,
-    start: function () {
+    start() {
       $('.cd-calendar').children('li').css({
         opacity: 1,
         position: 'relative'
@@ -324,7 +324,7 @@ function createCalendarSlider() {
 /**
  * hack scroll for modal
  */
-var keys = [37, 38, 39, 40];
+const keys = [37, 38, 39, 40];
 function preventDefault(e) {
   e = e || window.event;
   if (e.preventDefault) {
@@ -334,7 +334,7 @@ function preventDefault(e) {
 }
 
 function keydown(e) {
-  var i = keys.length;
+  let i = keys.length;
   for (i; i--; null) {
   // for (;;) {
     if (e.keyCode === keys[i]) {
@@ -354,7 +354,7 @@ function disable_scroll() {
   }
   window.onmousewheel = document.onmousewheel = wheel;
   document.onkeydown = keydown;
-  document.ontouchmove = function (e) {
+  document.ontouchmove = (e) => {
     e.preventDefault();
   };
 }
@@ -364,7 +364,7 @@ function enable_scroll() {
     window.removeEventListener('DOMMouseScroll', wheel, false);
   }
   window.onmousewheel = document.onmousewheel = document.onkeydown = null;
-  document.ontouchmove = function () {
+  document.ontouchmove = () => {
     return true;
   };
 }
@@ -376,10 +376,10 @@ function enable_scroll() {
  * showAjaxSpinner
  */
 function loader() {
-  $(document).ajaxStart(function () {
+  $(document).ajaxStart(() => {
     $('#spinner').show();
   });
-  $(document).ajaxComplete(function () {
+  $(document).ajaxComplete(() => {
     $('#spinner').hide();
   });
 }
@@ -392,11 +392,11 @@ function loader() {
  * @return {[type]} [description]
  */
 function stickyNavigation() {
-  $(window).on('scroll', function () {
-    var e = window.pageYOffset;
-    var t = $('.top_nav');
+  $(window).on('scroll', () => {
+    const e = window.pageYOffset;
+    const t = $('.top_nav');
     t[e > 200 ? 'addClass' : 'removeClass']('top_nav-sticky');
-    var n = $('.top_nav--logo-ribbon');
+    const n = $('.top_nav--logo-ribbon');
     n[e > 200 ? 'addClass' : 'removeClass']('top_nav--logo-ribbon-sticky');
   });
 }
@@ -409,9 +409,9 @@ function stickyNavigation() {
  * @return {[type]} [description]
  */
 function smoothScroll() {
-  $('a[href^="#"], a[href^="."]').click(function () {
+  $('a[href^="#"], a[href^="."]').click(() => {
   // если в href начинается с # или ., то ловим клик
-    var scroll_el = $(this).attr('href');
+    const scroll_el = $(this).attr('href');
     // возьмем содержимое атрибута href
     if ($(scroll_el).length !== 0) {
     // проверим существование элемента чтобы избежать ошибки
@@ -427,10 +427,10 @@ function smoothScroll() {
 /**
  * iOS hack to change vh to px
  */
-var iOS = navigator.userAgent.match(/(iPod|iPhone)/);
+const iOS = navigator.userAgent.match(/(iPod|iPhone)/);
 
 function iosVhHeightBug() {
-  var height = $(window).height();
+  const height = $(window).height();
   $('.top').css('min-height', height * 1.25 + 'px');
   $('.top').css('max-height', height * 1.25 + 'px');
   $('.spacer').css('padding-top', height * 0.55 + 'px');

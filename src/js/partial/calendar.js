@@ -1,7 +1,7 @@
 'use strict';
 
 function WICalendar(obj) {
-  var _super = this;
+  const _super = this;
   this.objName = obj;
   this.componentObj = null;
   this.componentID = null;
@@ -11,13 +11,13 @@ function WICalendar(obj) {
   this.DATA = null;
   this.isAdmin = null;
 
-  this.initObject = function(componentID, jsonFileUrl, isAdmin) {
+  this.initObject = (componentID, jsonFileUrl, isAdmin) => {
     this.jsonFileUrl = jsonFileUrl;
     this.isAdmin = isAdmin;
     this.componentID = componentID;
     this.componentObj = $('#' + componentID);
 
-    var Calendar = new Date();
+    const Calendar = new Date();
     this.year = Calendar.getFullYear();
     this.month = Calendar.getMonth();
     this.render(this.year, this.month);
@@ -25,9 +25,9 @@ function WICalendar(obj) {
     this.DATA = JSON.parse(localStorage.getItem(componentID)) || [];
 
     if (this.isAdmin) {
-      $.getJSON(this.jsonFileUrl, function (json) {
-        var tmpData = [];
-        $.each(json, function (key, val) {
+      $.getJSON(this.jsonFileUrl, (json) => {
+        const tmpData = [];
+        $.each(json, (key, val) => {
           tmpData.push(val);
         });
         _super.DATA = tmpData;
@@ -36,7 +36,7 @@ function WICalendar(obj) {
     }
   };
 
-  this.navigationController = function (direction) {
+  this.navigationController = (direction) => {
     switch (direction) {
       case 'next':
         this.month++;
@@ -59,24 +59,24 @@ function WICalendar(obj) {
     this.render(this.year, this.month);
   };
 
-  this.render = function (year, month) {
+  this.render = (year, month) => {
     // get json
     // после загрузки файла выполняется основной код
     // Когда таблица готова, в ней расставляются события на соответствующие даты
-    this.getjson(this.jsonFileUrl, function (obj) {
-      var key = null;
-      for (key in obj) {
-        if (obj.hasOwnProperty(key)) {
+    this.getjson(this.jsonFileUrl, (item) => {
+      let key = null;
+      for (key in item) {
+        if (item.hasOwnProperty(key)) {
           // if has envent add class
           if (_super.isAdmin) {
             // если admin, то присваиваем редактируемый класс
-            if ($('#' + _super.componentID + ' [data-id="' + obj[key] + '"]')) {
-              $('#' + _super.componentID + ' [data-id="' + obj[key] + '"]').addClass('days_cal--inner_selected');
+            if ($('#' + _super.componentID + ' [data-id="' + item[key] + '"]')) {
+              $('#' + _super.componentID + ' [data-id="' + item[key] + '"]').addClass('days_cal--inner_selected');
             }
           } else {
-            if ($('#' + _super.componentID + ' [data-id="' + obj[key] + '"]')) {
-              $('#' + _super.componentID + ' [data-id="' + obj[key] + '"]').attr('onclick', '');
-              $('#' + _super.componentID + ' [data-id="' + obj[key] + '"]').addClass('days_cal--event');
+            if ($('#' + _super.componentID + ' [data-id="' + item[key] + '"]')) {
+              $('#' + _super.componentID + ' [data-id="' + item[key] + '"]').attr('onclick', '');
+              $('#' + _super.componentID + ' [data-id="' + item[key] + '"]').addClass('days_cal--event');
             }
           }
         }
@@ -84,7 +84,7 @@ function WICalendar(obj) {
       // Отрисовка выделенных пользователем элементов при перезагрузке календаря
       // Проверяем, есть ли такие
       if (!$.isEmptyObject(_super.DATA)) {
-        _super.DATA.forEach(function (el, ind, arr) {
+        _super.DATA.forEach((el, ind, arr) => {
           $('#' + _super.componentID + ' [data-id="' + arr[ind] + '"]').addClass('days_cal--inner_selected');
         });
       }
@@ -93,17 +93,17 @@ function WICalendar(obj) {
     /*
     vars
      */
-    var Calendar = new Date();
-    var  day_of_week = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
-    var  month_of_year = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май',
-        'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
-        ];
-    var  html = null;
-    var  week_day = null;
-    var  day = null;
-    var  info = null;
-    var  index = null;
-    var  D1Nfirst = new Date(year, month, 1).getDay(); // день недели первого дня месяца
+    const Calendar = new Date();
+    const day_of_week = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+    const month_of_year = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май',
+      'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+    ];
+    let html = null;
+    let week_day = null;
+    let day = null;
+    let info = null;
+    let index = null;
+    const D1Nfirst = new Date(year, month, 1).getDay(); // день недели первого дня месяца
 
     Calendar.setDate(1);
     Calendar.setYear(year);
@@ -119,7 +119,7 @@ function WICalendar(obj) {
     <th colspan="5"></span>' + month_of_year[month] + ', ' + year + '</th> \
     <th><button class="btn btn--add btn--add-lg" onclick="' + this.objName + '.navigationController(\'next\')"><span class="fa fa-arrow-circle-right"></button></th></tr>';
     html += '<tr class="week_cal">';
-    
+
     /*
     Weekdays
      */
@@ -135,6 +135,7 @@ function WICalendar(obj) {
      */
     html += '<tbody class="days_cal">';
     html += '</tr>';
+
     /*
     white zone
      */
@@ -167,10 +168,10 @@ function WICalendar(obj) {
     this.componentObj.html(html);
   };
 
-  this.bookDay = function (date) {
-    var index = -1;
+  this.bookDay = (date) => {
+    let index = -1;
 
-    this.DATA.forEach(function (el, ind, arr) {
+    this.DATA.forEach((el, ind) => {
       if (el === date) {
         index = ind;
       }
@@ -188,13 +189,13 @@ function WICalendar(obj) {
   };
 
   //   Get Json data
-  this.getjson = function (url, callback) {
-    var ajax = new XMLHttpRequest();
+  this.getjson = (url, callback) => {
+    const ajax = new XMLHttpRequest();
     ajax.open('GET', url, true);
-    ajax.onreadystatechange = function () {
+    ajax.onreadystatechange = () => {
       if (ajax.readyState === 4) {
         if (ajax.status === 200) {
-          var data = JSON.parse(ajax.responseText);
+          const data = JSON.parse(ajax.responseText);
           return callback(data);
         }
       }
@@ -203,9 +204,10 @@ function WICalendar(obj) {
   };
 
   // admin
-  this.getItems = function () {
-    var items = [];
-    var idkey;
+  this.getItems = () => {
+    const items = [];
+    let idkey;
+
     for (idkey in this.DATA) {
       if (this.DATA.hasOwnProperty(idkey)) {
         items.push(this.DATA[idkey]);
@@ -215,7 +217,7 @@ function WICalendar(obj) {
   };
 
   // admin
-  this.clearData = function () {
+  this.clearData = () => {
     this.DATA = {};
     localStorage.removeItem(this.componentID);
   };

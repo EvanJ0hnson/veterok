@@ -7,7 +7,7 @@ function WICard(obj) {
   this.widjetObj = null;
   this.widjetID = null;
 
-  this.init = function (widjetID) {
+  this.init = (widjetID) => {
     this.DATA = JSON.parse(localStorage.getItem(widjetID)) || {};
 
     this.IDS = JSON.parse(localStorage.getItem(widjetID + '_ids')) || [];
@@ -22,24 +22,25 @@ function WICard(obj) {
     }
   };
 
-  this.addToCart = function (curObj, id, name, price, render) {
+  this.addToCart = (curObj, id, name, price, render) => {
     id = ($.isNumeric(id)) ? 'ID' + id.toString() : id;
 
     // Нужно убрать проверку  === true и передавать '' вместо false
     // И вообще, какая-то здесь ерунда с render
     render = render || true;
 
-    var goodieLine = {
-      'id': id,
-      'name': name,
-      'price': price,
-      'num': 1
+    const goodieLine = {
+      id,
+      name,
+      price,
+      num: 1,
     };
+
     if ($.isEmptyObject(this.DATA)) {
       this.DATA[id] = goodieLine;
       this.IDS.push(id);
     } else {
-      var idKey = null;
+      let idKey = null;
       for (idKey in this.DATA) {
         if (this.DATA.hasOwnProperty(idKey)) {
           if ($.inArray(id, this.IDS) === -1) {
@@ -58,24 +59,24 @@ function WICard(obj) {
     localStorage.setItem(this.widjetID + '_ids', JSON.stringify(this.IDS));
     this.reCalc();
 
-
     if (render === true) {
       this.renderBasketTable();
     }
   };
 
-  this.delItem = function (id, count) {
+  this.delItem = (id, count) => {
     id = ($.isNumeric(id)) ? 'ID' + id.toString() : id;
+
     switch (count) {
       case 'all':
         delete this.DATA[id];
-        var ind = $.inArray(id, this.IDS);
+        const ind = $.inArray(id, this.IDS);
         if (ind >= 0) {
           this.IDS.splice(ind, 1);
         }
         break;
       case 'one':
-        var idKey;
+        let idKey;
         for (idKey in this.DATA) {
           if (this.DATA.hasOwnProperty(idKey)) {
             if (idKey === id) {
@@ -97,14 +98,14 @@ function WICard(obj) {
     this.renderBasketTable();
 
     localStorage.setItem(this.widjetID, JSON.stringify(this.DATA));
-    localStorage.setItem(this.widjetID + "_ids", JSON.stringify(this.IDS));
+    localStorage.setItem(this.widjetID + '_ids', JSON.stringify(this.IDS));
   };
 
-  this.reCalc = function () {
-    var num = 0;
-    var sum = 0;
-    var counter = 0;
-    var idkey = null;
+  this.reCalc = () => {
+    let num = 0;
+    let sum = 0;
+    let counter = 0;
+    let idkey = null;
 
     for (idkey in this.DATA) {
       if (this.DATA.hasOwnProperty(idkey)) {
@@ -121,12 +122,12 @@ function WICard(obj) {
     }
   };
 
-  this.renderBasketTable = function () {
-    var sum = 0;
-    var counter = 0;
-    var idkey = null;
-    var productLine = null;
-    var tableCaption = null;
+  this.renderBasketTable = () => {
+    let sum = 0;
+    let counter = 0;
+    let idkey = null;
+    let productLine = null;
+    let tableCaption = null;
 
     if ($('#popup_cart').length === 0) {
       $('body').append('<div id="popup_cart" class="popup popup-menu_window gold"> \
@@ -168,12 +169,12 @@ function WICard(obj) {
     $('#cart-sum').html('Общая сумма: ' + sum + ' <span class="fa fa-rub"></span>');
   };
 
-  this.getItems = function () {
-    var items = '';
-    var sum = 0;
-    var counter = 0;
-    var idkey = null;
-    var productLine = null;
+  this.getItems = () => {
+    let items = '';
+    let sum = 0;
+    let counter = 0;
+    let idkey = null;
+    let productLine = null;
 
     for (idkey in this.DATA) {
       if (this.DATA.hasOwnProperty(idkey)) {
@@ -187,7 +188,7 @@ function WICard(obj) {
     return items;
   };
 
-  this.showWinow = function () {
+  this.showWinow = () => {
     this.renderBasketTable();
     $('#popup_cart').toggleClass('visible');
   };
