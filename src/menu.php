@@ -64,10 +64,9 @@
   <ul class="menu_nav gold--noBgImage noprint">
     <?php
       foreach($menu as $dish_type) {
-        print '
-        <li class="menu_nav-item">
-          <a class="menu_nav-link" href="#header-'.$dish_type->{'type'}.'">'.$dish_type->{'title'}.'</a>
-        </li>';
+        print '<li class="menu_nav-item">
+            <a class="menu_nav-link" href="#header-'.$dish_type->{'type'}.'">'.$dish_type->{'title'}.'</a>
+          </li>';
       }
     ?>
     <li class="menu_nav-item">
