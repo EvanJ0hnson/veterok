@@ -296,22 +296,22 @@
 
 .flex-direction-nav li a {
   display: block;
-  /* image replacement */
   overflow: hidden;
 
   width: 100%;
   height: 100%;
+  
+  outline: none;
 
-  transition: background-color .25s;
+  transition: background-color .25s ease;
   white-space: nowrap;
   text-indent: 100%;
-
-  background-color: rgba(50, 50, 52, .025);
+  
+  &:hover {
+    background-color: rgba(50, 50, 52, .025);
+  }
 }
 
-.no-touch .flex-direction-nav li a:hover {
-  background-color: rgba(50, 50, 52, .3);
-}
 
 .flex-direction-nav li a::before,
 .flex-direction-nav li a::after {
