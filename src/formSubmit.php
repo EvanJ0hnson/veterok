@@ -1,4 +1,4 @@
-<?
+<?php
 header("Content-Type: text/html; charset=utf-8");
 
 $ANSWER_REVIEW = 'Сообщение отправлено, спасибо за ваш отзыв!';
@@ -18,17 +18,14 @@ switch ($event) {
   case 'SendReview':
     $answer = $ANSWER_REVIEW;
     $subject = '«Ветерок», '.$SUBJECT_REVIEW;
-    // $body = $_REQUEST['formBody'];
     break;
   case 'sendMenuReservation':
     $answer = $ANSWER_RESERVATION;
     $subject = '«Ветерок», '.$SUBJECT_MENU_RESERVATION;
-    // $body = $_REQUEST['message'];
     break;
   case 'SendHallReservation':
     $answer = $ANSWER_RESERVATION;
     $subject = '«Ветерок», '.$SUBJECT_HALL_RESERVATION;
-    // $body = $_REQUEST['message'];
     break;
   default:
     $answer = 'empty';
