@@ -2,7 +2,6 @@
 	<h1 id="news" class="sc-subheading">Новости</h1>
 	<div class="sc-news_column">
 	<?php
-		// $news_file = '../news/data/news.txt';
 		$news = json_decode(file_get_contents('../data/news.json'));
 	  if ($news) {
 	    foreach(array_reverse($news) as $item) {
