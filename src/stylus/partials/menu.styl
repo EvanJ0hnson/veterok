@@ -1,110 +1,95 @@
 /*
 MENU
 ***/
-.menu_nav {
-  /*display: inline-block;*/
-  position: fixed;
+.menu_nav
+  position: fixed
 
-  height: 100%;
+  height: 100%
 
-  float: left;
+  float: left
 
-  width: 20%;
-  padding-top: 5rem;
-  padding-right: .5rem;
-  padding-left: .5rem;
-  /*max-width: 270px;*/
-  /*padding-right: 0;*/
-  /*margin: 0;*/
-}
+  width: 20%
+  padding-top: 5rem
+  padding-right: .5rem
+  padding-left: .5rem
 
-.menu_nav-item {
-  padding-bottom: .9rem;
-}
+.menu_nav-item
+  display: inline-block
+  padding-bottom: .9rem
 
-.menu_nav-link {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 1rem;
+.menu_nav-link
+  font-family: 'Open Sans Condensed', sans-serif
+  font-size: .8125rem
+  line-height: 1
+  
+  padding: 3px
 
-  margin-left: 1rem;
+  transition: border-color .25s ease
+  text-decoration: none
+  letter-spacing: .05rem
+  
+  color:  $clrGoldText
 
-  transition: border .3s;
-  text-decoration: none;
-  letter-spacing: .05rem;
-  text-transform: uppercase;
+  border: 1px dotted $clrTransparent70
+  border-radius: 5px
 
-  border-width: .15rem;
-  border-style: none none solid none;
-}
+  &:hover
+    border-color: $clrGoldText
 
-.menu_nav-link:hover {
-}
+.menu_nav-sublink
+  margin-left: 1.5rem
 
-.menu_nav-sublink {
-  margin-left: 1.5rem;
-}
+.menu-container
+  margin-left: 20%
+  padding-top: 3.75rem
 
-.menu-container {
-  margin-left: 20%;
-  padding-top: 3.75rem;
-}
+.menu-items-container
+  display: flex
 
-.menu-items-container {
-  display: flex;
+  margin: 0
+  padding: 0
 
-  margin: 0;
-  padding: 0;
+  flex-wrap: wrap
 
-  flex-wrap: wrap;
-}
+.menu-item
+  font-size: 1.25rem
 
-.menu-item {
-  font-size: 1.25rem;
+  width: 30%
+  margin: 0 .75rem .75rem 0
+  padding-top: 1rem
+  padding-right: 1rem
+  padding-left: 1rem
 
-  width: 30%;
-  margin: 0 .75rem .75rem 0;
-  padding-top: 1rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  border: .1rem dashed grey
 
-  border: .1rem dashed grey;
+  flex-grow: 1
 
-  flex-grow: 1;
-}
+@media (min-width: 1367px)
+  .menu-item
+    width: 20%
 
-@media (min-width: 1367px) {
-  .menu-item {
-    width: 20%;
-  }
-}
+.menu-item img
+  width: 5rem
+  height: 5rem
+  margin-right: .75rem
+  margin-bottom: .5rem
 
-.menu-item img {
-  width: 5rem;
-  height: 5rem;
-  margin-right: .75rem;
-  margin-bottom: .5rem;
+  border-radius: 20%
 
-  border-radius: 20%;
-}
+.menu-item p
+  margin: .25rem
 
-.menu-item p {
-  margin: .25rem;
+  word-wrap: normal
 
-  word-wrap: normal;
-}
+.menu-item--price
+  text-align: right
 
-.menu-item--price {
-  text-align: right;
-}
+.menu-item--ingredients
+  font-family: 'Open Sans Condensed', sans-serif
+  font-size: .8rem
 
-.menu-item--ingredients {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: .8rem;
-}
-
-.menu-item--cal {
-  font-size: .8rem;
-}
+.menu-item--cal
+  font-size: .8rem
 /*
 MENU
 ***/
