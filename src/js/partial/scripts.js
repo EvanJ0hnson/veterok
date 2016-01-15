@@ -147,7 +147,9 @@ function formSubmit() {
 function modalWindow() {
   // var navWidth = $('nav').css('width');
   $('.js-showPopup').on('click', (event) => {
-    const popupName = $(event.currentTarget).attr('data-popupName');
+    const $body = $('body');
+    const $eventTarget = $(event.currentTarget);
+    const popupName = $eventTarget.attr('data-popupName');
     const vOverlay = '<div id="popup_overlay" class="overlay grey"> \
       <div class="overlay--close-btn"></div> \
       </div> \
@@ -155,21 +157,24 @@ function modalWindow() {
       <span class="fa fa-spinner fa-pulse"></span></div>';
     const vPopup = '<div class="popup"></div>';
 
-    $('body').append(vOverlay);
-    $('body').append(vPopup);
+    $body.append(vOverlay)
+      .append(vPopup);
 
-    $('#popup_overlay').toggleClass('visible');
+    const $popup = $('.popup');
+    const $popupOverlay = $('#popup_overlay');
 
-    $('body').css('width', $('body').css('width'));
-    // $('nav').css('width', navWidth);
-    $('body').toggleClass('no-overflow');
-    // $("#spinner").show();
+    $popupOverlay.toggleClass('visible');
+
+    $body.css('width', $body.css('width'));
+    $body.toggleClass('no-overflow');
+
     loader();
     disable_scroll();
+
     switch (popupName) {
       case 'reservation':
-        $('.popup').addClass('gold popup-menu_window');
-        $('.popup').load('popupWindows/' + popupName + '.html', () => {
+        $popup.addClass('gold popup-menu_window');
+        $popup.load('popupWindows/' + popupName + '.html', () => {
           createCalendarSlider();
           initCalendar('');
           enable_scroll();
@@ -177,68 +182,51 @@ function modalWindow() {
         break;
       case 'menu':
         cart.showWinow();
-        // $('.popup').addClass('gold popup-menu_window');
-        // $('.popup').load('popupWindows/' + popupName + '.html', function() {
-        //     createCart(this);
-        //     enable_scroll(this);
-        //   });
         break;
       case 'news':
-        $('.popup').addClass('gold popup-menu_window');
-        $('.popup').load('popupWindows/' + popupName + '.php', () => {
+        $popup.addClass('gold popup-menu_window');
+        $popup.load('popupWindows/' + popupName + '.php', () => {
           enable_scroll();
         });
         break;
       case 'photos':
-        const photoFolder = $(event.currentTarget).attr('data-photoFolder');
-        $('.popup').addClass('popup-photos no-overflow');
-        $('.popup').load('popupWindows/imgRouter.php', {type: photoFolder}, () => {
+        const photoFolder = $eventTarget.attr('data-photoFolder');
+        $popup.addClass('popup-photos no-overflow');
+        $popup.load('popupWindows/imgRouter.php', {type: photoFolder}, () => {
           createPhotoSlider();
         });
         break;
       case 'servicesPhoto':
-        const src = $(event.currentTarget).attr('data-src');
-        $('.popup').addClass('popup-photos no-overflow');
-        $('.popup').load('popupWindows/servicesRouter.php', {type: src}, () => {
+        const src = $eventTarget.attr('data-src');
+        $popup.addClass('popup-photos no-overflow');
+        $popup.load('popupWindows/servicesRouter.php', {type: src}, () => {
           createPhotoSlider();
         });
         break;
       default:
-      // временная заглушка для пустых модальных окон, переделать
-        const fadeOutDelay = 225;
-        $('.popup').toggleClass('visible', false);
-        $('#popup_overlay').toggleClass('visible');
-        enable_scroll();
-        setTimeout(() => {
-          $('body').css('width', 'auto');
-          $('body').toggleClass('no-overflow', false);
-        }, fadeOutDelay);
-        setTimeout(() => {
-          enable_scroll();
-          $('.popup').remove();
-          $('#spinner').remove();
-          $('#popup_overlay').remove();
-        }, fadeOutDelay);
         break;
     }
-    $('.popup').toggleClass('visible', true);
+
+    $popup.toggleClass('visible', true);
   });
 
   $('body').delegate('#popup_overlay', 'click', () => {
-    const fadeOutDelay = 225;
-    $('.popup').toggleClass('visible', false);
-    $('#popup_overlay').toggleClass('visible');
+    const $body = $('body');
+    const $popup = $('.popup');
+    const $popupOverlay = $('#popup_overlay');
+    const $spinner = $('#spinner');
+
+    $popup.toggleClass('visible', false);
+    $popupOverlay.toggleClass('visible');
+
+    $body.css('width', 'auto');
+    $body.toggleClass('no-overflow', false);
+
+    $popup.remove();
+    $spinner.remove();
+    $popupOverlay.remove();
+
     enable_scroll();
-    setTimeout(() => {
-      $('body').css('width', 'auto');
-      $('body').toggleClass('no-overflow', false);
-    }, fadeOutDelay);
-    setTimeout(() => {
-      enable_scroll();
-      $('.popup').remove();
-      $('#spinner').remove();
-      $('#popup_overlay').remove();
-    }, fadeOutDelay);
   });
 }
 
