@@ -149,16 +149,23 @@ gulp.task('watch', ['browserSync'], function() {
   gulp.watch(config.srcRoot + '**/[^!]*.styl', ['stylus']);
 });
 
-gulp.task('build', [
-  'photos',
-  'imageOptim',
-  'stylus',
-  'css',
-  'js',
-  'json',
-  'html',
-  'php',
-  'fonts',
-]);
+gulp.task('clean', function (cb) {
+  $.del.sync(config.buildRoot + '*');
+  cb();
+});
 
-gulp.task('default', ['watch']);
+gulp.task('build', function (cb) {
+  $.runSequence('clean', [
+    'photos',
+    'imageOptim',
+    'stylus',
+    'css',
+    'js',
+    'json',
+    'html',
+    'php',
+    'fonts',
+    ], cb);
+});
+
+gulp.task('serve', ['watch']);
