@@ -176,8 +176,8 @@
       </div>
       <div class="ft-block floatLeft">
         <form id="fSendReview">
-          <textarea id="reviewText" name="formBody" placeholder="Здесь вы можете оставить отзыв о гостинице. Не забудьте представиться. Спасибо!" required></textarea>
-          <button type="submit" name="sendReview" class="btn btn--red btn--mainType btn--sendReview">Отправить</button>
+          <textarea class="form-review__message" id="reviewText" name="formBody" placeholder="Здесь вы можете оставить отзыв о гостинице. Не забудьте представиться. Спасибо!" required></textarea>
+          <button class="btn btn--red btn--mainType btn--sendReview" type="submit" name="sendReview">Отправить</button>
           <input type="hidden" name="event" value="SendReview">
         </form>
       </div>

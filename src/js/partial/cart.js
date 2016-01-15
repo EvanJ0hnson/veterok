@@ -134,8 +134,8 @@ function WICard(obj) {
         <h1 id="bsubject" class="sc-heading">Банкетное меню</h1> \
         <table class="cart-table" id="cart-table"></table> \
         <div class="cart-footer"><span id="cart-sum" class="cart-sum"></span></div> \
-        <form id="fMenuReservation"> \
-        <input type="text" id="userContact" class="gold" name="message" placeholder="Не забудьте, пожалуйста, представиться и оставить контактный телефон." required></textarea> \
+        <form class="form-booking" id="fMenuReservation"> \
+        <input class="form-booking__input" type="text" id="userContact" class="gold" name="message" placeholder="Не забудьте, пожалуйста, представиться и оставить контактный телефон." required></textarea> \
         <button id="btnSubmitMenuReservation" class="btn btn--gold btn--sendMenu" name="btnSubmitMenuReservation">Отправить на утверждение</button> \
         <button onclick="print()" class="btn btn--gold btn--sendMenu" name="btnPrintMenuReservation">Распечатать  или сохранить в PDF</button> \
         <input type="hidden" name="event" value="sendMenuReservation"> \
