@@ -1,6 +1,5 @@
-<?php
-  header('Content-Type: text/html; charset=utf-8');
-  // $back='Вернитесь <a href="javascript:history.back(1)"><B>назад</B></a>. Нужно оставить хотя бы одну новость.';
-  // $date=date('d.m.Y');
-  // $time=date('H:i:s');
-?>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../css/vendor.css">
+<link rel="stylesheet" href="../css/styles.min.css">
+<script src="../js/vendor.js"></script>
+<script src="../js/partial.js"></script>

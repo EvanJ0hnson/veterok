@@ -1,185 +1,194 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: sans-serif;
-}
-
-body, ol, ul {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-p {
-  color: #1d2028;
-}
-
-.displayInlineBlock {
-  display: inline-block;
-}
-
-.container{
-  margin: 0 auto;
+/*
+MAIN
+***/
+.admin__page-wrapper
   width: 100%;
   max-width: 960px;
-}
 
-.news_block-add-title,
-.news_block-title {
+  margin: 0 auto;
+  padding: 0 10px;
+
+.admin__section-title
   font-size: 1.5rem;
-  padding: .5rem;
-}
+  padding: 10px 0 15px 0;
+/*
+MAIN
+***/
 
-.news_block-item {
-  padding: .75rem;
-}
+/*
+NEWS
+***/
+.admin-news
+  max-width: 75%
+  
+  padding: 0
+  margin: 0
 
-.news_block-item:nth-child(odd) {
-  background-color: #F8F8F8;
-}
+.admin-news__item
+  padding: 10px 0;
 
-.news_block-item--title {
-  display: inline;
-  font-size: 1.2rem;
-  padding-bottom: .5rem;
-}
+  &:nth-child(even)
+    background-color: #F8F8F8;
 
-.news_block-item--date {
-  font-size: .8rem;
-  /*font-weight: bold;*/
-  padding-bottom: .5rem;
-}
+.admin-news__item-title
+  display: inline-block
+  font-size: 1.1875rem;
+  padding: 0 0 5px 0;
 
-.news_block-item--body {
-  font-size: 1rem;
-  padding-bottom: .5rem;
-}
-
-.btn-delete {
-  display: inline-block;
-  color: #02a3c6;
-  text-decoration: none;
-  text-transform: uppercase;
+.admin-news__item-date
   font-size: .75rem;
-  padding: .25rem;
-  border: .1rem solid #02a3c6;
-  transition: background-color 0.3s;
-}
+  padding: 0 0 10px 0;
 
-.btn-delete:hover {
-  color: #ffffff;
-  background-color: #02a3c6
-}
+.admin-news__item-body
+  font-size: 1rem;
+  padding: 0 0 10px 0;
+/*
+NEWS
+***/
 
-.nav_admin-items {
-  background-color: #333745;
-  /*padding-left: .5rem;*/
-}
+/*
+ADD NEWS
+*******/
+.form-news
+  border-bottom: 1px dotted gray;
 
-.nav_admin-item {
+.form-news__title-input
   display: inline-block;
-  margin-right: .5rem;
-}
+  width: 25%;
 
-.nav_admin-item:first-child {
-  margin-left: .5rem;
-}
+  padding: 10px;
+  margin: 0 0 10px 0;
+    
+  outline: none;
 
-.nav_admin-link {
+  border: 1px solid gray;
+
+.form-news__message-input
+  display: inline-block;
+  width: 75%;
+  max-width: 100%;
+  height: 150px;
+  
+  padding: 10px;
+  margin: 0 0 10px 0;
+
+  outline: none;
+
+  border: 1px solid gray;
+/*
+ADD NEWS
+*******/
+
+/*
+BUTTONS
+******/
+.admin__btn-delete
+  padding: 3px
+  
+  font-family: sans-serif;
+  font-size: .75rem;
+  text-decoration: none;
+  
+  transition: background-color .25s ease, color .25s ease;
+  
+  border: 1px solid #02a3c6;
+  
+  color: #02a3c6;
+  
+  &:hover
+    color: #ffffff;
+    background-color: #02a3c6
+    
+.admin__btn-blue
+  display: inline-block;
+  
+  padding: 10px 20px;
+  
+  vertical-align: top;
+  cursor: pointer;
+  background: none;
+  outline: none;
+  
+  transition: background-color .25s ease, color .25s ease;
+  
+  border: 1px solid #02a3c6;
+  
+  color: #02a3c6;
+
+  &:hover
+    color: #ffffff;
+    background-color: #02a3c6
+/*
+BUTTONS
+******/
+
+/*
+NAVIGATION
+*********/
+.admin-nav
+  background-color: #333745;
+
+.admin-nav__item
+  display: inline-block;
+  margin: 0 5px 0 0;
+
+  &:last-child
+    margin: 0;
+
+
+.admin-nav__link
   display: inline-block;
   text-decoration: none;
 
-  padding: .75rem;
+  padding: 10px 15px;
   background-color: #404452;
-  text-transform: uppercase;
+  
+  font-family: sans-serif;
+  font-size: .875rem;
 
-  font-size: .7rem;
-  letter-spacing: .1rem;
+  color: #fff;
 
-  color: #ffffff;
+  transition: background-color .25s ease;
+  
+  &:hover
+    background-color: rgba(0, 0, 0, 0);
+/*
+NAVIGATION
+*********/
 
-  transition: opacity .25s;
+/*
+CALENDAR
+*******/
+.admin__calendar-wrapper {
+  display: inline-block
+  margin: 0 50px 0 0
+  
+  & .days_cal--inner {
+    padding: 5px 0
+    
+    border: none
+  }
+  
+  & .days_cal--inner_selected {
+    border: none
+    color: red
+  }
+}
+/*
+CALENDAR
+*******/
+
+/*
+TOP SLIDER
+*******/
+.form-slider__file-upload {
+  display: block
+  margin: 0 0 10px 0
 }
 
-.nav_admin-link:hover {
-  opacity: .5;
+.form-slider__img-checkbox {
+  margin: 0 0 10px 0
 }
-
-form {
-  vertical-align: baseline;
-  padding: .5rem;
-  border-bottom: .1em dashed;
-}
-
-input[type="text"] {
-  display: inline-block;
-  width: 50%;
-  border: .1rem solid;
-
-  /*font-size: .7rem;*/
-
-  padding: .5rem;
-  margin-bottom: .5rem;
-}
-
-input[type="checkbox"] {
-  /*display: inline;*/
-  /*width: 5%;*/
-  /*border: .1rem solid;*/
-
-  /*font-size: .7rem;*/
-
-  /*padding: .5rem;*/
-  margin-bottom: .75rem;
-}
-
-
-textarea {
-  display: inline-block;
-  width: 100%;
-
-  /*font-size: 1rem;*/
-
-  border: .1rem solid;
-  padding: .5rem;
-  margin-bottom: .5rem;
-
-  height: 10rem;
-}
-
-button {
-  display: inline-block;
-  cursor: pointer;
-  text-transform: uppercase;
-  padding: .5rem;
-  color: #02a3c6;
-  border: .1rem solid #02a3c6;
-  background: none;
-  transition: background-color .3s;
-}
-
-button:hover {
-  color: #ffffff;
-  background-color: #02a3c6
-}
-
-.days_cal--inner {
-  cursor: pointer;
-
-}
-
-.days_cal--inner_selected {
-  color: red;
-  cursor: pointer;
-}
+/*
+TOP SLIDER
+*******/

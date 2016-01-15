@@ -1,7 +1,7 @@
-<?php include 'admin-config.php';?>
 <html>
 <head>
   <title>Результат загрузки файла</title>
+  <?php include 'admin-config.php';?>
   <script>
     setTimeout("location.href='admin-imgManager.php'",750);
   </script>
