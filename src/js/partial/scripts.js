@@ -4,7 +4,7 @@
 import smoothScroll from './lib/smoothScroll';
 import fixIOSvh from './lib/fixIosVh';
 import stickyNavigation from './lib/stickyNavigation';
-import {modalWindow} from './lib/modalWindow';
+import modalWindow from './lib/modalWindow';
 import formSubmit from './lib/formSubmit';
 import * as sliders from './lib/sliders';
 import WICard from './cart';

@@ -3,11 +3,10 @@
  * @return {[type]} [description]
  */
 import loader from './loader';
-import { disable_scroll, enable_scroll } from './scrollControl';
+import {disable_scroll, enable_scroll} from './scrollControl';
 import * as sliders from './sliders';
 
 export default function modalWindow() {
-  // var navWidth = $('nav').css('width');
   $('.js-showPopup').on('click', (event) => {
     const $body = $('body');
     const $eventTarget = $(event.currentTarget);
