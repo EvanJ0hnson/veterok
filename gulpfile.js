@@ -10,11 +10,6 @@ var config = {
   buildRoot: './build/',
   srcRoot: './src/',
   proxyAdress: 'http://veterok.dev/',
-  vendorJS: [
-    './node_modules/jquery/dist/jquery.min.js',
-    './node_modules/flexslider/jquery.flexslider-min.js',
-    './node_modules/wow/dist/wow.min.js',
-  ],
   vendorCSS: [
     './node_modules/reset.css/reset.css',
     './node_modules/animate.css/animate.min.css',
@@ -82,25 +77,15 @@ gulp.task('json-watch', ['json'], function () {
   browserSyncInstance.reload();
 });
 
-
-gulp.task('js', ['js-vendor', 'js-partial']);
-
-gulp.task('js-vendor', function() {
-  return gulp.src(config.vendorJS)
-    .pipe($.plumber())
-    .pipe($.concat('vendor.js'))
+gulp.task('js', function() {
+  return $.browserify('./src/js/partial/scripts.js')
+    .transform('babelify')
+    .bundle()
+    .pipe($.vinylSourceStream('partial.js'))
     .pipe(gulp.dest(config.buildRoot + 'js/'));
 });
 
-gulp.task('js-partial', function() {
-  return gulp.src(config.srcRoot + 'js/partial/[^!]*.js')
-    .pipe($.plumber())
-    .pipe($.concat('partial.js'))
-    .pipe($.babel())
-    .pipe(gulp.dest(config.buildRoot + 'js/'));
-});
-
-gulp.task('js-partial-watch', ['js-partial'], function () {
+gulp.task('js-watch', ['js'], function () {
   browserSyncInstance.reload();
 });
 
@@ -145,7 +130,7 @@ gulp.task('watch', ['browserSync'], function() {
   gulp.watch(config.srcRoot + '**/[^!]*.php', ['php-watch']);
   gulp.watch(config.srcRoot + '**/[^!]*.html', ['html-watch']);
   gulp.watch(config.srcRoot + '**/[^!]*.json', ['json-watch']);
-  gulp.watch(config.srcRoot + '**/[^!]*.js', ['js-partial-watch']);
+  gulp.watch(config.srcRoot + '**/[^!]*.js', ['js-watch']);
   gulp.watch(config.srcRoot + '**/[^!]*.styl', ['stylus']);
 });
 

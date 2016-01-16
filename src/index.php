@@ -187,19 +187,9 @@
   </footer>
 
   <!-- javascript -->
-  <script src="js/vendor.js"></script>
   <script src="js/partial.js"></script>
   <script>
-    $(function(){
-      stickyNavigation();
-      smoothScroll();
-      createTopSlider();
-      createReviewsSlider();
-      createPhotoSlider();
-      modalWindow();
-      formSubmit();
-      new WOW().init();
-    })
+    var app = {entry: 'index'}
   </script>
   <!-- javascript -->
 </body>
