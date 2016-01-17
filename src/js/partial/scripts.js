@@ -1,5 +1,6 @@
 'use strict';
 // Warning! This script contains a lot of stupid code. I will make it better, I promise.
+import $ from 'jquery-browserify';
 
 import smoothScroll from './lib/smoothScroll';
 import fixIOSvh from './lib/fixIosVh';
