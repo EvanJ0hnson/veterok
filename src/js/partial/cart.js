@@ -1,6 +1,4 @@
-'use strict';
-
-function WICard(obj) {
+export default function WICard(obj) {
   this.objNAME = obj;
   this.DATA = null;
   this.IDS = null;
@@ -190,6 +188,7 @@ function WICard(obj) {
 
   this.showWinow = () => {
     this.renderBasketTable();
+
     $('#popup_cart').toggleClass('visible');
   };
 }

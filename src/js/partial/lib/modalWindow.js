@@ -5,7 +5,8 @@
 import loader from './loader';
 import {disable_scroll, enable_scroll} from './scrollControl';
 import * as sliders from './sliders';
-import WICalendar from '../calendar';
+import tvCalendar from '../calendar';
+import vtCart from '../cart';
 
 export default function modalWindow() {
   $('.js-showPopup').on('click', (event) => {
@@ -32,20 +33,19 @@ export default function modalWindow() {
 
     loader();
     disable_scroll();
-
     switch (popupName) {
       case 'reservation':
         $popup.addClass('gold popup-menu_window');
         $popup.load('popupWindows/' + popupName + '.html', () => {
           sliders.createCalendarSlider();
-          new WICalendar().initObject('calendar_1', '../data/calendar-room_1.json', '');
-          new WICalendar().initObject('calendar_2', '../data/calendar-room_2.json', '');
-          new WICalendar().initObject('calendar_3', '../data/calendar-room_3.json', '');
+          new tvCalendar().initObject('calendar_1', '../data/calendar-room_1.json', '');
+          new tvCalendar().initObject('calendar_2', '../data/calendar-room_2.json', '');
+          new tvCalendar().initObject('calendar_3', '../data/calendar-room_3.json', '');
           enable_scroll();
         });
         break;
       case 'menu':
-        cart.showWinow();
+        vtCart().showWinow();
         break;
       case 'news':
         $popup.addClass('gold popup-menu_window');

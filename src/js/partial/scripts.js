@@ -8,8 +8,7 @@ import stickyNavigation from './lib/stickyNavigation';
 import modalWindow from './lib/modalWindow';
 import formSubmit from './lib/formSubmit';
 import * as sliders from './lib/sliders';
-import WICard from './cart';
-import WICalendar from './calendar';
+import vtCard from './cart';
 
 /**
  * Cart init
@@ -21,24 +20,6 @@ function createCart() {
 }
 /**
  * Cart init
- */
-
-/**
- * Calendar init
- */
-let vCal1;
-let vCal2;
-let vCal3;
-function initCalendar(isAdmin) {
-  vCal1 = new WICalendar('vCal1');
-  vCal1.initObject('calendar_1', '../data/calendar-room_1.json', isAdmin);
-  vCal2 = new WICalendar('vCal2');
-  vCal2.initObject('calendar_2', '../data/calendar-room_2.json', isAdmin);
-  vCal3 = new WICalendar('vCal3');
-  vCal3.initObject('calendar_3', '../data/calendar-room_3.json', isAdmin);
-}
-/**
- * Calendar
  */
 
 /**
@@ -56,6 +37,13 @@ $(() => {
       formSubmit();
       sliders.createTopSlider();
       sliders.createReviewsSlider();
+      break;
+    case 'menu':
+      smoothScroll();
+      stickyNavigation();
+      modalWindow();
+      formSubmit();
+      new vtCard().init('cart-widjet');
       break;
     default:
       break;

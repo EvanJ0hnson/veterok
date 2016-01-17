@@ -8,28 +8,15 @@
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/styles.min.css">
   <!-- css -->
-  
   <style media="print" type="text/css">
-  .noprint {
-    display: none;
-  }
-  .opacity100 {
-    opacity: 0;
-  }
+    .noprint {
+      display: none;
+    }
+    .opacity100 {
+      opacity: 0;
+    }
   </style>
   <!-- css -->
-  <!-- javascript -->
-  <script src="js/vendor.js"></script>
-  <script src="js/partial.js"></script>
-  <script>
-    $(function(){
-      createCart ();
-      smoothScroll();
-      modalWindow();
-      formSubmit();
-    });
-  </script>
-  <!-- javascript -->
 </head>
 <body class="sc__main gold">
   <?php
@@ -122,5 +109,11 @@
       </div>
     </footer>
   </div>
+    <!-- javascript -->
+  <script src="js/partial.js"></script>
+  <script>
+    var app = {entry: 'menu'};
+  </script>
+  <!-- javascript -->
 </body>
 </html>
