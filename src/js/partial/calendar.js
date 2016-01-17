@@ -1,6 +1,6 @@
 'use strict';
 
-function WICalendar(obj) {
+export default function WICalendar(obj) {
   const _super = this;
   this.objName = obj;
   this.componentObj = null;
@@ -9,7 +9,7 @@ function WICalendar(obj) {
   this.month = null;
   this.jsonFileUrl = null;
   this.DATA = null;
-  this.isAdmin = null;
+  this.isAdmin = false;
 
   this.initObject = (componentID, jsonFileUrl, isAdmin) => {
     this.jsonFileUrl = jsonFileUrl;
@@ -60,32 +60,40 @@ function WICalendar(obj) {
   };
 
   this.render = (year, month) => {
-    // get json
-    // после загрузки файла выполняется основной код
-    // Когда таблица готова, в ней расставляются события на соответствующие даты
+    /**
+     * Когда таблица готова, в ней расставляются события на соответствующие даты
+     * @param  {[type]} this.jsonFileUrl [description]
+     * @param  {[type]} (item)           [description]
+     * @return {[type]}                  [description]
+     */
     this.getjson(this.jsonFileUrl, (item) => {
       let key = null;
+
       for (key in item) {
         if (item.hasOwnProperty(key)) {
-          // if has envent add class
-          if (_super.isAdmin) {
-            // если admin, то присваиваем редактируемый класс
-            if ($('#' + _super.componentID + ' [data-id="' + item[key] + '"]')) {
-              $('#' + _super.componentID + ' [data-id="' + item[key] + '"]').addClass('days_cal--inner_selected');
-            }
-          } else {
-            if ($('#' + _super.componentID + ' [data-id="' + item[key] + '"]')) {
-              $('#' + _super.componentID + ' [data-id="' + item[key] + '"]').attr('onclick', '');
-              $('#' + _super.componentID + ' [data-id="' + item[key] + '"]').addClass('days_cal--event');
+          // if has event add class
+          const itemTitle = '[data-id="' + item[key] + '"]';
+          const $item = this.componentObj.find(itemTitle);
+
+          if ($item) {
+            if (_super.isAdmin) {
+               // если admin, то присваиваем редактируемый класс
+              $item.addClass('days_cal--inner_selected');
+            } else {
+              $item.addClass('days_cal--event');
+              $item.off('click');
             }
           }
         }
       }
+
       // Отрисовка выделенных пользователем элементов при перезагрузке календаря
       // Проверяем, есть ли такие
       if (!$.isEmptyObject(_super.DATA)) {
-        _super.DATA.forEach((el, ind, arr) => {
-          $('#' + _super.componentID + ' [data-id="' + arr[ind] + '"]').addClass('days_cal--inner_selected');
+        _super.DATA.forEach((item) => {
+          const itemTitle = '[data-id="' + item + '"]';
+          const $item = this.componentObj.find(itemTitle);
+          $item.addClass('days_cal--inner_selected');
         });
       }
     });
@@ -93,7 +101,8 @@ function WICalendar(obj) {
     /*
     vars
      */
-    const Calendar = new Date();
+    const Calendar = new Date(year, month, 1);
+    const D1Nfirst = Calendar.getDay(); // день недели первого дня месяца
     const day_of_week = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
     const month_of_year = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май',
       'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
@@ -101,75 +110,74 @@ function WICalendar(obj) {
     let html = null;
     let week_day = null;
     let day = null;
-    let info = null;
-    let index = null;
-    const D1Nfirst = new Date(year, month, 1).getDay(); // день недели первого дня месяца
-
-    Calendar.setDate(1);
-    Calendar.setYear(year);
-    Calendar.setMonth(month);
+    const info = [];
 
     /*
-    head
+    Calendar body
      */
     html = '<table class="table_calendar">';
     html += '<thead>';
-    html += '<tr class="head_cal"> \
-    <th><button class="btn btn--add btn--add-lg" onclick="' + this.objName + '.navigationController(\'prev\')"><span class="fa fa-arrow-circle-left"></button></th> \
-    <th colspan="5"></span>' + month_of_year[month] + ', ' + year + '</th> \
-    <th><button class="btn btn--add btn--add-lg" onclick="' + this.objName + '.navigationController(\'next\')"><span class="fa fa-arrow-circle-right"></button></th></tr>';
+    html += '<tr class="head_cal">';
+    html += '<th><button class="btn btn--add btn--add-lg js-prevYear"><span class="fa fa-arrow-circle-left"></button></th>';
+    html += '<th colspan="5"></span>' + month_of_year[month] + ', ' + year + '</th>';
+    html += '<th><button class="btn btn--add btn--add-lg js-nextYear"><span class="fa fa-arrow-circle-right"></button></th></tr>';
     html += '<tr class="week_cal">';
 
-    /*
-    Weekdays
-     */
-    for (index = 0; index < 7; index++) {
+    for (let index = 0; index < 7; index++) {
       html += '<th>' + day_of_week[index] + '</th>';
     }
 
     html += '</tr>';
     html += '</thead>';
-
-    /*
-    body
-     */
     html += '<tbody class="days_cal">';
     html += '</tr>';
 
-    /*
-    white zone
-     */
     if (D1Nfirst !== 0) {
-      for (index = 1; index < D1Nfirst; index++) {
+      for (let index = 1; index < D1Nfirst; index++) {
         html += '<td class="white_cal"></td>';
       }
     } else { // если первый день месяца выпадает на воскресенье, то требуется 6 пустых клеток
-      for (index = 0; index < 6; index++) {
+      for (let index = 0; index < 6; index++) {
         html += '<td class="white_cal"></td>';
       }
     }
 
-    for (index = 0; index < 31; index++) {
+    for (let index = 0; index < 31; index++) {
       if (Calendar.getDate() > index) {
         week_day = Calendar.getDay();
         if (week_day !== 7) {
-          // this day
           day = Calendar.getDate();
-          info = day + '.' + (Calendar.getMonth() + 1) + '.' + Calendar.getFullYear();
-          html += '<td><span class="days_cal--inner js-bookDay" data-id="' + info + '" onclick="' + this.objName + '.bookDay(\'' + info + '\')">' + day + '</span></td>';
+          info.push('' + day + (Calendar.getMonth() + 1) + Calendar.getFullYear());
+          html += '<td><span class="days_cal--inner" data-id="' + info[index] + '">' + day + '</span></td>';
         }
         if (week_day === 0) {
           html += '</tr>';
         }
       }
       Calendar.setDate(Calendar.getDate() + 1);
-    } // end for loop
+    }
 
     this.componentObj.html(html);
+
+    info.forEach((item) => {
+      const selectorName = '[data-id="' + item + '"]';
+      this.componentObj.find(selectorName).on('click', () => {
+        this.bookDay(item);
+      });
+    });
+
+    this.componentObj.find('.js-prevYear').on('click', () => {
+      this.navigationController('prev');
+    });
+    this.componentObj.find('.js-nextYear').on('click', () => {
+      this.navigationController('next');
+    });
   };
 
   this.bookDay = (date) => {
     let index = -1;
+
+    this.componentObj.find('[data-id="' + date + '"]').toggleClass('days_cal--inner_selected');
 
     this.DATA.forEach((el, ind) => {
       if (el === date) {
@@ -179,10 +187,8 @@ function WICalendar(obj) {
 
     if (index >= 0) {
       this.DATA.splice(index, 1);
-      $('#' + this.componentID + ' [data-id="' + date + '"]').removeClass('days_cal--inner_selected');
     } else {
       this.DATA.push(date);
-      $('#' + this.componentID + ' [data-id="' + date + '"]').addClass('days_cal--inner_selected');
     }
 
     localStorage.setItem(this.componentID, JSON.stringify(this.DATA));
@@ -203,7 +209,10 @@ function WICalendar(obj) {
     ajax.send();
   };
 
-  // admin
+  /**
+   * Return calendar booked days
+   * @return {Array} booked days
+   */
   this.getItems = () => {
     const items = [];
     let idkey;
@@ -216,7 +225,9 @@ function WICalendar(obj) {
     return items;
   };
 
-  // admin
+  /**
+   * Remove calendar's booked days
+   */
   this.clearData = () => {
     this.DATA = {};
     localStorage.removeItem(this.componentID);

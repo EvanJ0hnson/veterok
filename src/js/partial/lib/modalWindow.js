@@ -5,6 +5,7 @@
 import loader from './loader';
 import {disable_scroll, enable_scroll} from './scrollControl';
 import * as sliders from './sliders';
+import WICalendar from '../calendar';
 
 export default function modalWindow() {
   $('.js-showPopup').on('click', (event) => {
@@ -37,7 +38,9 @@ export default function modalWindow() {
         $popup.addClass('gold popup-menu_window');
         $popup.load('popupWindows/' + popupName + '.html', () => {
           sliders.createCalendarSlider();
-          initCalendar('');
+          new WICalendar().initObject('calendar_1', '../data/calendar-room_1.json', '');
+          new WICalendar().initObject('calendar_2', '../data/calendar-room_2.json', '');
+          new WICalendar().initObject('calendar_3', '../data/calendar-room_3.json', '');
           enable_scroll();
         });
         break;
