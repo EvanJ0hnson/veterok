@@ -7,7 +7,7 @@ import fixIOSvh from './lib/fixIosVh';
 import stickyNavigation from './lib/stickyNavigation';
 import modalWindow from './lib/modalWindow';
 import formSubmit from './lib/formSubmit';
-import * as sliders from './lib/sliders';
+import vtSlider from './lib/sliders';
 import vtCard from './cart';
 
 /**
@@ -36,8 +36,9 @@ $(() => {
       stickyNavigation();
       modalWindow();
       formSubmit();
-      sliders.createTopSlider();
-      sliders.createReviewsSlider();
+      vtSlider('top');
+      vtSlider('photos');
+      vtSlider('userReviews');
       break;
     case '/menu.php':
       smoothScroll();

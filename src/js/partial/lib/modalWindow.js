@@ -4,7 +4,7 @@
  */
 import loader from './loader';
 import {disable_scroll, enable_scroll} from './scrollControl';
-import * as sliders from './sliders';
+import vtSlider from './sliders';
 import tvCalendar from '../calendar';
 import vtCart from '../cart';
 
@@ -37,10 +37,10 @@ export default function modalWindow() {
       case 'reservation':
         $popup.addClass('gold popup-menu_window');
         $popup.load('popupWindows/' + popupName + '.html', () => {
-          sliders.createCalendarSlider();
           new tvCalendar().initObject('calendar_1', '../data/calendar-room_1.json', '');
           new tvCalendar().initObject('calendar_2', '../data/calendar-room_2.json', '');
           new tvCalendar().initObject('calendar_3', '../data/calendar-room_3.json', '');
+          vtSlider('calendar');
           enable_scroll();
         });
         break;
@@ -57,14 +57,14 @@ export default function modalWindow() {
         const photoFolder = $eventTarget.attr('data-photoFolder');
         $popup.addClass('popup-photos no-overflow');
         $popup.load('popupWindows/imgRouter.php', {type: photoFolder}, () => {
-          sliders.createPhotoSlider();
+          vtSlider('photo');
         });
         break;
       case 'servicesPhoto':
         const src = $eventTarget.attr('data-src');
         $popup.addClass('popup-photos no-overflow');
         $popup.load('popupWindows/servicesRouter.php', {type: src}, () => {
-          sliders.createPhotoSlider();
+          vtSlider('photo');
         });
         break;
       default:
