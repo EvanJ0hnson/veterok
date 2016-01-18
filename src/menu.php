@@ -18,7 +18,7 @@
   </style>
   <!-- css -->
 </head>
-<body class="sc__main gold">
+<body class="sc__main gold--noBgImage gold">
   <?php
     $menu_filePath = 'data/menu.json';
     $menu = json_decode(file_get_contents($menu_filePath));
