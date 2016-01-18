@@ -59,6 +59,12 @@
     <li class="menu_nav-item">
       <a id="cart-widjet" class="btn btn--gold btn--cart"></a>
     </li>
+    <div class="menu-nav-footer">
+      <h1 class="menu-nav-footer__title">Гостинично-ресторанный комплекс «Ветерок»</h1>
+      <p class="menu-nav-footer__text">Волжский район, с. Подъем-Михайловка, (трасса Урал - Самара) ул. Советская, 37</p>
+      <p class="menu-nav-footer__text">8 (846) 997-87-37</p>
+      <p class="menu-nav-footer__text">veterok_spn@mail.ru</p>
+    </div>
   </ul>
 
   <div class="menu-container opacity100">
@@ -89,25 +95,6 @@
         }
       ?>
     </div>
-
-    <footer id="contacts" class="sc__main red noprint">
-      <div class="container clearfix">
-        <div class="ft-block floatLeft">
-            <h1 class="ft-heading">Гостинично-ресторанный комплекс «Ветерок»</h1>
-            <p class="ft-paragraph">Волжский район, с. Подъем-Михайловка, (трасса Урал - Самара) ул. Советская, 37</p>
-            <p class="ft-paragraph">(846) 997-87-37</p>
-            <p class="ft-paragraph">veterok_spn@mail.ru</p>
-        </div>
-        <div class="ft-block floatLeft">
-          <form id="fSendReview">
-            <textarea id="reviewText" name="message" placeholder="Здесь вы можете оставить отзыв о гостинице. Не забудьте представиться. Спасибо!"></textarea>
-            <button type="submit" name="sendReview" class="btn btn--red btn--mainType btn--sendReview">Отправить</button>
-          </form>
-        </div>
-        <h1 class="ft-heading">Как к нам добраться</h1>
-        <iframe src="https://www.google.ru/maps/embed?pb=!1m16!1m12!1m3!1d19290.2044802909!2d50.52257565987898!3d52.817396981649324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0KHQsNC80LDRgNCwLCDQn9C-0LTRitC10Lwt0JzQuNGF0LDQudC70L7QstC60LA!5e0!3m2!1sru!2sru!4v1426198644037" width="100%" height="450" frameborder="0" style="border:0;"></iframe>
-      </div>
-    </footer>
   </div>
     <!-- javascript -->
   <script src="js/partial.js"></script>
