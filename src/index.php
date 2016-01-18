@@ -76,33 +76,15 @@
     <img src="photo/small-2.jpg" alt="" class="sc-image sc-image--services sc-image--right js-showPopup wow fadeIn" data-popupName="photos" data-photoFolder="services">
     <h1 class="sc-heading">У нас вы можете</h1>
     <ul class="sc-list-items">
-      <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="veterok-services_01.jpg">Отдохнуть в комфортной обстановке</a>
-      </li>
-      <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="veterok-services_01.jpg">Вкусно поесть в ресторане</a>
-      </li>
-      <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="veterok-services_01.jpg">Посетить баню при гостинице</a>
-      </li>
-      <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="veterok-services_01.jpg">Устроить праздник в одном из банкетных залов</a>
-      </li>
-      <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="veterok-services_01.jpg">Поиграть в бильярд с друзьями</a>
-      </li>
-      <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="veterok-services_01.jpg">Стать еще более красивыми посетив наш салон красоты</a>
-      </li>
-      <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="veterok-services_01.jpg">Заказать блюда "на вынос"</a>
-      </li>
-      <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="veterok-services_01.jpg">Приобрести продукты первой необходимости, а так же приобрести наши фирменные полуфабрикаты высочайшего качества</a>
-      </li>
-      <li class="sc-list-item">
-        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="veterok-services_01.jpg">Помыть и отремонтировать Ваше авто</a>
-      </li>
+      <li class="sc-list-item">Отдохнуть в комфортной обстановке</li>
+      <li class="sc-list-item">Вкусно поесть в ресторане</li>
+      <li class="sc-list-item">Посетить баню при гостинице</li>
+      <li class="sc-list-item">Устроить праздник в одном из банкетных залов</li>
+      <li class="sc-list-item">Поиграть в бильярд с друзьями</li>
+      <li class="sc-list-item">Стать еще более красивыми посетив наш салон красоты</li>
+      <li class="sc-list-item">Заказать «на вынос»</li>
+      <li class="sc-list-item">Приобрести продукты первой необходимости, а так же приобрести наши фирменные полуфабрикаты высочайшего качества</li>
+      <li class="sc-list-item">Помыть и отремонтировать Ваше авто</li>
     </ul>
     </div>
   </div>

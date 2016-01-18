@@ -57,14 +57,7 @@ export default function modalWindow() {
         const photoFolder = $eventTarget.attr('data-photoFolder');
         $popup.addClass('popup-photos no-overflow');
         $popup.load('popupWindows/imgRouter.php', {type: photoFolder}, () => {
-          vtSlider('photo');
-        });
-        break;
-      case 'servicesPhoto':
-        const src = $eventTarget.attr('data-src');
-        $popup.addClass('popup-photos no-overflow');
-        $popup.load('popupWindows/servicesRouter.php', {type: src}, () => {
-          vtSlider('photo');
+          vtSlider('photos');
         });
         break;
       default:
