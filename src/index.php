@@ -67,7 +67,9 @@
         } else echo '<p class="sc-paragraph">Новостей нет</p>';
         ?>
       </div>
-      <a data-popupName="news" class="js-showPopup btn btn--gold btn--mainType floatRight">Все новости</a>
+      <div class="u-text-align--right">
+        <a data-popupName="news" class="js-showPopup btn btn--gold btn--mainType">Все новости</a>
+      </div>
     </div>
   </div>
 
@@ -95,9 +97,10 @@
       <h1 class="sc-heading gold__heading"><span class="gold__heading-background">Ресторан</span></h1>
       <p class="sc-paragraph">Если вы решили провести незабываемый романтический вечер или весело отдохнуть компанией – смело направляйтесь в ресторан гостиницы «Ветерок»!</p>
       <p class="sc-paragraph">Здесь вас приятно удивят великолепные блюда, их оригинальное оформление и подача. Изысканное меню, богатая карта вин, способная удовлетворить разнообразные вкусы самых требовательных гостей и высокий сервис обслуживания обязательно поднимут вам настроение!</p>
-      <a class="js-showMenuPage btn btn--gold btn--mainType btn--menu floatRight" data-popupName="menu" href="menu.php">Составить меню банкета</a>
-      <a class="js-showPopup btn btn--gold btn--mainType btn--menu floatRight" data-popupName="photos" data-photoFolder="menu">Ознакомиться с меню</a>
-      <!-- <div class=""></div> -->
+      <div class="u-text-align--right">       
+        <a class="js-showPopup btn btn--gold btn--mainType btn--menu" data-popupName="photos" data-photoFolder="menu">Ознакомиться с меню</a>
+        <a class="js-showMenuPage btn btn--gold btn--mainType btn--menu" data-popupName="menu" href="menu.php">Составить меню банкета</a>
+      </div>
     </div>
   </div>
 
@@ -112,8 +115,8 @@
         ?>
       </div>
     </div>
-      <a class="js-showPopup btn btn--red btn--mainType btn--photos floatLeft" data-popupName="photos" data-photoFolder="building">Фотографии комплекса</a>
-      <a class="js-showPopup btn btn--red btn--mainType btn--photos floatRight" data-popupName="photos" data-photoFolder="rooms">Фотографии номеров</a>
+      <a class="js-showPopup btn btn--red btn--mainType btn--photos" data-popupName="photos" data-photoFolder="building">Фотографии комплекса</a>
+      <a class="js-showPopup btn btn--red btn--mainType btn--photos" data-popupName="photos" data-photoFolder="rooms">Фотографии номеров</a>
   </div>
   </div>
 
