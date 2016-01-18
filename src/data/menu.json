@@ -635,7 +635,7 @@
   "type": "sweet",
   "items": []
 }, {
-  "title": "---Банкетное",
+  "title": "Банкетное",
   "type": "banquet_dish",
   "items": [{
     "id": "375",
@@ -793,7 +793,7 @@
     "price": "1230"
   }]
 }, {
-  "title": "---Кейтеринг",
+  "title": "Кейтеринг",
   "type": "catering",
   "items": [{
     "id": "509",
