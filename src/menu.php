@@ -57,7 +57,7 @@
       }
     ?>
     <li class="menu_nav-item">
-      <a id="cart-widjet" data-popupName="menu" class="js-showPopup btn btn--gold btn--cart"></a>
+      <a id="cart-widjet" class="btn btn--gold btn--cart"></a>
     </li>
   </ul>
 
@@ -111,9 +111,6 @@
   </div>
     <!-- javascript -->
   <script src="js/partial.js"></script>
-  <script>
-    var app = {entry: 'menu'};
-  </script>
   <!-- javascript -->
 </body>
 </html>

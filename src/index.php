@@ -188,9 +188,6 @@
 
   <!-- javascript -->
   <script src="js/partial.js"></script>
-  <script>
-    var app = {entry: 'index'}
-  </script>
   <!-- javascript -->
 </body>
 </html>

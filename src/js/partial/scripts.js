@@ -28,8 +28,9 @@ function createCart() {
  * @return {[type]}   [description]
  */
 $(() => {
-  switch (app.entry) {
-    case 'index':
+  const currentState = window.location.pathname;
+  switch (currentState) {
+    case '/':
       smoothScroll();
       fixIOSvh();
       stickyNavigation();
@@ -38,7 +39,7 @@ $(() => {
       sliders.createTopSlider();
       sliders.createReviewsSlider();
       break;
-    case 'menu':
+    case '/menu.php':
       smoothScroll();
       stickyNavigation();
       modalWindow();
@@ -46,6 +47,7 @@ $(() => {
       new vtCard().init('cart-widjet');
       break;
     default:
+      console.log("Error: missing state")
       break;
   }
 });
