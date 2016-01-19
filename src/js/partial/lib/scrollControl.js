@@ -45,6 +45,3 @@ export function enable_scroll() {
     return true;
   };
 }
-/**
- * hack scroll for modal
- */

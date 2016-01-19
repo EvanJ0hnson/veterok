@@ -1,5 +1,6 @@
-'use strict';
-
+/**
+ * Calendar
+ */
 export default function WICalendar(obj) {
   const _super = this;
   this.objName = obj;

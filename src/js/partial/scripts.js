@@ -1,5 +1,5 @@
 'use strict';
-// Warning! This script contains a lot of stupid code. I will make it better, I promise.
+
 import $ from 'jquery-browserify';
 
 import smoothScroll from './lib/smoothScroll';
@@ -11,21 +11,7 @@ import vtSlider from './lib/sliders';
 import vtCard from './cart';
 
 /**
- * Cart init
- */
-let cart;
-function createCart() {
-  cart = new WICard('cart');
-  cart.init('cart-widjet');
-}
-/**
- * Cart init
- */
-
-/**
  * Initialization
- * @param  {[type]} ( [description]
- * @return {[type]}   [description]
  */
 $(() => {
   const currentState = window.location.pathname;
@@ -48,7 +34,7 @@ $(() => {
       new vtCard().init('cart-widjet');
       break;
     default:
-      console.log("Error: missing state")
+      console.log('Error: missing state');
       break;
   }
 });

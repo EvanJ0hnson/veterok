@@ -1,3 +1,7 @@
+/**
+ * Smooth scroll
+ * @return {Boolean} Prevent default event
+ */
 export default function smoothScroll() {
   $('a[href^="#"], a[href^="."]').on('click', (event) => {
     const scroll_el = $(event.currentTarget).attr('href');

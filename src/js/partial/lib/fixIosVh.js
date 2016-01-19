@@ -1,8 +1,6 @@
 /**
  * iOS hack to change vh to px
  */
-import $ from 'jquery';
-
 const iOS = navigator.userAgent.match(/(iPod|iPhone)/);
 const $window = $(window);
 
@@ -22,6 +20,3 @@ export default function fixBug() {
     $window.bind('resize', changeHeight);
   }
 }
-/**
- * iOS hack to change vh to px
- */

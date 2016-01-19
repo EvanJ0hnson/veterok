@@ -1,3 +1,6 @@
+/**
+ * Cart
+ */
 export default function WICard(obj) {
   this.objNAME = obj;
   this.DATA = null;

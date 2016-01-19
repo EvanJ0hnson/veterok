@@ -35,7 +35,6 @@ gulp.task('browserSync', function(cb) {
 gulp.task('php', function() {
   return gulp.src(config.srcRoot + '**/[^!]*.php')
     .pipe($.plumber())
-    .pipe($.newer(config.buildRoot))
     .pipe($.htmlmin({
       collapseWhitespace: true
       }))
@@ -50,7 +49,6 @@ gulp.task('php-watch', ['php'], function () {
 gulp.task('html', function() {
   return gulp.src(config.srcRoot + '**/[^!]*.html')
     .pipe($.plumber())
-    .pipe($.newer(config.buildRoot))
     .pipe($.htmlmin({
       collapseWhitespace: true
       }))
@@ -65,14 +63,12 @@ gulp.task('html-watch', ['html'], function () {
 gulp.task('fonts', function() {
   return gulp.src(config.vendorFonts)
     .pipe($.plumber())
-    .pipe($.newer(config.buildRoot))
     .pipe(gulp.dest(config.buildRoot + 'fonts/'));
 });
 
 gulp.task('json', function() {
   return gulp.src(config.srcRoot + '**/[^!]*.json')
     .pipe($.plumber())
-    .pipe($.newer(config.buildRoot))
     .pipe(gulp.dest(config.buildRoot));
 });
 
@@ -81,7 +77,7 @@ gulp.task('json-watch', ['json'], function () {
 });
 
 gulp.task('js', function() {
-  return $.browserify(config.srcRoot + 'partial/scripts.js')
+  return $.browserify(config.srcRoot + 'js/partial/scripts.js')
     .transform($.babelify)
     .transform($.hbsfy)
     .bundle()

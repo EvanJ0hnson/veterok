@@ -1,6 +1,5 @@
 /**
- * [stickyNavigation description]
- * @return {[type]} [description]
+ * Stick navigation bar to top on scroll
  */
 export default function stickyNavigation() {
   $(window).on('scroll', () => {
@@ -11,6 +10,3 @@ export default function stickyNavigation() {
     n[e > 200 ? 'addClass' : 'removeClass']('top_nav--logo-ribbon-sticky');
   });
 }
-/**
- * stickyNavigation
- */
