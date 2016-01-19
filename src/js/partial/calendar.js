@@ -1,6 +1,8 @@
 /**
- * Calendar
+ * Calendar module
  */
+import hbsCalendar from '../../templates/calendar.hbs';
+
 export default function WICalendar(obj) {
   const _super = this;
   this.objName = obj;
@@ -12,6 +14,12 @@ export default function WICalendar(obj) {
   this.DATA = null;
   this.isAdmin = false;
 
+  /**
+   * Init Calendar
+   * @param  {String}  componentID ID of the Calendar
+   * @param  {String}  jsonFileUrl Path to JSON file with booked days
+   * @param  {Boolean} isAdmin     Is user Admin or not
+   */
   this.initObject = (componentID, jsonFileUrl, isAdmin) => {
     this.jsonFileUrl = jsonFileUrl;
     this.isAdmin = isAdmin;
@@ -37,6 +45,10 @@ export default function WICalendar(obj) {
     }
   };
 
+  /**
+   * Navigate through month and years
+   * @param  {String} direction Forward or backward
+   */
   this.navigationController = (direction) => {
     switch (direction) {
       case 'next':
@@ -60,121 +72,132 @@ export default function WICalendar(obj) {
     this.render(this.year, this.month);
   };
 
+  /**
+   * Create and render Calendar
+   * @param  {String} year  Year
+   * @param  {String} month Month
+   */
   this.render = (year, month) => {
+    const DAYS = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+    const MONTH = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май',
+      'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+    ];
+
+    const date = new Date(year, month, 1);
+
+    const firstDayOfMonth = date.getDay();
+    const emptyDaysCount = (firstDayOfMonth !== 0) ? (firstDayOfMonth - 1) : 6;
+
+    const days = [];
+    let week = [];
+
     /**
-     * Когда таблица готова, в ней расставляются события на соответствующие даты
-     * @param  {[type]} this.jsonFileUrl [description]
-     * @param  {[type]} (item)           [description]
-     * @return {[type]}                  [description]
+     * Calendar's empty days
+     */
+    for (let i = 0; i < emptyDaysCount; i++) {
+      week.push('');
+    }
+
+    /**
+     * Calendar's main structure
+     */
+    for (let i = 0; i < 31; i++) {
+      const day = {
+        number: null,
+        fullDate: null,
+      };
+      day.number = date.getDate();
+
+      if (day.number > i) {
+        day.fullDate = '' + day.number + month + year;
+        week.push(day);
+      }
+
+      if ((date.getDay() === 0) || (i === 30)) {
+        days.push(week);
+        week = [];
+      }
+
+      date.setDate(day.number + 1);
+    }
+
+    /**
+     * Apply Handlebars template
+     */
+    this.componentObj.html(hbsCalendar({
+      DAYS,
+      month: MONTH[month],
+      year,
+      days,
+    }));
+
+    /**
+     * Draw border around previously selected elements
+     * @param  {Array} !$.isEmptyObject(_super.DATA) Previously selected elements
+     */
+    if (!$.isEmptyObject(_super.DATA)) {
+      _super.DATA.forEach((item) => {
+        const itemSelector = '[data-id="' + item + '"]';
+        const $item = this.componentObj.find(itemSelector);
+        $item.addClass('days_cal--inner_selected');
+      });
+    }
+
+    /**
+     * Add eventListener to all days
+     * @param  {Array} (weeks) Each week
+     */
+    days.forEach((weeks) => {
+      weeks.forEach((day) => {
+        const selectorName = '[data-id="' + day.fullDate + '"]';
+        this.componentObj.find(selectorName).on('click', () => {
+          this.bookDay(day.fullDate);
+        });
+      });
+    });
+
+    /**
+     * Add eventListener to the Next month button
+     */
+    this.componentObj.find('.js-prevYear').on('click', () => {
+      this.navigationController('prev');
+    });
+
+    /**
+     * Add eventListener to the Next month button
+     */
+    this.componentObj.find('.js-nextYear').on('click', () => {
+      this.navigationController('next');
+    });
+
+    /**
+     * Mark already booked days
+     * @param  {String} this.jsonFileUrl Path to the JSON file
+     * @param  {Array} (item)            Booked days
      */
     this.getjson(this.jsonFileUrl, (item) => {
       let key = null;
 
       for (key in item) {
         if (item.hasOwnProperty(key)) {
-          // if has event add class
           const itemTitle = '[data-id="' + item[key] + '"]';
           const $item = this.componentObj.find(itemTitle);
 
-          if ($item) {
-            if (_super.isAdmin) {
-               // если admin, то присваиваем редактируемый класс
-              $item.addClass('days_cal--inner_selected');
-            } else {
-              $item.addClass('days_cal--event');
-              $item.off('click');
-            }
+          if (_super.isAdmin) {
+            $item.addClass('days_cal--inner_selected');
+          } else {
+            $item.addClass('days_cal--event');
+            $item.off('click');
           }
         }
       }
-
-      // Отрисовка выделенных пользователем элементов при перезагрузке календаря
-      // Проверяем, есть ли такие
-      if (!$.isEmptyObject(_super.DATA)) {
-        _super.DATA.forEach((item) => {
-          const itemTitle = '[data-id="' + item + '"]';
-          const $item = this.componentObj.find(itemTitle);
-          $item.addClass('days_cal--inner_selected');
-        });
-      }
-    });
-
-    /*
-    vars
-     */
-    const Calendar = new Date(year, month, 1);
-    const D1Nfirst = Calendar.getDay(); // день недели первого дня месяца
-    const day_of_week = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
-    const month_of_year = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май',
-      'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
-    ];
-    let html = null;
-    let week_day = null;
-    let day = null;
-    const info = [];
-
-    /*
-    Calendar body
-     */
-    html = '<table class="table_calendar">';
-    html += '<thead>';
-    html += '<tr class="head_cal">';
-    html += '<th><button class="btn btn--add btn--add-lg js-prevYear"><span class="fa fa-arrow-circle-left"></button></th>';
-    html += '<th colspan="5"></span>' + month_of_year[month] + ', ' + year + '</th>';
-    html += '<th><button class="btn btn--add btn--add-lg js-nextYear"><span class="fa fa-arrow-circle-right"></button></th></tr>';
-    html += '<tr class="week_cal">';
-
-    for (let index = 0; index < 7; index++) {
-      html += '<th>' + day_of_week[index] + '</th>';
-    }
-
-    html += '</tr>';
-    html += '</thead>';
-    html += '<tbody class="days_cal">';
-    html += '</tr>';
-
-    if (D1Nfirst !== 0) {
-      for (let index = 1; index < D1Nfirst; index++) {
-        html += '<td class="white_cal"></td>';
-      }
-    } else { // если первый день месяца выпадает на воскресенье, то требуется 6 пустых клеток
-      for (let index = 0; index < 6; index++) {
-        html += '<td class="white_cal"></td>';
-      }
-    }
-
-    for (let index = 0; index < 31; index++) {
-      if (Calendar.getDate() > index) {
-        week_day = Calendar.getDay();
-        if (week_day !== 7) {
-          day = Calendar.getDate();
-          info.push('' + day + (Calendar.getMonth() + 1) + Calendar.getFullYear());
-          html += '<td><span class="days_cal--inner" data-id="' + info[index] + '">' + day + '</span></td>';
-        }
-        if (week_day === 0) {
-          html += '</tr>';
-        }
-      }
-      Calendar.setDate(Calendar.getDate() + 1);
-    }
-
-    this.componentObj.html(html);
-
-    info.forEach((item) => {
-      const selectorName = '[data-id="' + item + '"]';
-      this.componentObj.find(selectorName).on('click', () => {
-        this.bookDay(item);
-      });
-    });
-
-    this.componentObj.find('.js-prevYear').on('click', () => {
-      this.navigationController('prev');
-    });
-    this.componentObj.find('.js-nextYear').on('click', () => {
-      this.navigationController('next');
     });
   };
 
+  /**
+   * Book day
+   * @param  {String} date Date ID
+   */
   this.bookDay = (date) => {
     let index = -1;
 
@@ -195,7 +218,10 @@ export default function WICalendar(obj) {
     localStorage.setItem(this.componentID, JSON.stringify(this.DATA));
   };
 
-  //   Get Json data
+  /**
+   * Get JSON data
+   * @param  {String}   url      URL to a file
+   */
   this.getjson = (url, callback) => {
     const ajax = new XMLHttpRequest();
     ajax.open('GET', url, true);
@@ -211,7 +237,7 @@ export default function WICalendar(obj) {
   };
 
   /**
-   * Return calendar booked days
+   * Return booked days
    * @return {Array} booked days
    */
   this.getItems = () => {
@@ -227,7 +253,7 @@ export default function WICalendar(obj) {
   };
 
   /**
-   * Remove calendar's booked days
+   * Clear booked days (in a browser)
    */
   this.clearData = () => {
     this.DATA = {};
