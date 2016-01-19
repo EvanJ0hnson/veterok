@@ -19,6 +19,9 @@ var config = {
     './node_modules/font-awesome/fonts/*.*'
   ]
 };
+$.hbsfy.configure({
+  extensions: ["hbs"]
+});
 
 gulp.task('browserSync', function(cb) {
   browserSyncInstance.init({
@@ -78,8 +81,9 @@ gulp.task('json-watch', ['json'], function () {
 });
 
 gulp.task('js', function() {
-  return $.browserify('./src/js/partial/scripts.js')
-    .transform('babelify')
+  return $.browserify(config.srcRoot + 'partial/scripts.js')
+    .transform($.babelify)
+    .transform($.hbsfy)
     .bundle()
     .pipe($.vinylSourceStream('partial.js'))
     .pipe(gulp.dest(config.buildRoot + 'js/'));
