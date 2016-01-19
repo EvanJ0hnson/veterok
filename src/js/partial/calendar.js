@@ -78,8 +78,8 @@ export default function WICalendar(obj) {
    * @param  {String} month Month
    */
   this.render = (year, month) => {
-    const DAYS = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
-    const MONTH = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май',
+    const DAY_NAMES = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+    const MONTH_NAMES = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май',
       'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
     ];
 
@@ -125,8 +125,8 @@ export default function WICalendar(obj) {
      * Apply Handlebars template
      */
     this.componentObj.html(hbsCalendar({
-      DAYS,
-      month: MONTH[month],
+      DAY_NAMES,
+      month: MONTH_NAMES[month],
       year,
       days,
     }));
