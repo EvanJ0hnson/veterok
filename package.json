@@ -33,6 +33,7 @@
     "gulp-load-plugins": "^1.0.0-rc.1",
     "gulp-plumber": "^1.0.1",
     "gulp-stylus": "^2.0.6",
+    "handlebars": "^4.0.5",
     "hbsfy": "^2.4.1",
     "jquery-browserify": "^1.8.1",
     "run-sequence": "^1.1.2",
