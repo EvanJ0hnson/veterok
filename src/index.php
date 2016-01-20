@@ -115,8 +115,10 @@
         ?>
       </div>
     </div>
+    <div class="u-text-align--center">
       <a class="js-showPopup btn btn--red btn--mainType btn--photos" data-popupName="photos" data-photoFolder="building">Фотографии комплекса</a>
       <a class="js-showPopup btn btn--red btn--mainType btn--photos" data-popupName="photos" data-photoFolder="rooms">Фотографии номеров</a>
+    </div>
   </div>
   </div>
 
