@@ -139,7 +139,7 @@ export default function WICalendar(obj) {
       _super.DATA.forEach((item) => {
         const itemSelector = '[data-id="' + item + '"]';
         const $item = this.componentObj.find(itemSelector);
-        $item.addClass('days_cal--inner_selected');
+        $item.addClass('calendar__days--selected');
       });
     }
 
@@ -184,9 +184,9 @@ export default function WICalendar(obj) {
           const $item = this.componentObj.find(itemTitle);
 
           if (_super.isAdmin) {
-            $item.addClass('days_cal--inner_selected');
+            $item.addClass('calendar__days--selected');
           } else {
-            $item.addClass('days_cal--event');
+            $item.addClass('calendar__days--booked');
             $item.off('click');
           }
         }
@@ -201,7 +201,7 @@ export default function WICalendar(obj) {
   this.bookDay = (date) => {
     let index = -1;
 
-    this.componentObj.find('[data-id="' + date + '"]').toggleClass('days_cal--inner_selected');
+    this.componentObj.find('[data-id="' + date + '"]').toggleClass('calendar__days--selected');
 
     this.DATA.forEach((el, ind) => {
       if (el === date) {

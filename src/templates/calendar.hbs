@@ -1,6 +1,6 @@
-<table class="table_calendar">
+<table class="calendar__table">
   <thead>
-  <tr class="head_cal">
+  <tr class="calendar__table-head">
     <th>
       <button class="btn btn--add btn--add-lg js-prevYear">
         <span class="fa fa-arrow-circle-left">
@@ -13,18 +13,18 @@
       </button>
     </th>
   </tr>
-  <tr class="week_cal">
+  <tr class="calendar__day-names">
   {{#each DAY_NAMES}}
     <th>{{this}}</th>
   {{/each}}
   </tr>
 </thead>
-<tbody class="days_cal">
+<tbody class="calendar__table-body">
   {{#each days}}
   </tr>
     {{#each this}}
     <td>
-      <span class="days_cal--inner" data-id="{{this.fullDate}}">{{this.number}}</span>
+      <span class="calendar__days" data-id="{{this.fullDate}}">{{this.number}}</span>
     </td>
     {{/each}}
   </tr>
