@@ -5,7 +5,7 @@
   <meta name=viewport content="width=960">
   <title>Гостиница «Ветерок»</title>
   <!-- css -->
-  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/vendor.min.css">
   <link rel="stylesheet" href="css/styles.min.css">
   <!-- css -->
 </head>

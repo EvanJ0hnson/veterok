@@ -94,7 +94,7 @@ gulp.task('js-watch', ['js'], function () {
 gulp.task('css', function() {
   return gulp.src(config.vendorCSS)
     .pipe($.plumber())
-    .pipe($.concat('vendor.css'))
+    .pipe($.concat('vendor.min.css'))
     .pipe($.postcss([
       $.cssnano({safe: true})
     ]))
