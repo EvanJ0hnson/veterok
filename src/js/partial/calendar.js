@@ -1,6 +1,7 @@
 /**
  * Calendar module
  */
+import * as _u from './lib/utilites';
 import hbsCalendar from '../../templates/calendar.hbs';
 
 export default function WICalendar(obj) {
@@ -173,14 +174,15 @@ export default function WICalendar(obj) {
     /**
      * Mark already booked days
      * @param  {String} this.jsonFileUrl Path to the JSON file
-     * @param  {Array} (item)            Booked days
+     * @param  {JSON} (json)            JSON with booked days
      */
-    this.getjson(this.jsonFileUrl, (item) => {
+    _u.getJSON(this.jsonFileUrl, (json) => {
+      const items = JSON.parse(json);
       let key = null;
 
-      for (key in item) {
-        if (item.hasOwnProperty(key)) {
-          const itemTitle = '[data-id="' + item[key] + '"]';
+      for (key in items) {
+        if (items.hasOwnProperty(key)) {
+          const itemTitle = '[data-id="' + items[key] + '"]';
           const $item = this.componentObj.find(itemTitle);
 
           if (_super.isAdmin) {
@@ -216,24 +218,6 @@ export default function WICalendar(obj) {
     }
 
     localStorage.setItem(this.componentID, JSON.stringify(this.DATA));
-  };
-
-  /**
-   * Get JSON data
-   * @param  {String}   url      URL to a file
-   */
-  this.getjson = (url, callback) => {
-    const ajax = new XMLHttpRequest();
-    ajax.open('GET', url, true);
-    ajax.onreadystatechange = () => {
-      if (ajax.readyState === 4) {
-        if (ajax.status === 200) {
-          const data = JSON.parse(ajax.responseText);
-          return callback(data);
-        }
-      }
-    };
-    ajax.send();
   };
 
   /**
