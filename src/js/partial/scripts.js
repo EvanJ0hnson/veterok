@@ -8,7 +8,7 @@ import stickyNavigation from './lib/stickyNavigation';
 import modalWindow from './lib/modalWindow';
 import formSubmit from './lib/formSubmit';
 import vtSlider from './lib/sliders';
-import vtCard from './cart';
+import VTCart from './cart';
 
 /**
  * Initialization
@@ -27,11 +27,15 @@ $(() => {
       vtSlider('userReviews');
       break;
     case '/menu.php':
+      let cart = null;
+
       smoothScroll();
       stickyNavigation();
       modalWindow();
       formSubmit();
-      new vtCard().init('cart-widjet');
+
+      cart = new VTCart();
+      cart.init('cart-widjet');
       break;
     default:
       console.log('Error: missing state');
