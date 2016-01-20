@@ -17,7 +17,7 @@ function getSliderConfig(sliderName) {
       innerSelector = 'div';
       Object.assign(localConfig, {
         animation: 'slide',
-        controlNav: true,
+        controlNav: false,
         directionNav: false,
         keyboard: false,
         slideshow: true,
@@ -31,6 +31,7 @@ function getSliderConfig(sliderName) {
       Object.assign(localConfig, {
         animation: 'slide',
         controlNav: false,
+        keyboard: false,
         slideshow: false,
       });
       break;
@@ -40,8 +41,8 @@ function getSliderConfig(sliderName) {
       Object.assign(localConfig, {
         animation: 'slide',
         controlNav: false,
+        keyboard: false,
         slideshow: false,
-        smoothHeight: true,
       });
       break;
     case 'calendar':
@@ -50,8 +51,8 @@ function getSliderConfig(sliderName) {
       Object.assign(localConfig, {
         animation: 'slide',
         controlNav: false,
+        keyboard: false,
         slideshow: false,
-        smoothHeight: false,
       });
       break;
     default:
