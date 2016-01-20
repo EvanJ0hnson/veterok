@@ -10,53 +10,26 @@
   text-align: center
 }
 
-.clearfix:before,
-.clearfix:after {
-  display: table;
+.clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: ' ';
+  }
 
-  content: ' ';
+  &:after {
+    clear: both;
+  }
 }
 
-.clearfix:after {
-  clear: both;
-}
-
-.floatLeft {
+.u-float--left {
   float: left;
 }
 
-.floatRight {
+.u-float--right {
   float: right;
 }
 
-.displayInlineBlock {
-  display: inline-block;
-}
-
-.no-overflow {
+.u-overflow--hidden {
   overflow: hidden;
-}
-
-.word-wrap {
-  word-wrap: break-word;
-}
-
-.textAlignLeft {
-  text-align: left;
-}
-
-.textAlignRight {
-  text-align: right;
-}
-
-.textAlignCenter {
-  text-align: center;
-}
-
-.textAlignJustify {
-  text-align: justify;
-}
-
-.textTransform--none {
-  text-transform: none;
 }

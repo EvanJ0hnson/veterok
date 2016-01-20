@@ -14,7 +14,7 @@
   <nav class="top_nav">
     <a href="#top"><img class="top_nav--logo-square" src="img/logo_transp.png" alt="«Ветерок»"></a>
     <a href="#top"><img class="top_nav--logo-ribbon" src="img/logo.png" alt="«Ветерок»"></a>
-    <ul class="floatRight">
+    <ul class="u-float--right">
      <li class="nav-item"><a class="nav-link" href="#about">О НАС</a></li>
      <li class="nav-item"><a class="nav-link" href="#services">УСЛУГИ</a></li>
      <li class="nav-item"><a class="nav-link" href="#menu">МЕНЮ</a></li>
@@ -155,13 +155,13 @@
 
   <footer id="contacts" class="sc__main red">
     <div class="container clearfix">
-      <div class="ft-block floatLeft">
+      <div class="ft-block u-float--left">
           <h1 class="ft-heading">Гостинично-ресторанный комплекс «Ветерок»</h1>
           <p class="ft-paragraph">Волжский район, с. Подъем-Михайловка, (трасса Урал - Самара) ул. Советская, 37</p>
           <p class="ft-paragraph">(846) 997-87-37</p>
           <p class="ft-paragraph">veterok_spn@mail.ru</p>
       </div>
-      <div class="ft-block floatLeft">
+      <div class="ft-block u-float--left">
         <form id="fSendReview">
           <textarea class="form-review__message" id="reviewText" name="formBody" placeholder="Здесь вы можете оставить отзыв о гостинице. Не забудьте представиться. Спасибо!" required></textarea>
           <button class="btn btn--red btn--mainType btn--sendReview" type="submit" name="sendReview">Отправить</button>

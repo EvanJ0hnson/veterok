@@ -29,7 +29,7 @@ export default function modalWindow() {
     $popupOverlay.toggleClass('visible');
 
     $body.css('width', $body.css('width'));
-    $body.toggleClass('no-overflow');
+    $body.toggleClass('u-overflow--hidden');
 
     loader();
     disable_scroll();
@@ -55,7 +55,7 @@ export default function modalWindow() {
         break;
       case 'photos':
         const photoFolder = $eventTarget.attr('data-photoFolder');
-        $popup.addClass('popup-photos no-overflow');
+        $popup.addClass('popup-photos u-overflow--hidden');
         $popup.load('popupWindows/imgRouter.php', {type: photoFolder}, () => {
           vtSlider('photos');
         });
@@ -77,7 +77,7 @@ export default function modalWindow() {
     $popupOverlay.toggleClass('visible');
 
     $body.css('width', 'auto');
-    $body.toggleClass('no-overflow', false);
+    $body.toggleClass('u-overflow--hidden', false);
 
     $popup.remove();
     $spinner.remove();

@@ -26,7 +26,7 @@
   ?>
   <nav class="top_nav top_nav-menu noprint">
     <a href="/"><img class="top_nav--logo-square" src="img/logo_transp.png" alt="«Ветерок»"></a>
-    <ul class="floatRight">
+    <ul class="u-float--right">
       <li class="nav-item">
         <a class="nav-link nav-link-menu" href="/#about">О НАС</a>
       </li>
@@ -76,7 +76,7 @@
             <div id="'.$dish_type->{'type'}.'" class="menu-items-container">';
             foreach($dish_type->{'items'} as $dish) {
               if (strlen($dish->{'photo'}) > 0) {
-                $photo = '<img class="floatLeft" src="'.$dish->{'photo'}.'" alt="">';
+                $photo = '<img class="u-float--left" src="'.$dish->{'photo'}.'" alt="">';
               } else
                   $photo = '';
               print '
