@@ -95,20 +95,21 @@ gulp.task('css', function() {
   return gulp.src(config.vendorCSS)
     .pipe($.plumber())
     .pipe($.concat('vendor.css'))
+    .pipe($.postcss([
+      $.cssnano({safe: true})
+    ]))
     .pipe(gulp.dest(config.buildRoot + 'css/'));
 });
 
 gulp.task('stylus', function() {
   return gulp.src(config.srcRoot + 'stylus/main.styl')
     .pipe($.plumber())
-    .pipe($.stylus({
-      compress: true
-      }))
-    .pipe($.autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-      }))
+    .pipe($.stylus())
     .pipe($.concat('styles.min.css'))
+    .pipe($.postcss([
+      $.autoprefixer({browsers: ['last 2 versions']}),
+      $.cssnano({safe: true})
+    ]))
     .pipe(gulp.dest(config.buildRoot + 'css/'))
     .pipe(browserSyncInstance.stream());
 });
