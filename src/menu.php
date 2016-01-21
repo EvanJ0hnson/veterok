@@ -6,7 +6,7 @@
   <title>Гостиница «Ветерок»</title>
   <!-- css -->
   <link rel="stylesheet" href="css/vendor.min.css">
-  <link rel="stylesheet" href="css/styles.min.css">
+  <link rel="stylesheet" href="css/bundle.min.css">
   <!-- css -->
   <style media="print" type="text/css">
     .noprint {
@@ -97,7 +97,7 @@
     </div>
   </div>
     <!-- javascript -->
-  <script src="js/partial.js"></script>
+  <script src="js/bundle.min.js"></script>
   <!-- javascript -->
 </body>
 </html>

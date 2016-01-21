@@ -103,11 +103,11 @@ gulp.task('json-watch', ['json'], function () {
 });
 
 gulp.task('js', function() {
-  return $.browserify(config.srcRoot + 'js/partial/scripts.js')
+  return $.browserify(config.srcRoot + 'js/partial/app.js')
     .transform($.babelify)
     .transform($.hbsfy)
     .bundle()
-    .pipe($.vinylSourceStream('partial.js'))
+    .pipe($.vinylSourceStream('bundle.min.js'))
     .pipe($.vinylBuffer())
     .pipe($.uglify())
     .pipe(gulp.dest(config.buildRoot + 'js/'));
@@ -135,7 +135,7 @@ gulp.task('stylus', function() {
         errorHandler: plumberErrorHandler
     }))
     .pipe($.stylus())
-    .pipe($.concat('styles.min.css'))
+    .pipe($.concat('bundle.min.css'))
     .pipe($.postcss([
       $.autoprefixer({browsers: ['last 2 versions']}),
       $.cssnano({safe: true})
