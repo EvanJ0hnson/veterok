@@ -32,6 +32,7 @@
     "gulp-htmlmin": "^1.1.4",
     "gulp-imagemin": "^2.3.0",
     "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-postcss": "^6.0.1",
     "gulp-stylus": "^2.0.6",

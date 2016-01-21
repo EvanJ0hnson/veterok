@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * Configuration
+ */
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({
       pattern: ['*']
@@ -21,9 +24,22 @@ var config = {
     './node_modules/flexslider/fonts/*.*',
   ]
 };
+
+var plumberErrorHandler = function (error) {
+  console.log(error.toString());
+  $.notify.onError({
+    title:    "Build error",
+    message:  "Plugin: <%= error.plugin %>"
+  })(error);
+  this.emit('end');
+};
+
 $.hbsfy.configure({
   extensions: ["hbs"]
 });
+/**
+ * Configuration
+ */
 
 gulp.task('browserSync', function(cb) {
   browserSyncInstance.init({
@@ -36,7 +52,9 @@ gulp.task('browserSync', function(cb) {
 
 gulp.task('php', function() {
   return gulp.src(config.srcRoot + '**/[^!]*.php')
-    .pipe($.plumber())
+    .pipe($.plumber({
+        errorHandler: plumberErrorHandler
+    }))
     .pipe($.htmlmin({
       collapseWhitespace: true
       }))
@@ -50,7 +68,9 @@ gulp.task('php-watch', ['php'], function () {
 
 gulp.task('html', function() {
   return gulp.src(config.srcRoot + '**/[^!]*.html')
-    .pipe($.plumber())
+    .pipe($.plumber({
+        errorHandler: plumberErrorHandler
+    }))
     .pipe($.htmlmin({
       collapseWhitespace: true
       }))
@@ -64,13 +84,17 @@ gulp.task('html-watch', ['html'], function () {
 
 gulp.task('fonts', function() {
   return gulp.src(config.vendorFonts)
-    .pipe($.plumber())
+    .pipe($.plumber({
+        errorHandler: plumberErrorHandler
+    }))
     .pipe(gulp.dest(config.buildRoot + 'fonts/'));
 });
 
 gulp.task('json', function() {
   return gulp.src(config.srcRoot + '**/[^!]*.json')
-    .pipe($.plumber())
+    .pipe($.plumber({
+        errorHandler: plumberErrorHandler
+    }))
     .pipe(gulp.dest(config.buildRoot));
 });
 
@@ -95,7 +119,9 @@ gulp.task('js-watch', ['js'], function () {
 
 gulp.task('css', function() {
   return gulp.src(config.vendorCSS)
-    .pipe($.plumber())
+    .pipe($.plumber({
+        errorHandler: plumberErrorHandler
+    }))
     .pipe($.concat('vendor.min.css'))
     .pipe($.postcss([
       $.cssnano({safe: true})
@@ -105,7 +131,9 @@ gulp.task('css', function() {
 
 gulp.task('stylus', function() {
   return gulp.src(config.srcRoot + 'stylus/main.styl')
-    .pipe($.plumber())
+    .pipe($.plumber({
+        errorHandler: plumberErrorHandler
+    }))
     .pipe($.stylus())
     .pipe($.concat('styles.min.css'))
     .pipe($.postcss([
@@ -118,7 +146,9 @@ gulp.task('stylus', function() {
 
 gulp.task('imageOptim', function () {
   return gulp.src(config.srcRoot + 'img/*')
-    .pipe($.plumber())
+    .pipe($.plumber({
+        errorHandler: plumberErrorHandler
+    }))
     .pipe($.imagemin({
       progressive: true,
       }))
@@ -127,10 +157,15 @@ gulp.task('imageOptim', function () {
 
 gulp.task('photos', function () {
   return gulp.src(config.srcRoot + 'photo/**/*')
-    .pipe($.plumber())
+    .pipe($.plumber({
+        errorHandler: plumberErrorHandler
+    }))
     .pipe(gulp.dest(config.buildRoot + 'photo/'));
 });
 
+/**
+ * Task: Watch
+ */
 gulp.task('watch', ['browserSync'], function() {
   gulp.watch(config.srcRoot + '**/[^!]*.php', ['php-watch']);
   gulp.watch(config.srcRoot + '**/[^!]*.html', ['html-watch']);
@@ -139,11 +174,17 @@ gulp.task('watch', ['browserSync'], function() {
   gulp.watch(config.srcRoot + '**/[^!]*.styl', ['stylus']);
 });
 
+/**
+ * Task: Clean
+ */
 gulp.task('clean', function (cb) {
   $.del.sync(config.buildRoot + '*');
   cb();
 });
 
+/**
+ * Task: Build
+ */
 gulp.task('build', function (cb) {
   $.runSequence('clean', [
     'photos',
@@ -158,4 +199,7 @@ gulp.task('build', function (cb) {
     ], cb);
 });
 
+/**
+ * Task: Serve
+ */
 gulp.task('serve', ['watch']);
