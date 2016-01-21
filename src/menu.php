@@ -85,7 +85,7 @@
                 <p class="menu-item--title clearfix">'.$dish->{'title'}.' <span class="menu-item--cal">('.$dish->{'calories'}.')</span></p>
                 <p class="menu-item--ingredients">'.$dish->{'ingredients'}.'</p>
                 <p class="menu-item--price">
-                <button id="btnID'.$dish->{'id'}.'" class="btn btn--add" onclick="cart.addToCart(this, \''.$dish->{'id'}.'\', \''.$dish->{'title'}.'\', \''.$dish->{'price'}.'\', \'false\')">
+                <button id="vtCartItemAdd'.$dish->{'id'}.'" class="btn btn--add">
                   <span class="fa fa-plus-circle"></span>
                 </button>
                 '.$dish->{'price'}.' <span class="fa fa-rub"></span></p>

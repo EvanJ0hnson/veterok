@@ -1,0 +1,45 @@
+<h1 class="sc-heading">Банкетное меню</h1>
+<table class="cart-table">
+  <thead>
+    <tr class="cart-table__caption">
+      <td>№</td>
+      <td>Название</td>
+      <td>Цена</td>
+      <td>Количество</td>
+      <td>Сумма</td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each order}}
+    <tr class="cart-table__row">
+      <td>{{number}}</td>
+      <td>{{name}}</td>
+      <td>{{price}} <span class="fa fa-rub"></span></td>
+      <td>
+        <button id="vtCartItemDecrease{{id}}" class="btn btn--add">
+          <span class="fa fa-minus-circle"></span>
+        </button>
+        {{count}}
+        <button id="vtCartItemIncrease{{id}}" class="btn btn--add">
+          <span class="fa fa-plus-circle"></span>
+        </button>
+      </td>
+      <td>{{sum}}</td>
+      <td>
+        <button id="vtCartItemRemove{{id}}" class="btn btn--add">
+          <span class="fa fa-times"></span>
+        </button>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<div class="cart-footer">
+  <span>Общая сумма: {{total}} <span class="fa fa-rub"></span></span>
+</div>
+<form class="form-booking" id="fMenuReservation">
+  <input class="form-booking__input" type="text" id="userContact" class="gold" name="message" placeholder="Не забудьте, пожалуйста, представиться и оставить контактный телефон." required></textarea>
+  <button id="btnSubmitMenuReservation" class="btn btn--gold btn--sendMenu" name="btnSubmitMenuReservation">Отправить</button>
+  <button onclick="print()" class="btn btn--gold btn--sendMenu" name="btnPrintMenuReservation">Распечатать  или сохранить в PDF</button>
+  <input type="hidden" name="event" value="sendMenuReservation">
+</form>

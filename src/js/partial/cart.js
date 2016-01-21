@@ -1,197 +1,222 @@
+import * as modal from './lib/modal';
+import hbsCart from '../../templates/cart.hbs';
+
 /**
- * Cart
+ * Cart module
  */
-export default function WICard(obj) {
-  this.objNAME = obj;
-  this.DATA = null;
-  this.IDS = null;
-  this.widjetObj = null;
-  this.widjetID = null;
+export default function VTCart() {
+  let _DATA = null;
+  let widjetObj = null;
+  let widjetID = null;
+  const EMPTY_CART = 'Корзина пуста';
 
-  this.init = (widjetID) => {
-    this.DATA = JSON.parse(localStorage.getItem(widjetID)) || {};
+  /**
+   * Calculate total cost of cart's items
+   * and pass it to the widget
+   */
+  const _calculateTotal = () => {
+    let total = 0;
+    let itemsAmout = 0;
 
-    this.IDS = JSON.parse(localStorage.getItem(widjetID + '_ids')) || [];
+    _DATA.forEach((item) => {
+      itemsAmout++;
+      total += item.num * item.price;
+    });
 
-    this.widjetID = widjetID;
-    this.widjetObj = $('#' + widjetID);
-
-    if ($.isEmptyObject(this.DATA)) {
-      this.widjetObj.html('Корзина пуста');
+    if (total > 0) {
+      widjetObj.html('Блюд: ' + itemsAmout + ', <br>Сумма: ' + total + ' <span class="fa fa-rub">');
     } else {
-      this.reCalc();
+      widjetObj.html(EMPTY_CART);
     }
   };
 
-  this.addToCart = (curObj, id, name, price, render) => {
-    id = ($.isNumeric(id)) ? 'ID' + id.toString() : id;
+  /**
+   * Render Handlebars template
+   * @return {String} String with HTML template
+   */
+  const _renderTemplate = () => {
+    let total = 0;
+    let counter = 0;
+    const order = [];
 
-    // Нужно убрать проверку  === true и передавать '' вместо false
-    // И вообще, какая-то здесь ерунда с render
-    render = render || true;
+    _DATA.forEach((item) => {
+      const orderItem = {};
+      counter++;
 
-    const goodieLine = {
+      orderItem.id = item.id;
+      orderItem.number = counter;
+      orderItem.name = item.name;
+      orderItem.price = item.price;
+      orderItem.count = item.num;
+      orderItem.sum = item.price * item.num;
+
+      total += orderItem.sum;
+
+      order.push(orderItem);
+    });
+
+    return hbsCart({order, total});
+  };
+
+  /**
+   * Add eventListeners to buttons on modal window
+   */
+  const _assignEvents = () => {
+    _DATA.forEach((item) => {
+      const itemId = item.id;
+      const $itemDecrease = $('#vtCartItemDecrease' + itemId);
+      const $itemIncrease = $('#vtCartItemIncrease' + itemId);
+      const $itemRemove = $('#vtCartItemRemove' + itemId);
+
+      $itemDecrease.on('click', () => {
+        decreaseItemAmount(itemId);
+      });
+      $itemIncrease.on('click', () => {
+        addToCart(itemId);
+      });
+      $itemRemove.on('click', () => {
+        removeFromCart(itemId);
+      });
+    });
+  };
+
+  /**
+   * Update cart view
+   */
+  const _updateView = () => {
+    const $modal = $('.popup');
+    const cart = _renderTemplate();
+
+    $modal.html(cart);
+    _assignEvents();
+    _calculateTotal();
+  };
+
+  /**
+   * Find item in array and return index or null
+   * if item is not found
+   * @param  {String} id Item id
+   * @return {Number : null}    Item index or null, if not found
+   */
+  const _findItem = (id) => {
+    let itemIndex = null;
+    const hasOrderItem = _DATA.some((item, index) => {
+      itemIndex = index;
+      return item.id === id;
+    });
+
+    return (hasOrderItem ? itemIndex : null);
+  };
+
+  /**
+   * Add new item to cart or increase amout of existing one
+   * @param  {String} id    ID
+   * @param  {String} name  Item name
+   * @param  {Number} price Item price
+   */
+  const addToCart = (id, name, price) => {
+    let itemIndex = null;
+    const orderItem = {
       id,
       name,
       price,
       num: 1,
     };
 
-    if ($.isEmptyObject(this.DATA)) {
-      this.DATA[id] = goodieLine;
-      this.IDS.push(id);
+    itemIndex = _findItem(id);
+
+    if (itemIndex !== null) {
+      _DATA[itemIndex].num++;
     } else {
-      let idKey = null;
-      for (idKey in this.DATA) {
-        if (this.DATA.hasOwnProperty(idKey)) {
-          if ($.inArray(id, this.IDS) === -1) {
-            this.DATA[id] = goodieLine;
-            this.IDS.push(id);
-          } else {
-            if (idKey === id) {
-              this.DATA[idKey].num += 1;
-            }
-          }
-        }
-      }
+      _DATA.push(orderItem);
     }
 
-    localStorage.setItem(this.widjetID, JSON.stringify(this.DATA));
-    localStorage.setItem(this.widjetID + '_ids', JSON.stringify(this.IDS));
-    this.reCalc();
+    localStorage.setItem(widjetID, JSON.stringify(_DATA));
+    _updateView();
+  };
 
-    if (render === true) {
-      this.renderBasketTable();
+  /**
+   * Remove item from cart
+   * @param  {Number} id Item id
+   */
+  const removeFromCart = (id) => {
+    const itemIndex = _findItem(id);
+
+    _DATA.splice(itemIndex, 1);
+
+    localStorage.setItem(widjetID, JSON.stringify(_DATA));
+    _updateView();
+  };
+
+  /**
+   * Decrease amout of item in cart
+   * or completely delete it
+   * @param  {Number} id Item id
+   */
+  const decreaseItemAmount = (id) => {
+    const itemIndex = _findItem(id);
+
+    if (itemIndex !== null) {
+      if (_DATA[itemIndex].num === 1) {
+        _DATA.splice(itemIndex, 1);
+      } else {
+        _DATA[itemIndex].num -= 1;
+      }
+
+      localStorage.setItem(widjetID, JSON.stringify(_DATA));
+      _updateView();
     }
   };
 
-  this.delItem = (id, count) => {
-    id = ($.isNumeric(id)) ? 'ID' + id.toString() : id;
-
-    switch (count) {
-      case 'all':
-        delete this.DATA[id];
-        const ind = $.inArray(id, this.IDS);
-        if (ind >= 0) {
-          this.IDS.splice(ind, 1);
-        }
-        break;
-      case 'one':
-        let idKey;
-        for (idKey in this.DATA) {
-          if (this.DATA.hasOwnProperty(idKey)) {
-            if (idKey === id) {
-              if (this.DATA[idKey].num === 1) {
-                delete this.DATA[id];
-                this.IDS.splice($.inArray(id, this.IDS), 1);
-              } else {
-                this.DATA[idKey].num -= 1;
-              }
-            }
-          }
-        }
-        break;
-      default:
-        break;
-    }
-
-    this.reCalc();
-    this.renderBasketTable();
-
-    localStorage.setItem(this.widjetID, JSON.stringify(this.DATA));
-    localStorage.setItem(this.widjetID + '_ids', JSON.stringify(this.IDS));
+  /**
+   * Get Cart items
+   * @return {Array} Cart items
+   */
+  const getItems = () => {
+    return _DATA;
   };
 
-  this.reCalc = () => {
-    let num = 0;
-    let sum = 0;
-    let counter = 0;
-    let idkey = null;
+  /**
+   * Show Cart modal
+   */
+  const showWinow = () => {
+    const cart = _renderTemplate();
 
-    for (idkey in this.DATA) {
-      if (this.DATA.hasOwnProperty(idkey)) {
-        counter++;
-        num += parseInt(this.DATA[idkey].num, 10);
-        sum += parseFloat(parseInt(this.DATA[idkey].num, 10) * parseFloat(this.DATA[idkey].price, 10));
-      }
-    }
+    modal.open(cart);
 
-    if (num > 0) {
-      this.widjetObj.html('Блюд: ' + counter + ', сумма заказа: ' + sum + ' <span class="fa fa-rub">');
+    _assignEvents();
+  };
+
+  /**
+   * Object initialization
+   * @param  {String} id Object Id
+   */
+  this.init = (id) => {
+    widjetID = id;
+    widjetObj = $('#' + widjetID);
+
+    _DATA = JSON.parse(localStorage.getItem(id)) || [];
+
+    widjetObj.on('click', () => {
+      showWinow();
+    });
+
+    $('#vtCartItemAdd001').on('click', () => {
+      addToCart('001', 'Салат «Грибы с сыром»', 130);
+    });
+
+    $('#vtCartItemAdd002').on('click', () => {
+      addToCart('002', 'Просто салат обычный', 150);
+    });
+
+    $('#vtCartItemAdd003').on('click', () => {
+      addToCart('003', 'Просто салат обычный', 150);
+    });
+
+    if (_DATA.length) {
+      _calculateTotal();
     } else {
-      this.widjetObj.html('Корзина пуста');
+      widjetObj.html(EMPTY_CART);
     }
-  };
-
-  this.renderBasketTable = () => {
-    let sum = 0;
-    let counter = 0;
-    let idkey = null;
-    let productLine = null;
-    let tableCaption = null;
-
-    if ($('#popup_cart').length === 0) {
-      $('body').append('<div id="popup_cart" class="popup popup-menu_window gold"> \
-        <h1 id="bsubject" class="sc-heading">Банкетное меню</h1> \
-        <table class="cart-table" id="cart-table"></table> \
-        <div class="cart-footer"><span id="cart-sum" class="cart-sum"></span></div> \
-        <form class="form-booking" id="fMenuReservation"> \
-        <input class="form-booking__input" type="text" id="userContact" class="gold" name="message" placeholder="Не забудьте, пожалуйста, представиться и оставить контактный телефон." required></textarea> \
-        <button id="btnSubmitMenuReservation" class="btn btn--gold btn--sendMenu" name="btnSubmitMenuReservation">Отправить на утверждение</button> \
-        <button onclick="print()" class="btn btn--gold btn--sendMenu" name="btnPrintMenuReservation">Распечатать  или сохранить в PDF</button> \
-        <input type="hidden" name="event" value="sendMenuReservation"> \
-        </form> \
-    ');
-    }
-
-    $('#cart-table').html('');
-
-    tableCaption = '<tr class="cart-table-caption"><td>№</td><td>Название</td><td>Цена</td><td>Количество</td><td>Сумма</td></tr>';
-
-    $('#cart-table').append(tableCaption);
-
-    for (idkey in this.DATA) {
-      if (this.DATA.hasOwnProperty(idkey)) {
-        sum += parseFloat(this.DATA[idkey].price * this.DATA[idkey].num);
-        counter++;
-        productLine = '<tr class="cart-table-item" id="wigoodline-' + this.DATA[idkey].id + '"> \
-        <td>' + counter + '</td> \
-        <td>' + this.DATA[idkey].name + '</td> \
-        <td class="wigoodprice">' + this.DATA[idkey].price + ' <span class="fa fa-rub"></span></td> \
-        <td> \
-        <button class="btn btn--add" onclick="' + this.objNAME + '.delItem(\'' + this.DATA[idkey].id + '\', \'one\')"><span class="fa fa-minus-circle"></span></button> \
-        ' + this.DATA[idkey].num + ' <button class="btn btn--add" onclick="cart.addToCart(this, \'' + this.DATA[idkey].id + '\', \'' + this.DATA[idkey].name + '\', \'' + this.DATA[idkey].price + '\')"><span class="fa fa-plus-circle"></span></button></td> \
-        <td>' + parseFloat(this.DATA[idkey].price * this.DATA[idkey].num) + '</td> \
-        <td><a class="btn btn--add" onclick="' + this.objNAME + '.delItem(\'' + this.DATA[idkey].id + '\', \'all\')"><span class="fa fa-times"></span></a></td> \
-        </tr>';
-        $('#cart-table').append(productLine);
-      }
-    }
-    $('#cart-sum').html('Общая сумма: ' + sum + ' <span class="fa fa-rub"></span>');
-  };
-
-  this.getItems = () => {
-    let items = '';
-    let sum = 0;
-    let counter = 0;
-    let idkey = null;
-    let productLine = null;
-
-    for (idkey in this.DATA) {
-      if (this.DATA.hasOwnProperty(idkey)) {
-        sum += parseFloat(this.DATA[idkey].price * this.DATA[idkey].num);
-        counter++;
-        productLine = counter + ' ' + this.DATA[idkey].name + ' ' + this.DATA[idkey].price + ' ' + this.DATA[idkey].num + ' :' + parseFloat(this.DATA[idkey].price * this.DATA[idkey].num) + '\n';
-        items += productLine;
-      }
-    }
-    items += '\nИтого:' + sum;
-    return items;
-  };
-
-  this.showWinow = () => {
-    this.renderBasketTable();
-
-    $('#popup_cart').toggleClass('visible');
   };
 }
