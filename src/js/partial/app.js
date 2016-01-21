@@ -18,7 +18,7 @@ $(() => {
   switch (currentState) {
     case '/':
       smoothScroll();
-      fixIOSvh();
+      // fixIOSvh();
       stickyNavigation();
       modalWindow();
       formSubmit();
