@@ -173,10 +173,10 @@ gulp.task('photos', function () {
 gulp.task('watch', ['browserSync'], function() {
   gulp.watch(config.srcRoot + '**/[^!]*.php', ['php-watch']);
   gulp.watch(config.srcRoot + '**/[^!]*.html', ['html-watch']);
-  gulp.watch(config.srcRoot + '**/[^!]*.json', ['json-watch']);
-  gulp.watch(config.srcRoot + '**/[^!]*.js', ['js-watch']);
-  gulp.watch(config.srcRoot + '**/[^!]*.hbs', ['handlebars-watch']);
-  gulp.watch(config.srcRoot + '**/[^!]*.styl', ['stylus']);
+  gulp.watch(config.srcRoot + 'data/**/[^!]*.json', ['json-watch']);
+  gulp.watch(config.srcRoot + 'js/**/[^!]*.js', ['js-watch']);
+  gulp.watch(config.srcRoot + 'templates/**/[^!]*.hbs', ['handlebars-watch']);
+  gulp.watch(config.srcRoot + 'stylus/**/[^!]*.styl', ['stylus']);
 });
 
 /**
