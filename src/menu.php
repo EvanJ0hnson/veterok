@@ -8,15 +8,6 @@
   <link rel="stylesheet" href="css/vendor.min.css">
   <link rel="stylesheet" href="css/bundle.min.css">
   <!-- css -->
-  <style media="print" type="text/css">
-    .noprint {
-      display: none;
-    }
-    .opacity100 {
-      opacity: 0;
-    }
-  </style>
-  <!-- css -->
 </head>
 <body class="sc__main gold--noBgImage gold">
   <?php
@@ -24,7 +15,7 @@
     $menu = json_decode(file_get_contents($menu_filePath));
     $menu_count=count($menu);
   ?>
-  <nav class="top_nav top_nav-menu noprint">
+  <nav class="top_nav top_nav-menu p-display--none">
     <a href="/"><img class="top_nav--logo-square" src="img/logo_transp.png" alt="«Ветерок»"></a>
     <ul class="u-float--right">
       <li class="nav-item">
@@ -48,7 +39,7 @@
     </ul>
   </nav>
 
-  <ul class="menu_nav gold--noBgImage noprint">
+  <ul class="menu_nav gold--noBgImage p-display--none">
     <?php
       foreach($menu as $dish_type) {
         print '<li class="menu_nav-item">
@@ -67,8 +58,8 @@
     </div>
   </ul>
 
-  <div class="menu-container opacity100">
-    <div class="gold--noBgImage">
+  <div class="menu-container">
+    <div class="gold--noBgImage p-display--none">
       <?php
         foreach($menu as $dish_type) {
           print '
