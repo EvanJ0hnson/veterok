@@ -84,6 +84,8 @@ gulp.task('js', function() {
     .transform($.hbsfy)
     .bundle()
     .pipe($.vinylSourceStream('partial.js'))
+    .pipe($.vinylBuffer())
+    .pipe($.uglify())
     .pipe(gulp.dest(config.buildRoot + 'js/'));
 });
 
