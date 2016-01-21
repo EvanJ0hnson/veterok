@@ -117,6 +117,10 @@ gulp.task('js-watch', ['js'], function () {
   browserSyncInstance.reload();
 });
 
+gulp.task('handlebars-watch', ['js'], function () {
+  browserSyncInstance.reload();
+});
+
 gulp.task('css', function() {
   return gulp.src(config.vendorCSS)
     .pipe($.plumber({
@@ -171,6 +175,7 @@ gulp.task('watch', ['browserSync'], function() {
   gulp.watch(config.srcRoot + '**/[^!]*.html', ['html-watch']);
   gulp.watch(config.srcRoot + '**/[^!]*.json', ['json-watch']);
   gulp.watch(config.srcRoot + '**/[^!]*.js', ['js-watch']);
+  gulp.watch(config.srcRoot + '**/[^!]*.hbs', ['handlebars-watch']);
   gulp.watch(config.srcRoot + '**/[^!]*.styl', ['stylus']);
 });
 
