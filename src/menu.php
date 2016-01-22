@@ -38,54 +38,49 @@
       </li>
     </ul>
   </nav>
-
-  <ul class="menu_nav gold--noBgImage p-display--none">
-    <?php
-      foreach($menu as $dish_type) {
-        print '<li class="menu_nav-item">
-            <a class="menu_nav-link" href="#header-'.$dish_type->{'type'}.'">'.$dish_type->{'title'}.'</a>
-          </li>';
-      }
-    ?>
-    <li class="menu_nav-item">
-      <a id="cart-widjet" class="btn btn--gold btn--cart"></a>
-    </li>
-    <div class="menu-nav-footer">
-      <h1 class="menu-nav-footer__title">Гостинично-ресторанный комплекс «Ветерок»</h1>
-      <p class="menu-nav-footer__text">Волжский район, с. Подъем-Михайловка, (трасса Урал - Самара) ул. Советская, 37</p>
-      <p class="menu-nav-footer__text">8 (846) 997-87-37</p>
-      <p class="menu-nav-footer__text">veterok_spn@mail.ru</p>
+  <div class="menu-nav__wrapper gold--noBgImage p-display--none">
+    <ul class="menu-nav__list">
+      <?php
+        foreach($menu as $dish_type) {
+          print '<li class="menu-nav__list-item">
+              <a class="menu-nav__list-link" href="#header-'.$dish_type->{'type'}.'">'.$dish_type->{'title'}.'</a>
+            </li>';
+        }
+      ?>
+    </ul>
+    <button id="cart-widjet" class="btn btn--gold btn--cart u-text-align--left"></button>
+    <div class="menu-nav__footer">
+      <h1 class="menu-nav__footer-title">Гостинично-ресторанный комплекс «Ветерок»</h1>
+      <p class="menu-nav__footer-text">Волжский район, с. Подъем-Михайловка, (трасса Урал - Самара) ул. Советская, 37</p>
+      <p class="menu-nav__footer-text">8 (846) 997-87-37</p>
+      <p class="menu-nav__footer-text">veterok_spn@mail.ru</p>
     </div>
-  </ul>
+  </div>
 
-  <div class="menu-container">
-    <div class="gold--noBgImage p-display--none">
+  <div class="menu-container gold--noBgImage">
       <?php
         foreach($menu as $dish_type) {
           print '
-            <h1 id="header-'.$dish_type->{'type'}.'" class="sc-heading">'.$dish_type->{'title'}.'</h1>
-            <div id="'.$dish_type->{'type'}.'" class="menu-items-container">';
+            <h1 id="header-'.$dish_type->{'type'}.'" class="sc-heading menu-items__header">'.$dish_type->{'title'}.'</h1>';
             foreach($dish_type->{'items'} as $dish) {
               if (strlen($dish->{'photo'}) > 0) {
-                $photo = '<img class="u-float--left" src="'.$dish->{'photo'}.'" alt="">';
+                $photo = '<img class="u-float--left" src="'.$dish->{'photo'}.'" alt="'.$dish->{'title'}.'">';
               } else
                   $photo = '';
               print '
-                <div class="menu-item">
+                <div class="menu-item p-display--none">
                 '.$photo.'
-                <p class="menu-item--title clearfix">'.$dish->{'title'}.' <span class="menu-item--cal">('.$dish->{'calories'}.')</span></p>
-                <p class="menu-item--ingredients">'.$dish->{'ingredients'}.'</p>
-                <p class="menu-item--price">
+                <p class="menu-item__title clearfix">'.$dish->{'title'}.' <span class="menu-item__cal">('.$dish->{'calories'}.')</span></p>
+                <p class="menu-item__ingredients">'.$dish->{'ingredients'}.'</p>
+                <p class="menu-item__price">
                 <button id="vtCartItemAdd'.$dish->{'id'}.'" class="btn btn--add">
                   <span class="fa fa-plus-circle"></span>
                 </button>
                 '.$dish->{'price'}.' <span class="fa fa-rub"></span></p>
                 </div>';
             }
-          print '</div>';
         }
       ?>
-    </div>
   </div>
     <!-- javascript -->
   <script src="js/bundle.min.js"></script>

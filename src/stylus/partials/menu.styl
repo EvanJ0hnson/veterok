@@ -1,20 +1,27 @@
-/*
-MENU
-***/
-.menu_nav
+/**
+ * MENU SIDEBAR
+ */
+.menu-nav__wrapper
   position: fixed
+  top: 0;
 
   height: 100%
 
-  width: 20%
-  padding-top: 5rem
-  padding-right: .5rem
-  padding-left: .5rem
+  width: 200px
+  padding: 5rem 10px 0 10px
+  
+  @media (max-width: 375px)
+    width: 100px
 
-.menu_nav-item
+.menu-nav__list
+
+.menu-nav__list-item
   display: inline-block
+  
+  @media (max-width: 375px)
+    display: block
 
-.menu_nav-link
+.menu-nav__list-link
   display: block
   
   font-family: 'Open Sans Condensed', sans-serif
@@ -35,54 +42,68 @@ MENU
 
   &:hover
     border-color: $clrGoldText
+    
+  @media (max-width: 375px)
+    font-size: .75rem
+    margin: 0 0 7px 0
 
-.menu_nav-sublink
-  margin-left: 1.5rem
-
-.menu-nav-footer
+.menu-nav__footer
   position: absolute
   bottom: 0
   
   margin: 0 0 20px 0
   
-.menu-nav-footer__title
+  @media (max-height: 470px), (max-width: 375px)
+    display: none
+  
+.menu-nav__footer-title
   margin: 0 0 10px 0
   
   font-size: 1rem
   
-.menu-nav-footer__text
+.menu-nav-footer-text
   margin: 0 0 7px 0
   
   font-size: .875rem
-
+/**
+ * MENU SIDEBAR NAVIGATION
+ */
+ 
+/**
+ * MENU CONTAINER
+ */
 .menu-container
-  margin-left: 20%
-  padding-top: 3.75rem
-
-.menu-items-container
   display: flex
-
-  margin: 0
-  padding: 0
-
+  
+  flex-direction: row
   flex-wrap: wrap
+  justify-content: space-between;
+  align-items: stretch;
+  
+  overflow: hidden
+
+  margin: 0 0 0 200px
+  padding: 0 5px
+  
+  @media (max-width: 375px)
+    margin: 0 0 0 100px
+
+
+.menu-items__header
+  padding: 5rem 0 20px 0
+  flex-basis: 100%
 
 .menu-item
-  font-size: 1.25rem
-
-  width: 30%
-  margin: 0 .75rem .75rem 0
-  padding-top: 1rem
-  padding-right: 1rem
-  padding-left: 1rem
-
-  border: .1rem dashed grey
-
+  flex-basis: 200px
   flex-grow: 1
+  
+  margin: 0 15px 15px 0
+  padding: 10px
+  
+  font-size: 1rem
 
-@media (min-width: 1367px)
-  .menu-item
-    width: 20%
+  border: 1px dotted $clrTransparent70
+
 
 .menu-item img
   width: 5rem
@@ -97,15 +118,15 @@ MENU
 
   word-wrap: normal
 
-.menu-item--price
+.menu-item__price
   text-align: right
 
-.menu-item--ingredients
+.menu-item__ingredients
   font-family: 'Open Sans Condensed', sans-serif
   font-size: .8rem
 
-.menu-item--cal
+.menu-item__cal
   font-size: .8rem
-/*
-MENU
-***/
+/**
+ * MENU CONTAINER
+ */
