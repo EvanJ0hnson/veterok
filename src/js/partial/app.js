@@ -3,7 +3,7 @@
 import $ from 'jquery-browserify';
 
 import smoothScroll from './lib/smoothScroll';
-import fixIOSvh from './lib/fixIosVh';
+// import fixIOSvh from './lib/fixIosVh';
 import stickyNavigation from './lib/stickyNavigation';
 import modalWindow from './lib/modalWindow';
 import formSubmit from './lib/formSubmit';
@@ -13,7 +13,7 @@ import VTCart from './cart';
 /**
  * Initialization
  */
-$(() => {
+document.addEventListener('DOMContentLoaded', () => {
   const currentState = window.location.pathname;
   switch (currentState) {
     case '/':
@@ -30,7 +30,7 @@ $(() => {
       let cart = null;
 
       smoothScroll();
-      stickyNavigation();
+      // stickyNavigation();
       modalWindow();
       formSubmit();
 
