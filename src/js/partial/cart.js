@@ -185,7 +185,7 @@ export default function VTCart() {
   /**
    * Show Cart modal
    */
-  const showWinow = () => {
+  const showWindow = () => {
     const cart = _renderTemplate();
 
     modal.open(cart);
@@ -204,7 +204,7 @@ export default function VTCart() {
     _Data = JSON.parse(localStorage.getItem(id)) || [];
 
     _widjetObj.on('click', () => {
-      showWinow();
+      showWindow();
     });
 
     document.addEventListener('stateChanged', () => {
