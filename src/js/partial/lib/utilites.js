@@ -18,3 +18,21 @@ export function getJSON(url, callback) {
 
   ajax.send();
 }
+
+/**
+ * Get DOM element by selector
+ * @param  {String} element Element name
+ * @return {Element}         DOM element
+ */
+export function getElement(selector) {
+  return document.querySelector(selector);
+}
+
+/**
+ * Get Array of DOM elements by selector
+ * @param  {String} element Element name
+ * @return {Array}         Array of DOM elements
+ */
+export function getElements(selector) {
+  return document.querySelectorAll(selector);
+}
