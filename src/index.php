@@ -11,17 +11,18 @@
 </head>
 <body>
 
-  <nav class="top_nav">
-    <a href="#top"><img class="top_nav--logo-square" src="img/logo_transp.png" alt="«Ветерок»"></a>
-    <a href="#top"><img class="top_nav--logo-ribbon" src="img/logo.png" alt="«Ветерок»"></a>
-    <ul class="u-float--right">
-     <li class="nav-item"><a class="nav-link" href="#about">О НАС</a></li>
-     <li class="nav-item"><a class="nav-link" href="#services">УСЛУГИ</a></li>
-     <li class="nav-item"><a class="nav-link" href="#menu">МЕНЮ</a></li>
-     <li class="nav-item"><a class="nav-link" href="#photos">ФОТОГРАФИИ</a></li>
-     <li class="nav-item"><a class="nav-link" href="#reviews">ОТЗЫВЫ</a></li>
-     <li class="nav-item"><a class="nav-link" href="#contacts">КОНТАКТЫ</a></li>
+  <nav class="top-nav">
+    <a href="#top"><img class="top-nav__logo top-nav__logo-square u-display--none" src="img/logo_transp.png" alt="«Ветерок»"></a>
+    <a href="#top"><img class="top-nav__logo top-nav__logo-ribbon" src="img/logo.png" alt="«Ветерок»"></a>
+    <ul class="u-display--inline-block">
+      <li class="top-nav__list-item"><a class="top-nav__list-link" href="#about">О нас</a></li>
+      <li class="top-nav__list-item"><a class="top-nav__list-link" href="#services">Услуги</a></li>
+      <li class="top-nav__list-item"><a class="top-nav__list-link" href="#menu">Меню</a></li>
+      <li class="top-nav__list-item"><a class="top-nav__list-link" href="#photos">Фотографии</a></li>
+      <li class="top-nav__list-item"><a class="top-nav__list-link" href="#reviews">Отзывы</a></li>
+      <li class="top-nav__list-item"><a class="top-nav__list-link" href="#contacts">Контакты</a></li>
     </ul>
+    
   </nav>
 
   <div id="top" class="top">

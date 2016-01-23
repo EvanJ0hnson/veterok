@@ -9,32 +9,32 @@
   <link rel="stylesheet" href="css/bundle.min.css">
   <!-- css -->
 </head>
-<body class="sc__main gold--noBgImage gold">
+<body class="sc__main gold gold--noBgImage">
   <?php
     $menu_filePath = 'data/menu.json';
     $menu = json_decode(file_get_contents($menu_filePath));
     $menu_count=count($menu);
   ?>
-  <nav class="top_nav top_nav-menu p-display--none">
-    <a href="/"><img class="top_nav--logo-square" src="img/logo_transp.png" alt="«Ветерок»"></a>
-    <ul class="u-float--right">
-      <li class="nav-item">
-        <a class="nav-link nav-link-menu" href="/#about">О НАС</a>
+  <nav class="top-nav top-nav--menu p-display--none">
+    <a href="#top"><img class="top-nav__logo top-nav__logo-square" src="img/logo_transp.png" alt="«Ветерок»"></a>
+    <ul class="u-display--inline-block">
+      <li class="top-nav__list-item">
+        <a class="top-nav__list-link top-nav__list-link--menu" href="/#about">О нас</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link nav-link-menu" href="/#services">УСЛУГИ</a>
+      <li class="top-nav__list-item">
+        <a class="top-nav__list-link top-nav__list-link--menu" href="/#services">Услуги</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link nav-link-menu" href="/#menu">МЕНЮ</a>
+      <li class="top-nav__list-item">
+        <a class="top-nav__list-link top-nav__list-link--menu" href="/#menu">Меню</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link nav-link-menu" href="/#photos">ФОТОГРАФИИ</a>
+      <li class="top-nav__list-item">
+        <a class="top-nav__list-link top-nav__list-link--menu" href="/#photos">Фотографии</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link nav-link-menu" href="/#reviews">ОТЗЫВЫ</a>
+      <li class="top-nav__list-item">
+        <a class="top-nav__list-link top-nav__list-link--menu" href="/#reviews">Отзывы</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link nav-link-menu" href="#contacts">КОНТАКТЫ</a>
+      <li class="top-nav__list-item">
+        <a class="top-nav__list-link top-nav__list-link--menu" href="#contacts">Контакты</a>
       </li>
     </ul>
   </nav>
@@ -57,7 +57,7 @@
     </div>
   </div>
 
-  <div class="menu-container gold--noBgImage">
+  <div id="top" class="menu-container gold--noBgImage">
       <?php
         foreach($menu as $dish_type) {
           print '
