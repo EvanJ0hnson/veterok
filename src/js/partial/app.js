@@ -9,6 +9,7 @@ import modalWindow from './lib/modalWindow';
 import formSubmit from './lib/formSubmit';
 import vtSlider from './lib/sliders';
 import VTCart from './cart';
+import googleMapsLoader from './lib/googleMapsLoader';
 
 /**
  * Initialization
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       vtSlider('top');
       vtSlider('photos');
       vtSlider('userReviews');
+      googleMapsLoader('google-maps__wrapper');
       break;
     case '/menu.php':
       let cart = null;
