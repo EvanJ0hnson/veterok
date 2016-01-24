@@ -1,16 +1,18 @@
 /*
 MAIN
 ***/
-.admin__page-wrapper
+.admin__page-wrapper {
   width: 100%;
   max-width: 960px;
-
+  
   margin: 0 auto;
   padding: 0 10px;
+}
 
-.admin__section-title
+.admin__section-title {
   font-size: 1.5rem;
   padding: 10px 0 15px 0;
+}
 /*
 MAIN
 ***/
@@ -18,30 +20,36 @@ MAIN
 /*
 NEWS
 ***/
-.admin-news
-  max-width: 75%
+.admin-news {
+  max-width: 75%;
   
-  padding: 0
-  margin: 0
+  padding: 0;
+  margin: 0;
+}
 
-.admin-news__item
+.admin-news__item {
   padding: 10px 0;
+  
+  &:nth-child(even) {
+      background-color: #F8F8F8;
+  }
+}
 
-  &:nth-child(even)
-    background-color: #F8F8F8;
-
-.admin-news__item-title
-  display: inline-block
+.admin-news__item-title{ 
+  display: inline-block;
   font-size: 1.1875rem;
   padding: 0 0 5px 0;
+}
 
-.admin-news__item-date
+.admin-news__item-date {
   font-size: .75rem;
   padding: 0 0 10px 0;
+}
 
-.admin-news__item-body
+.admin-news__item-body {
   font-size: 1rem;
   padding: 0 0 10px 0;
+}
 /*
 NEWS
 ***/
@@ -49,10 +57,11 @@ NEWS
 /*
 ADD NEWS
 *******/
-.form-news
+.form-news {
   border-bottom: 1px dotted gray;
+}
 
-.form-news__title-input
+.form-news__title-input {
   display: inline-block;
   width: 25%;
 
@@ -62,8 +71,9 @@ ADD NEWS
   outline: none;
 
   border: 1px solid gray;
+}
 
-.form-news__message-input
+.form-news__message-input {
   display: inline-block;
   width: 75%;
   max-width: 100%;
@@ -75,6 +85,7 @@ ADD NEWS
   outline: none;
 
   border: 1px solid gray;
+}
 /*
 ADD NEWS
 *******/
@@ -82,8 +93,8 @@ ADD NEWS
 /*
 BUTTONS
 ******/
-.admin__btn-delete
-  padding: 3px
+.admin__btn-delete {
+  padding: 3px;
   
   font-family: sans-serif;
   font-size: .75rem;
@@ -95,11 +106,12 @@ BUTTONS
   
   color: #02a3c6;
   
-  &:hover
-    color: #ffffff;
-    background-color: #02a3c6
-    
-.admin__btn-blue
+  &:hover {
+      color: #ffffff;
+      background-color: #02a3c6;
+  }
+}
+.admin__btn-blue {
   display: inline-block;
   
   padding: 10px 20px;
@@ -115,9 +127,11 @@ BUTTONS
   
   color: #02a3c6;
 
-  &:hover
-    color: #ffffff;
-    background-color: #02a3c6
+  &:hover {
+      color: #fff;
+      background-color: #02a3c6;
+  }
+}
 /*
 BUTTONS
 ******/
@@ -125,18 +139,20 @@ BUTTONS
 /*
 NAVIGATION
 *********/
-.admin-nav
+.admin-nav{
   background-color: #333745;
+}
 
-.admin-nav__item
+.admin-nav__item {
   display: inline-block;
   margin: 0 5px 0 0;
 
-  &:last-child
-    margin: 0;
+  &:last-child {
+      margin: 0;
+  }
+}
 
-
-.admin-nav__link
+.admin-nav__link {
   display: inline-block;
   text-decoration: none;
 
@@ -150,8 +166,10 @@ NAVIGATION
 
   transition: background-color .25s ease;
   
-  &:hover
+  &:hover {
     background-color: rgba(0, 0, 0, 0);
+  }
+}
 /*
 NAVIGATION
 *********/
@@ -160,18 +178,18 @@ NAVIGATION
 CALENDAR
 *******/
 .admin__calendar-wrapper {
-  display: inline-block
-  margin: 0 50px 0 0
+  display: inline-block;
+  margin: 0 50px 0 0;
   
   & .days_cal--inner {
-    padding: 5px 0
+    padding: 5px 0;
     
-    border: none
+    border: none;
   }
   
   & .days_cal--inner_selected {
-    border: none
-    color: red
+    border: none;
+    color: red;
   }
 }
 /*
@@ -182,12 +200,12 @@ CALENDAR
 TOP SLIDER
 *******/
 .form-slider__file-upload {
-  display: block
-  margin: 0 0 10px 0
+  display: block;
+  margin: 0 0 10px 0;
 }
 
 .form-slider__img-checkbox {
-  margin: 0 0 10px 0
+  margin: 0 0 10px 0;
 }
 /*
 TOP SLIDER
