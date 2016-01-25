@@ -205,7 +205,6 @@ export default function VTCart() {
    * @return {Array} Cart items
    */
   function getItems() {
-    console.log(this.asd);
     return _data;
   }
 
