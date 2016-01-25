@@ -32,7 +32,7 @@ export default function VTCart() {
 
   /**
    * Calculate total cost of cart's items
-   * and pass it to the widget
+   * @return {String} Generated template
    */
   function _calculateTotal() {
     let total = 0;
@@ -43,7 +43,7 @@ export default function VTCart() {
       total += item.num * item.price;
     });
 
-    _widjetObj.innerHTML = total ? _tplCartWidjet(itemsAmout, total) : EMPTY_CART;
+    return (total ? _tplCartWidjet(itemsAmout, total) : EMPTY_CART);
   }
 
   /**
@@ -103,6 +103,7 @@ export default function VTCart() {
     const modal = _u.getElement('.popup');
     const cart = _renderTemplate();
 
+    _widjetObj.innerHTML = _calculateTotal();
 
     if (modal) {
       modal.innerHTML = cart;
