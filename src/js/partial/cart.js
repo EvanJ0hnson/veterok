@@ -14,6 +14,7 @@ export default function VTCart() {
   const _events = {
     stateChanged: new CustomEvent('stateChanged', {detail: ''}),
   };
+  let publicExport = {};
 
   /**
    * Cart widjet template
@@ -33,7 +34,7 @@ export default function VTCart() {
    * Calculate total cost of cart's items
    * and pass it to the widget
    */
-  const _calculateTotal = () => {
+  function _calculateTotal() {
     let total = 0;
     let itemsAmout = 0;
 
@@ -42,18 +43,14 @@ export default function VTCart() {
       total += item.num * item.price;
     });
 
-    if (total > 0) {
-      _widjetObj.innerHTML = _tplCartWidjet(itemsAmout, total);
-    } else {
-      _widjetObj.innerHTML = EMPTY_CART;
-    }
-  };
+    _widjetObj.innerHTML = total ? _tplCartWidjet(itemsAmout, total) : EMPTY_CART;
+  }
 
   /**
    * Render Handlebars template
    * @return {String} String with HTML template
    */
-  const _renderTemplate = () => {
+  function _renderTemplate() {
     let total = 0;
     let counter = 0;
     const order = [];
@@ -75,12 +72,12 @@ export default function VTCart() {
     });
 
     return hbsCart({order, total});
-  };
+  }
 
   /**
    * Add eventListeners to buttons on modal window
    */
-  const _assignEvents = () => {
+  function _assignEvents() {
     _data.forEach((item) => {
       const itemId = item.id;
       const itemDecrease = _u.getElement('#vtCartItemDecrease' + itemId);
@@ -97,36 +94,37 @@ export default function VTCart() {
         removeFromCart(itemId);
       });
     });
-  };
+  }
 
   /**
    * Update cart view
    */
-  const _updateView = () => {
+  function _updateView() {
     const modal = _u.getElement('.popup');
     const cart = _renderTemplate();
+
 
     if (modal) {
       modal.innerHTML = cart;
 
       _assignEvents();
     }
-  };
+  }
 
   /**
    * Save _data to localStorage
    */
-  const _saveState = () => {
+  function _saveState() {
     localStorage.setItem(_widjetID, JSON.stringify(_data));
-  };
+  }
 
   /**
    * Load data from localStorage
    * @return {Array} Order items
    */
-  const _loadState = (id) => {
+  function _loadState(id) {
     return JSON.parse(localStorage.getItem(id)) || [];
-  };
+  }
 
   /**
    * Find item in array and return index or null
@@ -134,7 +132,7 @@ export default function VTCart() {
    * @param  {String} id Item id
    * @return {Number : null}    Item index or null, if not found
    */
-  const _findItem = (id) => {
+  function _findItem(id) {
     let itemIndex = null;
     const hasOrderItem = _data.some((item, index) => {
       itemIndex = index;
@@ -142,7 +140,7 @@ export default function VTCart() {
     });
 
     return (hasOrderItem ? itemIndex : null);
-  };
+  }
 
   /**
    * Add new item to cart or increase amout of existing one
@@ -150,7 +148,7 @@ export default function VTCart() {
    * @param  {String} name  Item name
    * @param  {Number} price Item price
    */
-  const addToCart = (id, name, price) => {
+  function addToCart(id, name, price) {
     let itemIndex = null;
     const orderItem = {
       id,
@@ -168,26 +166,26 @@ export default function VTCart() {
     }
 
     document.dispatchEvent(_events.stateChanged);
-  };
+  }
 
   /**
    * Remove item from cart
    * @param  {Number} id Item id
    */
-  const removeFromCart = (id) => {
+  function removeFromCart(id) {
     const itemIndex = _findItem(id);
 
     _data.splice(itemIndex, 1);
 
     document.dispatchEvent(_events.stateChanged);
-  };
+  }
 
   /**
    * Decrease amout of item in cart
    * or completely delete it
    * @param  {Number} id Item id
    */
-  const decreaseItemAmount = (id) => {
+  function decreaseItemAmount(id) {
     const itemIndex = _findItem(id);
 
     if (itemIndex !== null) {
@@ -199,39 +197,40 @@ export default function VTCart() {
 
       document.dispatchEvent(_events.stateChanged);
     }
-  };
+  }
 
   /**
    * Get Cart items
    * @return {Array} Cart items
    */
-  const getItems = () => {
+  function getItems() {
+    console.log(this.asd);
     return _data;
-  };
+  }
 
   /**
    * Show Cart modal
    */
-  const showWindow = () => {
+  function _showWindow() {
     const cart = _renderTemplate();
 
     modalWindow.open(cart);
 
     _assignEvents();
-  };
+  }
 
   /**
    * Object initialization
    * @param  {String} id Object Id
    */
-  this.init = (id) => {
+  function init(id) {
     _widjetID = id;
     _widjetObj = _u.getElement('#' + _widjetID);
 
     _data = _loadState(id);
 
     _widjetObj.addEventListener('click', () => {
-      showWindow();
+      _showWindow();
     });
 
     document.addEventListener('stateChanged', () => {
@@ -254,5 +253,15 @@ export default function VTCart() {
     _u.getElement('#vtCartItemAdd003').addEventListener('click', () => {
       addToCart('003', 'Просто салат обычный', 150);
     });
+  }
+
+  publicExport = {
+    init,
+    getItems,
+    decreaseItemAmount,
+    removeFromCart,
+    addToCart,
   };
+
+  return publicExport;
 }
