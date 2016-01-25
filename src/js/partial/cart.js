@@ -16,6 +16,20 @@ export default function VTCart() {
   };
 
   /**
+   * Cart widjet template
+   * @param  {Number} amout Amout of orders
+   * @param  {Number} total Total cost
+   * @return {String}       Generated template
+   */
+  function _tplCartWidjet(amout, total) {
+    const tpl = `
+      Блюд: ${amout}, <br>
+      Сумма: ${total} <span class="fa fa-rub">
+    `;
+    return tpl;
+  }
+
+  /**
    * Calculate total cost of cart's items
    * and pass it to the widget
    */
@@ -29,7 +43,7 @@ export default function VTCart() {
     });
 
     if (total > 0) {
-      _widjetObj.innerHTML = 'Блюд: ' + itemsAmout + ', <br>Сумма: ' + total + ' <span class="fa fa-rub">';
+      _widjetObj.innerHTML = _tplCartWidjet(itemsAmout, total);
     } else {
       _widjetObj.innerHTML = EMPTY_CART;
     }
