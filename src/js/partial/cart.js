@@ -5,14 +5,15 @@ import hbsCart from '../../templates/cart.hbs';
 
 /**
  * Cart module
+ * @param  {String} id Object Id
  */
-export default function VTCart() {
+export default function VTCart(cartId) {
   let _data = null;
   let _widjetObj = null;
-  let _widjetID = null;
+  const _widjetID = cartId;
   const EMPTY_CART = 'Корзина пуста';
   const _events = {
-    stateChanged: new CustomEvent('stateChanged', {detail: ''}),
+    stateChanged: new CustomEvent('stateChanged' + _widjetID, {detail: ''}),
   };
   let publicExport = {};
 
@@ -221,19 +222,17 @@ export default function VTCart() {
 
   /**
    * Object initialization
-   * @param  {String} id Object Id
    */
-  function init(id) {
-    _widjetID = id;
+  (function init() {
     _widjetObj = _u.getElement('#' + _widjetID);
 
-    _data = _loadState(id);
+    _data = _loadState(_widjetID);
 
     _widjetObj.addEventListener('click', () => {
       _showWindow();
     });
 
-    document.addEventListener('stateChanged', () => {
+    document.addEventListener('stateChanged' + _widjetID, () => {
       _updateView();
       _calculateTotal();
       _saveState();
@@ -253,10 +252,9 @@ export default function VTCart() {
     _u.getElement('#vtCartItemAdd003').addEventListener('click', () => {
       addToCart('003', 'Просто салат обычный', 150);
     });
-  }
+  }());
 
   publicExport = {
-    init,
     getItems,
     decreaseItemAmount,
     removeFromCart,

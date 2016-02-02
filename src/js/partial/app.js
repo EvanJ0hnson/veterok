@@ -29,15 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
       googleMapsLoader('google-maps__wrapper');
       break;
     case '/menu.php':
-      let cart = null;
-
       smoothScroll();
       // stickyNavigation();
       modalWindow();
       formSubmit();
 
-      cart = new VTCart();
-      cart.init('cart-widjet');
+      const cart = new VTCart('cart-widjet');
       break;
     default:
       console.log('Error: missing state');
