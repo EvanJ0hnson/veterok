@@ -9,6 +9,7 @@ import formSubmit from './lib/formSubmit';
 import vtSlider from './lib/sliders';
 import VTCart from './cart';
 import googleMapsLoader from './lib/googleMapsLoader';
+import fixIosVh from './lib/fixIosVh';
 
 /**
  * Initialization
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentState = window.location.pathname;
   switch (currentState) {
     case '/':
+      fixIosVh();
       smoothScroll();
       stickyNavigation();
       modalWindow();
