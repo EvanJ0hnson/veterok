@@ -1,17 +1,14 @@
 /**
  * iOS hack to change vh to px
  */
-const iOS = navigator.userAgent.match(/(iPod|iPhone)/);
+const iOS = navigator.userAgent.match(/(iPad|iPhone);.*CPU.*OS 7_\d/i);
 const $window = $(window);
 
 function changeHeight() {
   const height = $window.height();
-  const $top = $('.top');
-  const $spacer = $('.spacer');
+  const $top = $('.cd-topslider');
 
-  $top.css('min-height', height * 1.25 + 'px');
-  $top.css('max-height', height * 1.25 + 'px');
-  $spacer.css('padding-top', height * 0.55 + 'px');
+  $top.css('height', height + 'px');
 }
 
 export default function fixBug() {

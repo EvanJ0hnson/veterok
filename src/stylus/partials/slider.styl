@@ -54,12 +54,17 @@
 }
 
 .cd-topslider {
+  position: relative;
+  height: 90vh;
+  
   & > div {
     position: absolute;
+    top: 0;
+    left: 0;
     
-    height: 80vh;
+    height: 100%;
 
-    background: center;
+    background-position: center;
     background-size: cover;
   }
 }
