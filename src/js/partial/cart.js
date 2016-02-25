@@ -223,7 +223,7 @@ export default function VTCart(cartId) {
   /**
    * Object initialization
    */
-  (function init() {
+  function init() {
     _widjetObj = _u.getElement('#' + _widjetID);
 
     _data = _loadState(_widjetID);
@@ -244,7 +244,7 @@ export default function VTCart(cartId) {
     $.getJSON('/data/menu.json', (itemsArray) => {
       const items = [];
       let flattenItems = [];
-      
+
       itemsArray.forEach((item) => {
         items.push(item.items);
       });
@@ -263,9 +263,10 @@ export default function VTCart(cartId) {
         }
       });
     });
-  }());
+  }
 
   publicExport = {
+    init,
     getItems,
     decreaseItemAmount,
     removeFromCart,
