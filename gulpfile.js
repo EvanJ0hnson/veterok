@@ -15,7 +15,6 @@ var config = {
   proxyAdress: 'http://veterok.dev/',
   vendorCSS: [
     './node_modules/reset.css/reset.css',
-    './node_modules/animate.css/animate.min.css',
     './node_modules/font-awesome/css/font-awesome.min.css',
     './node_modules/flexslider/flexslider.css',
   ],

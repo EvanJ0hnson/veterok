@@ -47,7 +47,7 @@
 
   <div id="about" class="sc__main--transparent">
     <div class="container gold">
-        <img src="photo/small-1.jpg" alt="" class="sc-image sc-image--about sc-image--left js-showPopup wow fadeIn" data-popupName="photos" data-photoFolder="about">
+        <img src="photo/small-1.jpg" alt="" class="sc-image sc-image--about sc-image--left js-showPopup" data-popupName="photos" data-photoFolder="about">
       <h1 class="sc-heading gold__heading"><span class="gold__heading-background">О нас</span></h1>
       <p class="sc-paragraph">Ресторанно-гостиничный комплекс «Ветерок» пользуется популярностью среди проезжающих и не только. Так, например, у нас регулярно проводят банкеты гости из близлежащих населенных пунктов и городов.</p>
       <p class="sc-paragraph">Мы являемся представителями соотношения цены и качества. Наши работники регулярно проходят стажировку у профессионалов.</p>
@@ -76,7 +76,7 @@
 
   <div id="services" class="sc__main red">
     <div class="container">
-    <img src="photo/small-2.jpg" alt="" class="sc-image sc-image--services sc-image--right js-showPopup wow fadeIn" data-popupName="photos" data-photoFolder="services">
+    <img src="photo/small-2.jpg" alt="" class="sc-image sc-image--services sc-image--right js-showPopup" data-popupName="photos" data-photoFolder="services">
     <h1 class="sc-heading">У нас вы можете</h1>
     <ul class="sc-list-items">
       <li class="sc-list-item">Отдохнуть в комфортной обстановке</li>
@@ -94,7 +94,7 @@
 
   <div id="menu" class="sc__main--transparent">
     <div class="container gold">
-      <img src="photo/small-3.jpg" alt="" class="sc-image sc-image--menu sc-image--left js-showPopup wow fadeIn" data-popupName="photos" data-photoFolder="restaurant">
+      <img src="photo/small-3.jpg" alt="" class="sc-image sc-image--menu sc-image--left js-showPopup" data-popupName="photos" data-photoFolder="restaurant">
       <h1 class="sc-heading gold__heading"><span class="gold__heading-background">Ресторан</span></h1>
       <p class="sc-paragraph">Если вы решили провести незабываемый романтический вечер или весело отдохнуть компанией – смело направляйтесь в ресторан гостиницы «Ветерок»!</p>
       <p class="sc-paragraph">Здесь вас приятно удивят великолепные блюда, их оригинальное оформление и подача. Изысканное меню, богатая карта вин, способная удовлетворить разнообразные вкусы самых требовательных гостей и высокий сервис обслуживания обязательно поднимут вам настроение!</p>

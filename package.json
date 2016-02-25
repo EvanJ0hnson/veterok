@@ -45,10 +45,8 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "animate.css": "^3.4.0",
     "flexslider": "^2.5.0",
     "font-awesome": "^4.5.0",
-    "reset.css": "^2.0.2",
-    "wow": "git://github.com/matthieua/WOW.git"
+    "reset.css": "^2.0.2"
   }
 }
