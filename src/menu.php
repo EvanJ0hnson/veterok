@@ -67,10 +67,14 @@
                 $photo = '<img class="u-float--left" src="'.$dish->{'photo'}.'" alt="'.$dish->{'title'}.'">';
               } else
                   $photo = '';
+              if (strlen($dish->{'calories'}) > 0) {
+                $calories = ' <span class="menu-item__cal">('.$dish->{'calories'}.')</span>';
+              } else
+                  $calories = '';
               print '
                 <div class="menu-item p-display--none">
                 '.$photo.'
-                <p class="menu-item__title clearfix">'.$dish->{'title'}.' <span class="menu-item__cal">('.$dish->{'calories'}.')</span></p>
+                <p class="menu-item__title clearfix">'.$dish->{'title'}.$calories.'</p>
                 <p class="menu-item__ingredients">'.$dish->{'ingredients'}.'</p>
                 <p class="menu-item__price">
                 <button id="cartItemAdd'.$dish->{'id'}.'" class="btn btn--add">
