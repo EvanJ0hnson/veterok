@@ -44,7 +44,7 @@ export default function VTCart(cartId) {
       total += item.num * item.price;
     });
 
-    return (total ? _tplCartWidjet(itemsAmout, total) : EMPTY_CART);
+    return _tplCartWidjet(itemsAmout, total);
   }
 
   /**
