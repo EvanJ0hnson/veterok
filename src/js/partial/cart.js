@@ -240,17 +240,28 @@ export default function VTCart(cartId) {
 
     document.dispatchEvent(_events.stateChanged);
 
-    /** Test related events */
-    _u.getElement('#vtCartItemAdd001').addEventListener('click', () => {
-      addToCart('001', 'Салат «Грибы с сыром»', 130);
-    });
+    /** Temporary solution */
+    $.getJSON('/data/menu.json', (itemsArray) => {
+      const items = [];
+      let flattenItems = [];
+      
+      itemsArray.forEach((item) => {
+        items.push(item.items);
+      });
 
-    _u.getElement('#vtCartItemAdd002').addEventListener('click', () => {
-      addToCart('002', 'Просто салат обычный', 150);
-    });
+      flattenItems = items.reduce((prev, cur) => {
+        return prev.concat(cur);
+      });
 
-    _u.getElement('#vtCartItemAdd003').addEventListener('click', () => {
-      addToCart('003', 'Просто салат обычный', 150);
+      flattenItems.forEach((item) => {
+        const elementTitle = '#cartItemAdd' + item.id;
+        const element = $(elementTitle);
+        if (element) {
+          element.on('click', () => {
+            addToCart(item.id, item.title, item.price);
+          });
+        }
+      });
     });
   }());
 

@@ -73,7 +73,7 @@
                 <p class="menu-item__title clearfix">'.$dish->{'title'}.' <span class="menu-item__cal">('.$dish->{'calories'}.')</span></p>
                 <p class="menu-item__ingredients">'.$dish->{'ingredients'}.'</p>
                 <p class="menu-item__price">
-                <button id="vtCartItemAdd'.$dish->{'id'}.'" class="btn btn--add">
+                <button id="cartItemAdd'.$dish->{'id'}.'" class="btn btn--add">
                   <span class="fa fa-plus-circle"></span>
                 </button>
                 '.$dish->{'price'}.' <span class="fa fa-rub"></span></p>
