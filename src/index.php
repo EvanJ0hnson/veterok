@@ -79,33 +79,33 @@
     <img src="photo/small-2.jpg" alt="" class="sc-image sc-image--services sc-image--right js-showPopup" data-popupName="photos" data-photoFolder="services">
     <h1 class="sc-heading">У нас вы можете</h1>
     <ul class="sc-list-items">
-    <li class="sc-list-item">
-      <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="1">Отдохнуть в комфортной обстановке</a>
-    </li>
-    <li class="sc-list-item">
-      <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="2">Вкусно поесть в ресторане</a>
-    </li>
-    <li class="sc-list-item">
-      <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="3">Посетить баню при гостинице</a>
-    </li>
-    <li class="sc-list-item">
-      <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="4">Устроить праздник в одном из банкетных залов</a>
-    </li>
-    <li class="sc-list-item">
-      <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="5">Поиграть в бильярд с друзьями</a>
-    </li>
-    <li class="sc-list-item">
-      <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="6">Стать еще более красивыми посетив наш салон красоты</a>
-    </li>
-    <li class="sc-list-item">
-      <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="7">Заказать «на вынос»</a>
-    </li>
-    <li class="sc-list-item">
-      <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="8">Приобрести продукты первой необходимости, а так же приобрести наши фирменные полуфабрикаты высочайшего качества</a>
-    </li>
-    <li class="sc-list-item">
-      <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="9">Помыть и отремонтировать Ваше авто</a>
-    </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="1">Вкусно поесть в ресторане</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="2">Заказать блюда на вынос</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="3">Отдохнуть в комфортной обстановке</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="4">Поиграть в бильярд с друзьями</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="5">Помыть и отремонтировать Ваше авто</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="6">Посетить баню при гостинице</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="7">Приобрести продукты</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="8">Стать еще более красивыми</a>
+      </li>
+      <li class="sc-list-item">
+        <a class="sc-list-link js-showPopup" data-popupName="servicesPhoto" data-src="9">Устроить праздник в одном из банкетных залов</a>
+      </li>
     </ul>
     </div>
   </div>
