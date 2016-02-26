@@ -225,15 +225,7 @@ export default function WICalendar(obj) {
    * @return {Array} booked days
    */
   this.getItems = () => {
-    const items = [];
-    let idkey;
-
-    for (idkey in this.DATA) {
-      if (this.DATA.hasOwnProperty(idkey)) {
-        items.push(this.DATA[idkey]);
-      }
-    }
-    return items;
+    return this.DATA;
   };
 
   /**

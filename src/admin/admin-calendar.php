@@ -3,12 +3,6 @@
 <head>
   <?php include 'admin-config.php';?>
   <title>Бронирование</title>
-  <script>
-    $(function(){
-      initCalendar('true');
-      updateReservations();
-    });
-  </script>
 </head>
 <body>
   <?php include 'admin-navigation.php';?>
