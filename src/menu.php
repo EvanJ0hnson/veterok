@@ -61,7 +61,7 @@
       <?php
         foreach($menu as $dish_type) {
           print '
-            <h1 id="header-'.$dish_type->{'type'}.'" class="sc-heading menu-items__header">'.$dish_type->{'title'}.'</h1>';
+            <h1 id="header-'.$dish_type->{'type'}.'" class="sc-heading menu-items__header p-display--none">'.$dish_type->{'title'}.'</h1>';
             foreach($dish_type->{'items'} as $dish) {
               if (strlen($dish->{'photo'}) > 0) {
                 $photo = '<img class="u-float--left" src="'.$dish->{'photo'}.'" alt="'.$dish->{'title'}.'">';
