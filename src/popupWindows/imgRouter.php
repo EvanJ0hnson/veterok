@@ -3,7 +3,7 @@
       <?php
       $type = $_REQUEST['type'];
       foreach (glob('../photo/'.$type.'/*.jpg') as $Picture) {
-        echo '<div style="background-image: url('.$Picture.');"></div>';
+        echo '<div data-src="'.$Picture.'"></div>';
       }
       ?>
   </div>

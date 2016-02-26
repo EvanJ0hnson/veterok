@@ -31,7 +31,7 @@
         <div style="background-image: url(img/background-main-cropped.jpg);"></div>
         <?php
         foreach (glob("photo/top/*.jpg") as $Picture) {
-          echo '<div style="background-image: url('.$Picture.');"></div>';
+          echo '<div data-src="'.$Picture.'"></div>';
         }
         ?>
       </div>
@@ -129,7 +129,7 @@
       <div class="cd-photoslider main--slider">
         <?php
           foreach (glob("photo/main/*.*") as $Picture) {
-            echo '<div style="background-image: url('.$Picture.');"></div>';
+            echo '<div data-src="'.$Picture.'"></div>';
           }
         ?>
       </div>

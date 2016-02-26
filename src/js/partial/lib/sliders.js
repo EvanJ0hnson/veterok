@@ -63,12 +63,28 @@ function getSliderConfig(sliderName) {
     wrapper: parent + '-wrapper',
     settings: {
       selector: parent + ' > ' + innerSelector,
-      start() {
+      start(slider) {
+        const src = $(slider.slides[slider.animatingTo]).attr('data-src');
+
+        if (src) {
+          const dataSrc = 'url(' + src + ')';
+          $(parent).children(innerSelector).css({
+            backgroundImage: dataSrc
+          });
+        }
+
         $(parent).children(innerSelector).css({
           opacity: 1,
           position: 'relative'
         });
       },
+      before(slider) {
+        const $slide = $(slider.slides[slider.animatingTo]);
+        const dataSrc = 'url(' + $(slider.slides[slider.animatingTo]).attr('data-src') + ')';
+        $slide.css(
+          'background-image', dataSrc
+        );
+      }
     }
   });
 
