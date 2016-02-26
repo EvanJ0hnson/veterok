@@ -163,6 +163,9 @@ gulp.task('photos', function () {
     .pipe($.plumber({
         errorHandler: plumberErrorHandler
     }))
+    .pipe($.imagemin({
+      progressive: true,
+      }))
     .pipe(gulp.dest(config.buildRoot + 'photo/'));
 });
 
