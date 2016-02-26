@@ -60,6 +60,13 @@ export default function modalWindow() {
           vtSlider('photos');
         });
         break;
+      case 'servicesPhoto':
+        const src = $eventTarget.attr('data-src');
+        $popup.addClass('popup-photos no-overflow');
+        $popup.load('popupWindows/servicesRouter.php', {type: src}, () => {
+          vtSlider('photos');
+        });
+        break;
       default:
         break;
     }
