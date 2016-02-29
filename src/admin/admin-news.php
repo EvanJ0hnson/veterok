@@ -1,4 +1,6 @@
 <?php
+  header('Content-Type: text/html; charset=utf-8');
+
   $news_filePath = '../data/news.json';
   $news = json_decode(file_get_contents($news_filePath));
   $news_count=count($news);
@@ -18,9 +20,12 @@
 
     $date = date('d.m.y | H:i');
 
-    $news[$news_count]->{'title'} = $title;
-    $news[$news_count]->{'date'} = $date;
-    $news[$news_count]->{'body'} = $text;
+    $newsItem = new stdClass;
+    $newsItem->title = $title;
+    $newsItem->date = $date;
+    $newsItem->body = $text;
+
+    array_push($news, $newsItem);
 
     $fp = fopen($news_filePath, 'w');
     flock ($fp, LOCK_EX);
