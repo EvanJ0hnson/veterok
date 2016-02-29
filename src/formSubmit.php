@@ -12,7 +12,7 @@ $EMPTY_BODY = 'Введите текст';
 $event = $_REQUEST['event'];
 $body = $_REQUEST['formBody'];
 
-$to = 'ivangerasimow@gmail.com';
+$to = 'veterok_kna@mail.ru';
 
 switch ($event) {
   case 'SendReview':
