@@ -54,21 +54,38 @@ export default function formSubmit() {
     return false;
   });
 
-  $('body').delegate('#fMenuReservation', 'submit', () => {
+  $('body').delegate('#fMenuReservation', 'submit', (event) => {
     const msg = $('#userContact').val();
-    const cartItems = cart.getItems();
+    const cartItems = JSON.parse(localStorage.getItem('cart-widjet'));
+    let formattedCartItems = '';
+    let data = null;
+    let formData = null;
+    let formBody = null;
 
-    if ((msg === '') || (msg === 'Спасибо за заявку, мы вам перезвоним!')) {
-      alert('Введите контактные данные, пожалуйста.');
+    if (cartItems.length) {
+      cartItems.forEach((item) => {
+        formattedCartItems += `\r\n— ${item.name}, ${item.price} рублей (${item.num}шт)`;
+      });
+    } else {
+      $('#userContact').val('Выберите блюда, пожалуйста.');
       return false;
     }
+
+    if ((msg === '') || (msg === 'Спасибо за заявку, мы вам перезвоним!')) {
+      $('#userContact').val('Введите контактные данные, пожалуйста.');
+      return false;
+    }
+
+    formData = $(event.currentTarget).serialize();
+    formBody = `&formBody=Имя и контактные данные: ${msg}\r\n\r\nЗаказ: ${formattedCartItems}`;
+    data = formData + formBody;
 
     $.ajax({
       type: 'POST',
       url: scriptFilePath,
-      data: $(event.currentTarget).serialize() + '&formBody=Имя и контактные данные: ' + msg + '\nМЕНЮ\n' + cartItems,
-      success(answer) {
-        $('#userContact').val(answer);
+      data,
+      success(response) {
+        $('#userContact').val(response);
       }
     });
     return false;
