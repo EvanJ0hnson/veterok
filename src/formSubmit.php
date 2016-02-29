@@ -23,7 +23,7 @@ switch ($event) {
     $answer = $ANSWER_RESERVATION;
     $subject = '«Ветерок», '.$SUBJECT_MENU_RESERVATION;
     break;
-  case 'SendHallReservation':
+  case 'fHallReservation':
     $answer = $ANSWER_RESERVATION;
     $subject = '«Ветерок», '.$SUBJECT_HALL_RESERVATION;
     break;

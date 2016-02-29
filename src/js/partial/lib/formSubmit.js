@@ -15,12 +15,15 @@ export default function formSubmit() {
     });
     return false;
   });
-  $('body').delegate('#fHallReservation', 'submit', () => {
+  $('body').delegate('#fHallReservation', 'submit', (event) => {
     const msg = $('#userContact').val();
     const dates = [];
+    let data = null;
+    let formData = null;
+    let formBody = null;
 
     if ((msg === '') || (msg === 'Спасибо за заявку, мы вам перезвоним!')) {
-      alert('Введите контактные данные, пожалуйста.');
+      $('#userContact').val('Введите контактные данные, пожалуйста.');
       return false;
     }
 
@@ -28,27 +31,26 @@ export default function formSubmit() {
     dates.push(JSON.parse(localStorage.getItem('calendar_2')));
     dates.push(JSON.parse(localStorage.getItem('calendar_3')));
 
-    if (dates[0] !== null) {
-      dates[3] = dates[0][1];
-    } else {
-      dates[3] = '—';
+    if (!dates[0]) {
+      dates[0] = '—';
     }
-    if (dates[1] !== null) {
-      dates[4] = dates[1][2];
-    } else {
-      dates[4] = '—';
+    if (!dates[1]) {
+      dates[1] = '—';
     }
-    if (dates[2] !== null) {
-      dates[5] = dates[2][3];
-    } else {
-      dates[5] = '—';
+    if (!dates[2]) {
+      dates[2] = '—';
     }
+
+    formData = $(event.currentTarget).serialize();
+    formBody = `&formBody=Заявка на бронирование банкетного зала: \nИмя и контактные данные: ${msg} \nЗал №1: ${dates[0]} \nЗал №2: ${dates[1]} \nЗал №3: ${dates[2]}`;
+    data = formData + formBody;
+
     $.ajax({
       type: 'POST',
       url: scriptFilePath,
-      data: $(event.currentTarget).serialize() + '&formBody=ЗАЯВКА НА БРОНИРОВАНИЕ БАНКЕТНОГО ЗАЛА' + '\nИмя и контактные данные: ' + msg + '\nЗал №1: ' + dates[3] + '\nЗал №2: ' + dates[4] + '\nЗал №3: ' + dates[5],
-      success(answer) {
-        $('#userContact').val(answer);
+      data,
+      success(response) {
+        $('#userContact').val(response);
       }
     });
     return false;

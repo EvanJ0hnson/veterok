@@ -34,6 +34,18 @@ export default function WICalendar(obj) {
 
     this.DATA = JSON.parse(localStorage.getItem(componentID)) || [];
 
+    /**
+     * Draw border around previously selected elements
+     * @param  {Array} !$.isEmptyObject(_super.DATA) Previously selected elements
+     */
+    if (!$.isEmptyObject(_super.DATA)) {
+      _super.DATA.forEach((item) => {
+        const itemSelector = '[data-id="' + item + '"]';
+        const $item = this.componentObj.find(itemSelector);
+        $item.addClass('calendar__days--selected');
+      });
+    }
+
     if (this.isAdmin) {
       $.getJSON(this.jsonFileUrl, (json) => {
         const tmpData = [];
@@ -110,7 +122,7 @@ export default function WICalendar(obj) {
       day.number = date.getDate();
 
       if (day.number > i) {
-        day.fullDate = '' + day.number + month + year;
+        day.fullDate = '' + day.number + '.' + (month + 1) + '.' + year;
         week.push(day);
       }
 
