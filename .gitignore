@@ -6,6 +6,8 @@ www
 .htaccess
 *.sublime-workspace
 build
+.htpasswd
+.htaccess
 
 # Windows image file caches
 Thumbs.db
